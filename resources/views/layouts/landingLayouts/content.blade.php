@@ -368,8 +368,7 @@
 
          <div class="box">
              <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/nasi telur balado + tumis buncis + jagung putren + baso dan sosis + gulung mie.jpeg"
-                     alt="">
+                 <img src="{{ asset('umkm-baru') }}/images/nasi-tumis-jagung-baso-gulung.jpeg">
              </div>
              <div class="content">
                  <h3>Nasi Telur Balado + Tumis Sayuran</h3>

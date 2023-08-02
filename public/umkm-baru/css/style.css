@@ -933,8 +933,9 @@ p:has(+ textarea[required])::after {
 
 @media (max-width: 768px) {
     #menu-btn {
-        font-size: 25px;
+        font-size: 30px;
         display: inline-block;
+        cursor: pointer;
     }
 
     .fa-times {
