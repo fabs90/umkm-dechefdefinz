@@ -58,7 +58,7 @@
                     <div class="form-group">
                         <div class="input-group">
                             <p for="name">Name</p>
-                            <input type="text" placeholder="Your Name" required name="name"
+                            <input type="text" placeholder="Your Name" name="name" required
                                 value="{{ old('name') }}" />
                         </div>
                         <div class="input-group">

@@ -437,6 +437,113 @@
              </div>
          </div>
 
+         <div class="box">
+             <div class="image">
+                 <img src="{{ asset('umkm-baru') }}/images/Lotus butter cookies.jpeg" alt="">
+             </div>
+             <div class="content">
+                 <h3>Lotus Butter Cookies</h3>
+
+                 <span class="price">Rp 135.000/Toples</span>
+                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
+             </div>
+         </div>
+
+         <div class="box">
+             <div class="image">
+                 <img src="{{ asset('umkm-baru') }}/images/kue tart nanas.jpeg" alt="">
+             </div>
+             <div class="content">
+                 <h3>Kue Tart Nanas</h3>
+
+                 <span class="price">Rp 110.000/Toples</span>
+                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
+             </div>
+         </div>
+
+         <div class="box">
+             <div class="image">
+                 <img src="{{ asset('umkm-baru') }}/images/kue cashew coklat.jpeg" alt="">
+             </div>
+             <div class="content">
+                 <h3>Kue Cashew Coklat</h3>
+
+                 <span class="price">Rp 110.000/Toples</span>
+                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
+             </div>
+         </div>
+
+         <div class="box">
+             <div class="image">
+                 <img src="{{ asset('umkm-baru') }}/images/sagu keju.jpeg" alt="">
+             </div>
+             <div class="content">
+                 <h3>Sagu Keju</h3>
+
+                 <span class="price">Rp 100.000/Toples</span>
+                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
+             </div>
+         </div>
+
+         <div class="box">
+             <div class="image">
+                 <img src="{{ asset('umkm-baru') }}/images/lidah kucing keju.jpeg" alt="">
+             </div>
+             <div class="content">
+                 <h3>Lidah Kucing Keju</h3>
+
+                 <span class="price">Rp 105.000/Toples</span>
+                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
+             </div>
+         </div>
+
+         <div class="box">
+             <div class="image">
+                 <img src="{{ asset('umkm-baru') }}/images/putri salju.jpeg" alt="">
+             </div>
+             <div class="content">
+                 <h3>Putri Salju</h3>
+
+                 <span class="price">Rp 100.000/Toples</span>
+                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
+             </div>
+         </div>
+
+         <div class="box">
+             <div class="image">
+                 <img src="{{ asset('umkm-baru') }}/images/kue nastar.jpeg" alt="">
+             </div>
+             <div class="content">
+                 <h3>Kue Nastar Klasik</h3>
+
+                 <span class="price">Rp 115.000/Toples</span>
+                 <a href="https://wa.me/6285777816860" class="btn">Pesan</a>
+             </div>
+         </div>
+
+         <div class="box">
+             <div class="image">
+                 <img src="{{ asset('umkm-baru') }}/images/kastengeles.jpeg" alt="">
+             </div>
+             <div class="content">
+                 <h3>Kastengels</h3>
+
+                 <span class="price">Rp 120.000/Toples</span>
+                 <a href="https://wa.me/6285777816860" class="btn">Pesan</a>
+             </div>
+         </div>
+
+         <div class="box">
+             <div class="image">
+                 <img src="{{ asset('umkm-baru') }}/images/kue jagung.jpeg" alt="">
+             </div>
+             <div class="content">
+                 <h3>Kue Jagung</h3>
+
+                 <span class="price">Rp 100.000/Toples</span>
+                 <a href="https://wa.me/6285777816860" class="btn">Pesan</a>
+             </div>
+         </div>
 
 
  </section>
