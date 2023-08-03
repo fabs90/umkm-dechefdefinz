@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('review_ratings', function (Blueprint $table) {
             $table->id();
             $table->string('image')->nullable();
-            $table->string('nama');
+            $table->string('name');
             $table->string('email')->unique();
             $table->longText('comments')->nullable();
             $table->integer('star_rating');
