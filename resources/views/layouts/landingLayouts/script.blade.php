@@ -1,4 +1,3 @@
-<script src="{{ asset('umkm-baru') }}/js/script.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"
@@ -10,6 +9,7 @@
 </script>
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
+<script src="{{ asset('umkm-baru') }}/js/script-baru.js"></script>
 </body>
 
 </html>
