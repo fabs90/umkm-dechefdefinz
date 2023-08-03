@@ -281,7 +281,7 @@
 
          <div class="box">
              <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/nasi ayam bakar dan tumis buncis + jagung putren baso.jpeg"
+                 <img src="{{ asset('umkm-baru') }}/images/nasi-ayam-bakar-dan-tumis-buncis-jagung-putren-baso.jpeg"
                      alt="">
              </div>
              <div class="content">
@@ -294,7 +294,7 @@
 
          <div class="box">
              <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/nasi bakar ayam suir pedas.jpeg" alt="">
+                 <img src="{{ asset('umkm-baru') }}/images/nasi-bakar-ayam-suir-pedas.jpeg" alt="">
              </div>
              <div class="content">
                  <h3>Nasi Bakar Ayam Suir Pedas</h3>
@@ -306,7 +306,7 @@
 
          <div class="box">
              <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/Nasi Ayam Stick+Tumis Sayuran.jpeg" alt="">
+                 <img src="{{ asset('umkm-baru') }}/images/Nasi-Ayam-Stick-Tumis-Sayuran.jpeg" alt="">
              </div>
              <div class="content">
                  <h3>Nasi Ayam Stick + Tumis Sayuran</h3>
@@ -318,7 +318,7 @@
 
          <div class="box">
              <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/Nasi Bakar Ayam Suir Pedas+tahu+tempe.jpeg"
+                 <img src="{{ asset('umkm-baru') }}/images/Nasi-Bakar-Ayam-Suir-Pedas-tahu-tempe.jpeg"
                      alt="">
              </div>
              <div class="content">
@@ -337,7 +337,7 @@
 
          <div class="box">
              <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/nasi capcay baso + telur balado dan bakwan jagung.jpeg"
+                 <img src="{{ asset('umkm-baru') }}/images/nasi-capcay-baso-telur-balado-dan-bakwan-jagung.jpeg"
                      alt="">
              </div>
              <div class="content">
