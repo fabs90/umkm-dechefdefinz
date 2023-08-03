@@ -10,9 +10,16 @@ class ReviewController extends Controller
     //
     public function reviewController(UserReviewRequest $request)
     {
-        $validated = $request->validated();
-        $insertData = ReviewRating::create($validated);
+        // $validated = $request->validated();
+        $validated = $request->validate([
+            'name' => ['required', 'min:3', 'max:30'],
+            'email' => ['required', 'email'],
+            'comments' => ['required'],
+            'star_rating' => ['required', 'numeric'],
+        ]);
 
+        $insertData = ReviewRating::create($validated);
+        // $insertData = DB::table('review_ratings')->insert($validated);
         if ($insertData) {
             // Data insert successful
             return redirect()->back()->with('flash_msg_success', 'Your review has been submitted Successfully,');
