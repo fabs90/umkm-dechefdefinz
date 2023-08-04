@@ -4,7 +4,7 @@
     <a href="index3.html" class="brand-link">
         <img src="{{ asset('AdminLTE-3.2.0') }}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <span class="brand-text font-weight-light">Admin</span>
     </a>
 
     <!-- Sidebar -->
@@ -12,7 +12,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{ asset('AdminLTE-3.2.0') }}/dist/img/user2-160x160.jpg" class="img-circle elevation-2"
+                <img src="{{ asset('AdminLTE-3.2.0') }}/dist/img/admin-icon.png" class="img-circle elevation-2"
                     alt="User Image">
             </div>
             <div class="info">
@@ -27,7 +27,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="/admin" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
@@ -36,10 +36,10 @@
 
                 </li>
                 <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
+                    <a href="{{ route('menu.create') }}" class="nav-link">
+                        <i class="nav-icon fas fa-plus-square"></i>
                         <p>
-                            Widgets
+                            Tambah Menu
                         </p>
                     </a>
                 </li>

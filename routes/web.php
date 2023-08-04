@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,8 @@ Route::post('/login', [LoginController::class, 'login'])->name('login.process');
 Route::get('/login/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/admin', [AdminController::class, 'index'])->name('adminPage')->middleware('isLogin');
+Route::get('/admin/tambah', [MenuController::class, 'create'])->name('menu.create');
+Route::post('/admin/tambah', [MenuController::class, 'store'])->name('menu.store');
 
 Route::get('/landing', [ReviewController::class, 'showReview'])->name('review');
 Route::post('/landing', [ReviewController::class, 'reviewController'])->name('review.post');
