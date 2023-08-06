@@ -62,7 +62,7 @@
                         <input type="password" class="input" name="password" />
                     </div>
                 </div>
-                <a href="#">Forgot Password?</a>
+                {{-- <a href="#">Forgot Password?</a> --}}
                 <input type="submit" class="button_login" value="Login" name="submit" />
             </form>
         </div>

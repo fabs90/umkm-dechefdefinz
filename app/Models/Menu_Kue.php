@@ -10,5 +10,5 @@ class Menu_Kue extends Model
     use HasFactory;
 
     protected $table = "menu_kue";
-    protected $fillable = ['image', 'name', 'harga_normal', 'deskripsi'];
+    protected $fillable = ['image', 'name', 'harga_normal', 'deskripsi', 'slug'];
 }

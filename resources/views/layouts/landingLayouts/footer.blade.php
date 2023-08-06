@@ -81,7 +81,7 @@
     </div>
     <div class="credit">
         <p>created by <span>Fabian dan Raldy</span> all rights reserved! </p>
-        <a href="/login">Admin</a>
+        <a href="/login" style="color:black; text-decoration:'none'">Admin</a>
     </div>
 
 </section>

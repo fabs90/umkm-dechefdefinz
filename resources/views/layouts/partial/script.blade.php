@@ -3,9 +3,7 @@
 <!-- jQuery UI 1.11.4 -->
 <script src="{{ asset('AdminLTE-3.2.0') }}/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-    $.widget.bridge('uibutton', $.ui.button)
-</script>
+
 <!-- Bootstrap 4 -->
 <script src="{{ asset('AdminLTE-3.2.0') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
@@ -33,6 +31,21 @@
 {{-- <script src="{{ asset('AdminLTE-3.2.0') }}/dist/js/demo.js"></script> --}}
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('AdminLTE-3.2.0') }}/dist/js/pages/dashboard.js"></script>
+<!-- Data tables -->
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+<script>
+    $.widget.bridge('uibutton', $.ui.button)
+
+    new DataTable('#table-nasi', {
+        responsive: true
+    });
+    new DataTable('#table-kue-loyang', {
+        responsive: true
+    });
+    new DataTable('#table-kue-kering', {
+        responsive: true
+    });
+</script>
 </body>
 
 </html>

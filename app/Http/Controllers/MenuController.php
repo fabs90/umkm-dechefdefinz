@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MenuRequest;
+use App\Http\Requests\MenuUpdateRequest;
 use App\Models\Menu_Kue;
 use App\Models\Menu_Kue_Kering;
 use App\Models\Menu_Nasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class MenuController extends Controller
 {
@@ -16,7 +18,10 @@ class MenuController extends Controller
     public function index()
     {
         //
-
+        $menuKueLoyang = Menu_Kue::all();
+        $menuKueKering = Menu_Kue_Kering::all();
+        $menuNasi = Menu_Nasi::all();
+        return view('admin.index', compact('menuKueLoyang', 'menuKueKering', 'menuNasi'));
     }
 
     /**
@@ -48,10 +53,11 @@ class MenuController extends Controller
                 $data->image = $fileName;
                 $data->harga_normal = $request->harga_normal;
                 $data->deskripsi = $request->deskripsi;
+                $data->slug = Str::slug($request->name);
                 $data->save();
 
                 // Taro hard copy file ke dalam folder thumbnail yg ada di public
-                $request->image->storeAs('menu_kue', $fileName);
+                $request->image->storeAs('menu_kue_loyang', $fileName);
                 return redirect(route('menu.create'))->with('flash_msg', 'Data berhasil ditambah!');
 
             case 'kue_kering':
@@ -62,6 +68,7 @@ class MenuController extends Controller
                 $data->image = $fileName;
                 $data->harga_normal = $request->harga_normal;
                 $data->deskripsi = $request->deskripsi;
+                $data->slug = Str::slug($request->name);
                 $data->save();
 
                 // Taro hard copy file ke dalam folder thumbnail yg ada di public
@@ -75,45 +82,170 @@ class MenuController extends Controller
                 $data->image = $fileName;
                 $data->harga_normal = $request->harga_normal;
                 $data->deskripsi = $request->deskripsi;
+                $data->slug = Str::slug($request->name);
                 $data->save();
 
                 // Taro hard copy file ke dalam folder thumbnail yg ada di public
                 $request->image->storeAs('menu_nasi', $fileName);
                 return redirect(route('menu.create'))->with('flash_msg', 'Data berhasil ditambah!');
             default:
-                return redirect()->back()->with('flash_msg', 'Kategori yang dimasukan tidak valid, ulangi!');
+                return redirect(route('menu.create'))->with('flash_msg_error', 'Data gagal ditambah!');
         }
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function showKueLoyang(string $slug)
     {
-        //
+        $data = Menu_Kue::where('slug', $slug)->first();
+        $tableName = $data->getTable();
+        return view('admin.formUbah', compact('data', 'tableName'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function showKueKering(string $slug)
     {
-        //
+        $data = Menu_Kue_Kering::where('slug', $slug)->first();
+        $tableName = $data->getTable();
+        return view('admin.formUbah', compact('data', 'tableName'));
+    }
+    public function showMenuNasi(string $slug)
+    {
+        $data = Menu_Nasi::where('slug', $slug)->first();
+        $tableName = $data->getTable();
+        return view('admin.formUbah', compact('data', 'tableName'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function updateKueLoyang(MenuUpdateRequest $request, string $slug)
+    {
+        // Validasi data
+        $validated = $request->validated();
+        $menu = Menu_Kue::where('slug', $slug)->first();
+
+        if (!$menu) {
+            // Handle the case when the record with the given slug is not found
+            return redirect()->back()->with('flash_msg_error', 'Menu tidak ditemukan!');
+        }
+
+        // Update only the fields that are provided by the user
+        $menu->fill([
+            'name' => $request->input('name', $menu->name),
+            'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+            'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+        ]);
+
+        // Handle the image update
+        if ($request->hasFile('image')) {
+            // Delete the old image (optional)
+            unlink(public_path('storage/menu_kue_loyang/' . $menu->image));
+
+            // Store and set the new image
+            $menu->image = $request->file('image')->getClientOriginalName();
+            $request->file('image')->storeAs('menu_kue_loyang', $menu->image);
+        }
+
+        $menu->save();
+
+        return redirect(route('menu.showKueLoyang', ['slug' => $slug]))->with('flash_msg', 'Data berhasil diupdate!');
+    }
+    public function updateKueKering(Request $request, string $slug)
+    {
+        // Validasi data
+        $validated = $request->validated();
+        $menu = Menu_Kue_Kering::where('slug', $slug)->first();
+
+        if (!$menu) {
+            // Handle the case when the record with the given slug is not found
+            return redirect()->back()->with('flash_msg_error', 'Menu tidak ditemukan!');
+        }
+
+        // Update only the fields that are provided by the user
+        $menu->fill([
+            'name' => $request->input('name', $menu->name),
+            'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+            'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+        ]);
+
+        // Handle the image update
+        if ($request->hasFile('image')) {
+            // Delete the old image (optional)
+            unlink(public_path('storage/menu_kue_kering/' . $menu->image));
+
+            // Store and set the new image
+            $menu->image = $request->file('image')->getClientOriginalName();
+            $request->file('image')->storeAs('menu_kue_kering', $menu->image);
+        }
+
+        $menu->save();
+
+        return redirect(route('menu.showKueKering', ['slug' => $slug]))->with('flash_msg', 'Data berhasil diupdate!');
+    }
+    public function updateMenuNasi(Request $request, string $slug)
     {
         //
+        // Validasi data
+        $validated = $request->validated();
+        $menu = Menu_Nasi::where('slug', $slug)->first();
+
+        if (!$menu) {
+            // Handle the case when the record with the given slug is not found
+            return redirect()->back()->with('flash_msg_error', 'Menu tidak ditemukan!');
+        }
+
+        // Update only the fields that are provided by the user
+        $menu->fill([
+            'name' => $request->input('name', $menu->name),
+            'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+            'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+        ]);
+
+        // Handle the image update
+        if ($request->hasFile('image')) {
+            // Delete the old image (optional)
+            unlink(public_path('storage/menu_nasi/' . $menu->image));
+
+            // Store and set the new image
+            $menu->image = $request->file('image')->getClientOriginalName();
+            $request->file('image')->storeAs('menu_nasi', $menu->image);
+        }
+
+        $menu->save();
+
+        return redirect(route('menu.showKueLoyang', ['slug' => $slug]))->with('flash_msg', 'Data berhasil diupdate!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function hapusMenuNasi($slug)
     {
         //
+        $data = Menu_Nasi::find($slug);
+        unlink(public_path('storage/menu_nasi/' . $data->image));
+
+        $data->delete();
+
+        return redirect()->route('adminPage');
+    }
+
+    public function hapusMenuKueLoyang($slug)
+    {
+        $data = Menu_Kue::find($slug);
+        unlink(public_path('storage/menu_kue_loyang/' . $data->image));
+
+        $data->delete();
+
+        return redirect()->route('adminPage');
+    }
+    public function hapusMenuKueKering($slug)
+    {
+        $data = Menu_Kue_Kering::find($slug);
+        unlink(public_path('storage/menu_kue_kering/' . $data->image));
+
+        $data->delete();
+
+        return redirect()->route('adminPage');
     }
 }
