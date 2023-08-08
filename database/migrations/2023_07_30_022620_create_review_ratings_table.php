@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('image')->nullable();
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('no_telp');
             $table->longText('comments')->nullable();
             $table->integer('star_rating');
             $table->timestamps();

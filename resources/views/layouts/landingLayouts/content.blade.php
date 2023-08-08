@@ -4,19 +4,20 @@
      <div class="swiper home-slider">
          <div class="swiper-wrapper">
              <div class="swiper-slide slide">
+                 <img src="{{ asset('umkm-baru/images/UKM-dechefdefinz.jpg') }}" class="swiper-img">
                  <div class="content">
                      <h3>Selamat Datang Di Web Kami</h3>
-                     <a href="#" class="btn"> get started </a>
+                     <a href="#product" class="btn"> get started </a>
                  </div>
              </div>
 
              <div class="swiper-slide slide">
-                 <div class="content">
+                 <div class="content-slide">
+                     <img src="{{ asset('umkm-baru/images/UKM-dechefdefinz.jpg') }}" class="swiper-img">
                      <lottie-player src="https://lottie.host/c0a38045-e9b3-469d-b9a7-1d1682c7d712/ibLVanJSyR.json"
-                         background="transparent" speed="0.5" class="img-fluid w-100 px-lg-5"
-                         style="width: 800px; height: 100px; margin-left:-200px;" loop autoplay></lottie-player>
-                     <h3>Kami membuat sesuatu yang spesial setiap harinya</h3>
-                     <a href="#" class="btn"> get started </a>
+                         background="transparent" speed="0.5" loop autoplay></lottie-player>
+                     <h3 class="content-slide-text">Kami membuat sesuatu yang spesial setiap harinya</h3>
+                     <a href="#product" class="btn"> get started </a>
                  </div>
              </div>
 
@@ -31,14 +32,58 @@
 
  <!-- home section ends -->
 
- <!-- banner -->
+ {{-- Best Seller --}}
+ <section class="product" id="product">
+     <div class="heading">
+         <h2>Best Seller Kami</h2>
+     </div>
+     <div class="swiper product-row">
+         <div class="swiper-wrapper">
+             <div class="swiper-slide box">
+                 <div class="img">
+                     <img src="{{ asset('umkm-baru') }}/images/brownies.jpeg" alt="">
+                 </div>
+                 <div class="product-content">
+                     <h3>Brownies </h3>
+                     <p>siap santap </p>
+                     <div class="price">Rp.75.000 <span>Rp.85.000</span></div>
+                 </div>
+             </div>
+             <div class="swiper-slide box">
+                 <div class="img">
+                     <img src="{{ asset('umkm-baru') }}/images/kue sus vanilla.jpeg" style="width: 65%;">
+                 </div>
+                 <div class="product-content">
+                     <h3>Kue Sus rasa Vanilla</h3>
+                     <p>siap santap.
 
- <section class="banner">
-     <img src="{{ asset('umkm-baru') }}/images/transparant-sus-brownies-donat.png" alt="">
+                     </p>
+                     <div class="price">Rp.15.000 <span>Rp.25.000</span></div>
+                 </div>
+             </div>
+             <div class="swiper-slide box">
+                 <div class="img">
+                     <img src="{{ asset('umkm-baru') }}/images/kuedonat.jpeg">
+                 </div>
+                 <div class="product-content">
+                     <h3>Kue Donat</h3>
+                     <p>siap santap.
+
+                     </p>
+                     <div class="price">Rp.15.000 <span>Rp.25.000</span></div>
+                 </div>
+             </div>
+
+
+         </div>
+         <div class="swiper-pagination"></div>
+     </div>
+
+     <div class="swiper-pagination"></div>
+     </div>
  </section>
 
 
- <!-- banner end-->
 
  <!-- about us -->
 
@@ -53,12 +98,22 @@
          </div>
 
          <div class="content">
-             <h3>good things come to those <span>who bake </span> for others</h3>
-             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit veritatis sunt id modi quis in eveniet
-                 at! Vero iusto excepturi.</p>
-             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam molestiae maxime quibusdam rem
-                 necessitatibus optio maiores fugiat. Pariatur molestiae.</p>
-             <a href="#" class="btn">read more</a>
+             <p>Tahun 2020, Bapak Fajra Avandy dan Ibu Fransisca memulai bisnis usaha kue kering yang saat menjelang
+                 Lebaran Idul Fitri dan Alhamdulillah mencapai 100 toples.
+                 Mencoba memmbuat aneka roti, pizza dn bomboloni untuk camilan anak-anak, memposting di whatsapp dan
+                 Alhamdulillah teman-teman ikut memesan. </p>
+             <p>Berkreasi dengan membuat Kue Sus varian isi vla yaitu vanilla, pandan, coklat dan durian. Melalui
+                 postingan di status wa dan Instagram, teman-teman pun mulai memesan.
+                 Nama 'de chefdefinzs' memiliki arti Chef Dede Finza, Finza adalah nama anak pertama kami. </p>
+             <p>
+                 Tahun 2022, kami lebih serius memasarkan kreasi kue kering, pastry, jajan pasar dan bahkan merambah ke
+                 nasi box.
+                 Best sellernya Kue Sus vla vanilla, Bomboloni, Donat Topping, Pie Brownies, Putu Ayu Sakura, Sosis
+                 Solo, Pizza dan berbagai jenis risol dengan harga yang bervariasi.
+                 Dengan konsep 'Made by Order' dan menggunakan bahan-bahan yang berkualitas sehingga kualitas produk
+                 kami memiliki khas dan cita rasa tersendiri.
+             </p>
+             <a href="#" class="btn">Baca lebih banyak</a>
          </div>
 
      </div>
@@ -68,355 +123,8 @@
 
  <!-- about us end-->
 
+
  <!-- product -->
-
- <section class="product" id="product">
-
-     <h1 class="heading">Produk <span> Kue Kami</span></h1>
-
-     <div class="box-container">
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/risol.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Risol Ragout</h3>
-                 <span class="price">Rp 5.500/pcs</span>
-                 <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/Bitterbalen.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Bitterbalen</h3>
-
-                 <span class="price">Rp 4.000/Loyang</span>
-                 <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/pastel bihun sayur telur.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Pastel Bihun Sayur Telur</h3>
-
-                 <span class="price">Rp 4.000/pcs</span>
-                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/brownies.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Brownies Sekat</h3>
-
-                 <span class="price">Rp 125.000/Loyang</span>
-                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/flubbydonat.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Bomboloni</h3>
-
-                 <span class="price">Rp 5.500/pcs</span>
-                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/fruittaflet.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Pie Buah</h3>
-                 <div class="stars">
-                     <i class="fas fa-star"></i>
-                     <i class="fas fa-star"></i>
-                     <i class="fas fa-star"></i>
-                     <i class="fas fa-star"></i>
-                     <i class="fas fa-star-half-alt"></i>
-                 </div>
-                 <span class="price">Rp 6.000/pcs</span>
-                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/nagasari.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Nagasari Pandan</h3>
-
-                 <span class="price">Rp 3.500/pcs</span>
-                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/kuebuttermarmer.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Marmer Butter Cake</h3>
-                 <div class="stars">
-                     <i class="fas fa-star"></i>
-                     <i class="fas fa-star"></i>
-                     <i class="fas fa-star"></i>
-                     <i class="fas fa-star"></i>
-                     <i class="fas fa-star-half-alt"></i>
-                 </div>
-                 <span class="price">Rp 150.000/Loyang</span>
-                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/kuesus rasacoklat.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Kue Sus Rasa Coklat</h3>
-
-                 <span class="price">Rp 6.000/pcs</span>
-                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/bolukukustiramisu.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Bolu Kukus Tiramisu</h3>
-
-                 <span class="price">Rp 85.000/Loyang</span>
-                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/bolugulungkeju1.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Bolu Gulung keju</h3>
-
-                 <span class="price">Rp 85.000/Loyang</span>
-                 <a href="https://wa.me/6285777816860" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/ketanhitamkue.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Marmer Pandan Ketan Hitam</h3>
-
-                 <span class="price">Rp 185.000/Loyang</span>
-                 <a href="https://wa.me/6285777816860" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/piebrownies.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Pie Brownies</h3>
-
-                 <span class="price">Rp 6.000/pcs</span>
-                 <a href="https://wa.me/6285777816860" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/kuepisangkeju.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Kue Pisang Keju</h3>
-
-                 <span class="price">Rp 125.000/Loyang</span>
-                 <a href="https://wa.me/6285777816860" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/kue unicron.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Kue Unicorn</h3>
-
-                 <span class="price">Rp 85.000/Loyang</span>
-                 <a href="https://wa.me/6285777816860" class="btn">Pesan</a>
-             </div>
-         </div>
-
-     </div>
-
- </section>
-
-
- <!-- product end-->
- <section class="product" id="product">
-
-     <h1 class="heading">Produk <span> Nasi Kami</span></h1>
-
-     <div class="box-container">
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/nasi-ayam-bakar-dan-tumis-buncis-jagung-putren-baso.jpeg"
-                     alt="">
-             </div>
-             <div class="content">
-                 <h3>Nasi Ayam Bakar dan Tumis Buncis + Jagung Putren Baso</h3>
-
-                 <span class="price">Rp 20.000</span>
-                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/nasi-bakar-ayam-suir-pedas.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Nasi Bakar Ayam Suir Pedas</h3>
-
-                 <span class="price">Rp 20.000</span>
-                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/Nasi-Ayam-Stick-Tumis-Sayuran.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Nasi Ayam Stick + Tumis Sayuran</h3>
-
-                 <span class="price">Rp 23.000</span>
-                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/Nasi-Bakar-Ayam-Suir-Pedas-tahu-tempe.jpeg"
-                     alt="">
-             </div>
-             <div class="content">
-                 <h3>Nasi Bakar Ayam Suir Pedas + Tempe + Tahu</h3>
-                 <div class="stars">
-                     <i class="fas fa-star"></i>
-                     <i class="fas fa-star"></i>
-                     <i class="fas fa-star"></i>
-                     <i class="fas fa-star"></i>
-                     <i class="fas fa-star-half-alt"></i>
-                 </div>
-                 <span class="price">Rp 20.000</span>
-                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/nasi-capcay-baso-telur-balado-dan-bakwan-jagung.jpeg"
-                     alt="">
-             </div>
-             <div class="content">
-                 <h3>Nasi Capcay baso + Telur Balado</h3>
-
-                 <span class="price">Rp. 20.000</span>
-                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/nasi kuning dan ayam pokpok.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Nasi Kuning dan Ayam Pokpok</h3>
-                 <div class="stars">
-                     <i class="fas fa-star"></i>
-                     <i class="fas fa-star"></i>
-                     <i class="fas fa-star"></i>
-                     <i class="fas fa-star"></i>
-                     <i class="fas fa-star-half-alt"></i>
-                 </div>
-                 <span class="price">Rp 23.000</span>
-                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/nasi-tumis-jagung-baso-gulung.jpeg">
-             </div>
-             <div class="content">
-                 <h3>Nasi Telur Balado + Tumis Sayuran</h3>
-
-                 <span class="price">Rp 20.000</span>
-                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/chickenkatsu.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Chicken Katsu</h3>
-
-                 <span class="price">Rp 23.000</span>
-                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/ricebowl cumi balado.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Rice Bowl Cumi Balado</h3>
-
-                 <span class="price">Rp 20.000</span>
-                 <a href="https://wa.me/6285777816860" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/ricebowlayam.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Rice Bowl Ayam</h3>
-
-                 <span class="price">Rp 23.000</span>
-                 <a href="https://wa.me/6285777816860" class="btn">Pesan</a>
-             </div>
-         </div>
-
-
- </section>
-
  <!-- gallery -->
  <section class="product" id="product">
 
@@ -548,31 +256,19 @@
  </section>
 
 
+ <!-- product end-->
 
- <!-- gallery end -->
-
- <!-- weekly promotions -->
-
-
-
- <!-- weekly promotions ends -->
 
  <!-- team -->
 
  <section class="contact" id="contact">
-
      <h1 class="heading"> <span>Maps</span> Kita </h1>
-
      <div class="row">
-
          <iframe
-             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.2408356244987!2d106.87099087372236!3d-6.362868962242618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ec8c2d341441%3A0x2f68eaf902929bbd!2sPerumahan%20Lembah%20Nirmala%202!5e0!3m2!1sid!2sid!4v1688953145628!5m2!1sid!2sid"
+             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.691940741058!2d106.95995607426744!3d-6.304145661695077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69927d2600915b%3A0x160b6023ba485941!2sPerumahan%20Pesona%20Jatiasih%20Permai!5e0!3m2!1sid!2sid!4v1691379368372!5m2!1sid!2sid"
              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
              referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-
      </div>
-
  </section>
 
  <!-- team -->

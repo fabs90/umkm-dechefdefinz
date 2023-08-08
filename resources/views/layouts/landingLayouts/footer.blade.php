@@ -4,7 +4,8 @@
 
         <div class="box">
             <h3>Alamat</h3>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias sit debitis.</p>
+            <p>Perumahan Pesona JatiAsih Permai Blok B1 No. 12A RT.006/RW.01 Kelurahan Jati Rasa Kecamatan Jati Asih,
+                Bekasi 17424.</p>
             {{-- <div class="share">
                 <a href="#" class="fab fa-facebook"></a>
                 <a href="#" class="fab fa-twitter"></a>
@@ -36,7 +37,7 @@
                     @endif
                     @if ($errors->any())
                         <div>
-                            <ul>
+                            <ul style="color: red">
                                 @foreach ($errors->all() as $error)
                                     <li>
                                         {{ $error }}
@@ -58,13 +59,13 @@
                     <div class="form-group">
                         <div class="input-group">
                             <p for="name">Name</p>
-                            <input type="text" placeholder="Your Name" name="name" required
+                            <input type="text" placeholder="Nama" name="name" required
                                 value="{{ old('name') }}" />
                         </div>
                         <div class="input-group">
-                            <p for="name">Email</p>
-                            <input type="text" placeholder="Your Email" name="email" required
-                                value="{{ old('email') }}" />
+                            <p for="name">No.Telepon</p>
+                            <input type="text" placeholder="Nomor telepon" name="no_telp" required
+                                value="{{ old('no_telp') }}" />
                         </div>
                         <div class="input-group">
                             <p for="name">Comments</p>

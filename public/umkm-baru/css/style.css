@@ -309,11 +309,11 @@ section {
     padding-bottom: 0.5rem;
 }
 
-.cart-items-container .cart-item .content .price {
+/* .cart-items-container .cart-item .content .price {
     font-size: 1.5rem;
     color: var(--primary-color);
     text-align: left;
-}
+} */
 
 /* end */
 
@@ -394,8 +394,43 @@ section {
     font-size: 1rem;
 }
 
-.swiper-slide.slide {
-    background: url("../images/UKM\ dechefdefinz.jpg") no-repeat;
+/* .swiper-slide.slide {
+    background: url("../images/UKM-dechefdefinz.jpg") no-repeat fixed center;
+    size: 85%;
+} */
+
+.content-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.swiper-img {
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    width: 81%;
+    transform: translate(-50%, -50%);
+}
+
+.content-slide-text {
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: rgba(0, 0, 255, 0.904);
+    line-height: 1.2;
+    padding: 2rem 0;
+    animation: fadeIn 0.4s cubic-bezier(0.54, 1.3, 0.63, 1.34) 0.2s backwards;
+}
+
+lottie-player {
+    width: 200px;
+    height: 100px;
+    position: relative;
+    z-index: 0;
 }
 /* end */
 
@@ -518,6 +553,69 @@ section {
     font-weight: bolder;
     color: var(--secondary);
     margin-right: 1rem;
+}
+.product .product-row {
+    margin-bottom: 5rem;
+    display: flex;
+    align-items: center;
+}
+.product .product-row .box {
+    display: flex;
+    flex-direction: column;
+    width: 50rem;
+    background-color: var(--white);
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    gap: 1.5rem;
+    border-radius: 3rem;
+    margin-right: 3rem;
+}
+.product .product-row .img img {
+    height: 100%;
+    width: 70%;
+    border-radius: 20px;
+}
+.product .product-row .img img:hover {
+    transform: scale(1.1);
+}
+.product .product-row .content {
+    margin-bottom: 4rem;
+}
+.product .product-row .product-content h3 {
+    font-size: 2rem;
+    color: var(--black);
+}
+.product .product-row .product-content p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--black);
+}
+.product .product-row .product-content .orderNow {
+    height: 3rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+.product .product-row .product-content .orderNow button {
+    font-size: 1.8rem;
+    background-color: var(--black);
+    color: var(--white);
+    border-radius: 0.7rem;
+    padding: 0.7rem 2rem;
+    cursor: pointer;
+}
+.product .product-row .product-content .orderNow button:hover {
+    font-size: 2rem;
+    letter-spacing: 5px;
+}
+.price span {
+    text-decoration: line-through;
+    font-weight: lighter;
+    font-size: 1.5rem;
+}
+.price {
+    color: black;
+    font-size: 2.5rem;
 }
 
 /* product end */

@@ -23,7 +23,7 @@ class UserReviewRequest extends FormRequest
     {
         return [
             'name' => ['required', 'min:3', 'max:30'],
-            'email' => ['required', 'email'],
+            'no_telp' => ['required', 'numeric', 'min:6'],
             'comments' => ['required'],
             'star_rating' => ['required', 'numeric'],
         ];
@@ -32,8 +32,11 @@ class UserReviewRequest extends FormRequest
     public function message()
     {
         return [
+            'name.required' => 'Sialakan isi kolom nama',
             'name.min' => 'Panjang minimal nama adalah 3 karater',
-            'email.email' => 'Masukan format email yang valid!',
+            'no_telp.required' => 'Silakan isi kolom No.Telepon!',
+            'no_telp.numeric' => 'Kolom No.Telepon harus angka!',
+            'no_telp.min' => 'Minimal No.Telepon adalah 6 angka',
             'star_rating.required' => 'Silakan pilih banyak nya bintang!',
             'star_rating.numeric' => 'Silakan pilih bintang dari 1-5 saja!',
         ];
