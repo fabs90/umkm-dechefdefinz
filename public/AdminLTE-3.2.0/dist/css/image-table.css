@@ -1,3 +1,7 @@
+* {
+  scroll-behavior: smooth;
+}
+
 .image-nasi {
   max-width: 100%;
   width: 180px;

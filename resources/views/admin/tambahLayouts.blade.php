@@ -9,3 +9,5 @@
 @include('layouts.partial.footer')
 
 @include('layouts.partial.script')
+
+@include('sweetalert::alert', ['cdn' => 'https://cdn.jsdelivr.net/npm/sweetalert2@9'])

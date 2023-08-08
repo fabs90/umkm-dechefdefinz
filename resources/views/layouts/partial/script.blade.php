@@ -33,6 +33,9 @@
 <script src="{{ asset('AdminLTE-3.2.0') }}/dist/js/pages/dashboard.js"></script>
 <!-- Data tables -->
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+{{-- Sweetalert 2 --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
     $.widget.bridge('uibutton', $.ui.button)
 
@@ -44,6 +47,51 @@
     });
     new DataTable('#table-kue-kering', {
         responsive: true
+    });
+
+    // Delete confirm sweetalert
+    $(function() {
+
+        $('.btn-hapus').on('click', function(e) {
+            e.preventDefault();
+            var form = $(this).parents('form');
+            Swal.fire({
+                title: "Mau hapus data?",
+                text: "Data menu ini akan terhapus secara permanen!",
+                type: "warning",
+                icon: "warning",
+                showCancelButton: true,
+                cancelButtonColor: '#d33',
+                confirmButtonColor: "#3085d6",
+                confirmButtonText: "Ya, hapus!",
+                cancelButtonText: 'Cancel',
+                closeOnConfirm: false
+            }, function(isConfirm) {
+                if (isConfirm) form.submit();
+            });
+        });
+
+        $('#btn-update').click(function(event) {
+            event.preventDefault();
+            var url = $(this).attr("href");
+
+            Swal.fire({
+                title: 'Ingin mengubah data menu?',
+                text: 'Kamu akan dialihkan ke halaman ubah data!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, ubah!',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = url;
+                }
+            })
+        });
+
+
     });
 </script>
 </body>

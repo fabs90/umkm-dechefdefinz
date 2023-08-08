@@ -2,6 +2,7 @@
 
 @section('title', 'Dashboard Admin')
 @section('content')
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -22,12 +23,11 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
                         <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3>60</h3>
+                                <h3>{{ $jumlahKL + $jumlahKK + $jumlahNasi }}</h3>
                                 <p>Jumlah Menu</p>
                             </div>
                             <div class="icon">
@@ -43,14 +43,17 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>20</h3>
+                                <h3>
+                                    {{ $jumlahKL }}
+                                </h3>
 
                                 <p>Kue Loyang</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-bag"></i>
+                                {{-- <i class="ion ion-bag"></i> --}}
+                                <i class="fas fa-birthday-cake"></i>
                             </div>
-                            <a href="#" class="small-box-footer">More info <i
+                            <a href="#menu-kue-loyang" class="small-box-footer">More info <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -59,14 +62,14 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>25</h3>
+                                <h3>{{ $jumlahKK }}</h3>
                                 {{-- <sup style="font-size: 20px">%</sup> --}}
                                 <p>Kue Kering</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-stats-bars"></i>
+                                <i class="fas fa-cheese"></i>
                             </div>
-                            <a href="#" class="small-box-footer">More info <i
+                            <a href="#menu_kue_kering" class="small-box-footer">More info <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -75,15 +78,15 @@
                         <!-- small box -->
                         <div class="small-box bg-warning">
                             <div class="inner">
-                                <h3 style="color: white">15</h3>
+                                <h3 style="color: white">{{ $jumlahNasi }}</h3>
 
-                                <p>Nasi Kotak</p>
+                                <p style="color: white">Nasi Kotak</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-person-add"></i>
+                                <i class="fas fa-utensils"></i>
                             </div>
-                            <a href="#" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
+                            <a href="#menu_nasi" class="small-box-footer" style="color: white">More info <i
+                                    class="fas fa-arrow-circle-right" style="color: white"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -94,7 +97,7 @@
                     <div class="col-12">
                         <!-- Card Nasi-->
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header" id="menu-kue-loyang">
                                 <h3 class="card-title">
                                     <i class="fas fa-chart-pie mr-1"></i>
                                     Menu Kue Loyang
@@ -143,14 +146,14 @@
                                                     <td>
                                                         <a class="btn btn-sm btn-success"
                                                             href="{{ route('menu.showKueLoyang', ['slug' => $menu->slug]) }}"
-                                                            role="button">Ubah</a>
+                                                            role="button" id="btn-update">Ubah</a>
                                                         | <form
                                                             action="{{ route('menu.hapusMenuKueLoyang', ['slug' => $menu->slug]) }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-sm btn-danger"
-                                                                id="btn-delete">Delete</button>
+                                                            <button type="submit"
+                                                                class="btn btn-sm btn-danger btn-hapus">Delete</button>
                                                         </form>
                                                     </td>
 
@@ -169,7 +172,7 @@
                 <div class="row">
                     <div class="col-12">
                         <!-- Card Nasi-->
-                        <div class="card">
+                        <div class="card" id="menu_kue_kering">
                             <div class="card-header">
                                 <h3 class="card-title">
                                     <i class="fas fa-chart-pie mr-1"></i>
@@ -218,13 +221,13 @@
                                                     <td>
                                                         <a class="btn btn-sm btn-success"
                                                             href="{{ route('menu.showKueKering', ['slug' => $menu->slug]) }}"
-                                                            role="button">Ubah</a>
+                                                            role="button" id="btn-update">Ubah</a>
                                                         | <form
                                                             action="{{ route('menu.hapusMenuKueKering', ['slug' => $menu->slug]) }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-sm btn-danger"
+                                                            <button type="submit" class="btn btn-sm btn-danger btn-hapus"
                                                                 id="btn-delete">Delete</button>
                                                         </form>
                                                     </td>
@@ -246,7 +249,7 @@
                 <div class="row">
                     <section class="col-12">
                         <!-- Card Nasi-->
-                        <div class="card">
+                        <div class="card" id="menu_nasi">
                             <div class="card-header">
                                 <h3 class="card-title">
                                     <i class="fas fa-chart-pie mr-1"></i>
@@ -294,14 +297,14 @@
                                                     <td>
                                                         <a class="btn btn-sm btn-success"
                                                             href="{{ route('menu.showMenuNasi', ['slug' => $menu->slug]) }}"
-                                                            role="button">Ubah</a>
+                                                            role="button" id="btn-update">Ubah</a>
                                                         | <form
                                                             action="{{ route('menu.hapusMenuNasi', ['slug' => $menu->slug]) }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-sm btn-danger"
-                                                                id="btn-delete">Delete</button>
+                                                            <button type="submit"
+                                                                class="btn btn-sm btn-danger btn-hapus">Delete</button>
                                                         </form>
                                                     </td>
 

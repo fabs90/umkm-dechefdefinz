@@ -48,10 +48,10 @@
 
                 <li class="nav-header">Tambahan</li>
                 <li class="nav-item">
-                    <a href="pages/calendar.html" class="nav-link">
+                    <a href="/admin/calculator" class="nav-link">
                         <i class="nav-icon bi bi-calculator"></i>
                         <p>
-                            Calculator
+                            Calculator HPP
                         </p>
                     </a>
                 </li>
