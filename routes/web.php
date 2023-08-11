@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\kalkulatorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ReviewController;
@@ -17,6 +18,9 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', [ReviewController::class, 'showReview'])->name('home');
+Route::get('/kue', [ReviewController::class, 'showMenuKue'])->name('landing.menuKue');
+Route::get('/kue-kering', [ReviewController::class, 'showMenuKueKering'])->name('landing.menuKueKering');
+Route::get('/nasi', [ReviewController::class, 'showMenuNasi'])->name('landing.menuNasi');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('onlyGuest');
 Route::post('/login', [LoginController::class, 'login'])->name('login.process');
@@ -35,6 +39,11 @@ Route::middleware(['isLogin'])->group(function () {
     Route::delete('/admin/deleteNasi/{slug}', [MenuController::class, 'hapusMenuNasi'])->name('menu.hapusMenuNasi');
     Route::delete('/admin/deleteKueLoyang/{slug}', [MenuController::class, 'hapusMenuKueLoyang'])->name('menu.hapusMenuKueLoyang');
     Route::delete('/admin/deleteKueKering/{slug}', [MenuController::class, 'hapusMenuKuekering'])->name('menu.hapusMenuKueKering');
+
+    // Kalkulator
+    Route::get("/admin/calculator/buttercake", [kalkulatorController::class, 'buttercake']);
+    Route::post("/admin/calculator/buttercake/hp", [kalkulatorController::class, 'buttercakeHP'])->name('buttercake.hp');
+
 });
 
 Route::get('/landing', [ReviewController::class, 'showReview'])->name('review');

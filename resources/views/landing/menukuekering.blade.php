@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="menukuekering2.css" />
+    <link rel="stylesheet" href="{{ asset('umkm-baru/menu-kuekering') }}/menukuekering2.css" />
     <title>Menu Kami</title>
 </head>
+
 <body>
     <div class="menu">
         <div class="heading">
@@ -35,8 +37,8 @@
                 <p>Teh dengan rasa leci dan ada buah leci didalamnya</p>
                 <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
             </div>
-            
-        </div> 
+
+        </div>
         <div class="food-items">
             <img src="kue jagung.jpeg">
             <div class="details">
@@ -47,7 +49,7 @@
                 <p>Pudding susu dengan toping buah-buahan segar dan buah kaleng + vla vanilla</p>
                 <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
             </div>
-            
+
         </div>
         <div class="food-items">
             <img src="kue nastar.jpeg">
@@ -59,9 +61,9 @@
                 <p>Sensasi menikmati cendol dalam versi pudding</p>
                 <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
             </div>
-            
+
         </div>
-       
+
         <div class="food-items">
             <img src="lidah kucing keju.jpeg">
             <div class="details">
@@ -72,7 +74,7 @@
                 <p>1 px isi 10</p>
                 <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
             </div>
-            
+
         </div>
         <div class="food-items">
             <img src="putri salju.jpeg">
@@ -86,25 +88,26 @@
             </div>
 
         </div>
-        
-            <div class="food-items">
-                    <img src="sagu keju.jpeg">
-                    <div class="details">
-                        <div class="details-sub">
-                            <h3>Sagu Keju</h3>
-                            <h5 class="Price">Rp 100.000</h5>
-                        </div>
-                        <p>1 pax isi 10</p>
-                        <a target="_blank" target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
-                    </div>
-                
+
+        <div class="food-items">
+            <img src="sagu keju.jpeg">
+            <div class="details">
+                <div class="details-sub">
+                    <h3>Sagu Keju</h3>
+                    <h5 class="Price">Rp 100.000</h5>
+                </div>
+                <p>1 pax isi 10</p>
+                <a target="_blank" target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
             </div>
-                      
-                        
-            
-        
-            
+
         </div>
+
+
+
+
+
+    </div>
     </div>
 </body>
+
 </html>

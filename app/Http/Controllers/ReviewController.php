@@ -29,4 +29,16 @@ class ReviewController extends Controller
 
         return view('uji', compact('datas'));
     }
+
+    public function showMenuKue(){
+        return view('landing.menukue');        
+    }
+
+    public function showMenuKueKering(){
+        return view('landing.menukuekering');
+    }
+
+    public function showMenuNasi(){
+        return view('landing.menuNasi');
+    }
 }

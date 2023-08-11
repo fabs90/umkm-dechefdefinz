@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="menunasi2.css" />
+    <link rel="stylesheet" href="{{ asset('umkm-baru/menu-nasi') }}/menunasi2.css" />
     <title>Menu Kami</title>
 </head>
+
 <body>
     <div class="menu">
         <div class="heading">
@@ -35,8 +37,8 @@
                 <p>Teh dengan rasa leci dan ada buah leci didalamnya</p>
                 <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
             </div>
-            
-        </div> 
+
+        </div>
         <div class="food-items">
             <img src="nasi ayam bakar.jpeg">
             <div class="details">
@@ -47,7 +49,7 @@
                 <p>Pudding susu dengan toping buah-buahan segar dan buah kaleng + vla vanilla</p>
                 <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
             </div>
-            
+
         </div>
         <div class="food-items">
             <img src="Nasi Bakar Ayam Suir Pedas+tahu+tempe.jpeg">
@@ -59,7 +61,7 @@
                 <p>Sensasi menikmati cendol dalam versi pudding</p>
                 <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
             </div>
-            
+
         </div>
         <div class="food-items">
             <img src="nasi capcay baso + telur balado dan bakwan jagung.jpeg">
@@ -71,7 +73,7 @@
                 <p>1 pax isi 10</p>
                 <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
             </div>
-            
+
         </div>
         <div class="food-items">
             <img src="nasi kuning dan ayam pokpok.jpeg">
@@ -83,7 +85,7 @@
                 <p>1 px isi 10</p>
                 <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
             </div>
-            
+
         </div>
         <div class="food-items">
             <img src="nasi telu balado + tumis buncis + jagung putren + baso dan sosis + gulung mie.jpeg">
@@ -97,37 +99,38 @@
             </div>
 
         </div>
-        
-            <div class="food-items">
-                    <img src="ricebowl cumi balado.jpeg">
-                    <div class="details">
-                        <div class="details-sub">
-                            <h3>Rice Bowl Cumi Balado</h3>
-                            <h5 class="Price">Rp 20.000</h5>
-                        </div>
-                        <p>1 pax isi 10</p>
-                        <a target="_blank" target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
-                    </div>
-                
+
+        <div class="food-items">
+            <img src="ricebowl cumi balado.jpeg">
+            <div class="details">
+                <div class="details-sub">
+                    <h3>Rice Bowl Cumi Balado</h3>
+                    <h5 class="Price">Rp 20.000</h5>
+                </div>
+                <p>1 pax isi 10</p>
+                <a target="_blank" target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
             </div>
-            <div class="food-items">
-                        <img src="nasikuning.jpeg">
-                        <div class="details">
-                            <div class="details-sub">
-                                <h3>Nasi Kuning</h3>
-                                <h5 class="Price">Rp 20.000</h5>
-                            </div>
-                            <p>1 pax isi 10</p>
-                            <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
-                        </div>
-                    </div>
-            
-                                                            
-                        
-            
-        
-            
+
         </div>
+        <div class="food-items">
+            <img src="nasikuning.jpeg">
+            <div class="details">
+                <div class="details-sub">
+                    <h3>Nasi Kuning</h3>
+                    <h5 class="Price">Rp 20.000</h5>
+                </div>
+                <p>1 pax isi 10</p>
+                <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
     </div>
 </body>
+
 </html>
