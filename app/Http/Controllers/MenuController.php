@@ -375,9 +375,9 @@ class MenuController extends Controller
         if ($data != null) {
             unlink(public_path('storage/menu_nasi/' . $data->image));
             $data->delete();
-            return redirect()->route('adminPage');
+            return redirect()->route('adminPage')->withSuccess('Data berhasil di hapus');
         } else {
-            return redirect()->route('adminPage');
+            return redirect()->route('adminPage')->withErrors('Data gagal dihapus :(');
         }
 
     }
@@ -389,9 +389,9 @@ class MenuController extends Controller
         if ($data != null) {
             unlink(public_path('storage/menu_kue_loyang/' . $data->image));
             $data->delete();
-            return redirect()->route('adminPage');
+            return redirect()->route('adminPage')->withSuccess('Data berhasil di hapus');
         } else {
-            return redirect()->route('adminPage');
+            return redirect()->route('adminPage')->withErrors('Data gagal dihapus :(');
         }
     }
     public function hapusMenuKueKering($slug)
@@ -402,9 +402,9 @@ class MenuController extends Controller
             unlink(public_path('storage/menu_kue_kering/' . $data->image));
 
             $data->delete();
-            return redirect()->route('adminPage');
+            return redirect()->route('adminPage')->withSuccess('Data berhasil di hapus');
         } else {
-            return redirect()->route('adminPage');
+            return redirect()->route('adminPage')->withErrors('Data gagal dihapus :(');
         }
     }
 }

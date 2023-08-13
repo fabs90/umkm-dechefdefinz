@@ -48,7 +48,9 @@
     new DataTable('#table-kue-kering', {
         responsive: true
     });
-
+    new DataTable('#tabel-bahan-baku', {
+        responsive: true
+    })
     // Delete confirm sweetalert
     $(function() {
 

@@ -16,7 +16,7 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Admin</a>
+                <a href="#" class="d-block">{{ Auth::user()->username }}</a>
             </div>
         </div>
 
@@ -44,14 +44,28 @@
                     </a>
                 </li>
 
-
-
                 <li class="nav-header">Tambahan</li>
                 <li class="nav-item">
                     <a href="/admin/calculator/buttercake" class="nav-link">
                         <i class="nav-icon bi bi-calculator"></i>
                         <p>
                             Calculator HPP
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('create-bahan') }}" class="nav-link">
+                        <i class="nav-icon fas fa-carrot"></i>
+                        <p>
+                            Tambah Bahan Baku
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin/bahan" class="nav-link">
+                        <i class="nav-icon bi bi-card-checklist"></i>
+                        <p>
+                            List Bahan Baku
                         </p>
                     </a>
                 </li>

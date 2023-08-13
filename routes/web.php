@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BahanController;
 use App\Http\Controllers\kalkulatorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MenuController;
@@ -40,9 +42,20 @@ Route::middleware(['isLogin'])->group(function () {
     Route::delete('/admin/deleteKueLoyang/{slug}', [MenuController::class, 'hapusMenuKueLoyang'])->name('menu.hapusMenuKueLoyang');
     Route::delete('/admin/deleteKueKering/{slug}', [MenuController::class, 'hapusMenuKuekering'])->name('menu.hapusMenuKueKering');
 
+    // Bahan
+    Route::get('/admin/bahan/tambah', [BahanController::class, 'createBahan'])->name('create-bahan');
+    Route::post('/admin/bahan/store', [BahanController::class, 'storeBahan'])->name('create-bahan.store');
+    Route::get('/admin/bahan', [AdminController::class, 'showUbahHargaBahan'])->name('harga-bahan');
+    Route::patch('/admin/bahan/{nama_bahan}/baku', [BahanController::class, 'updateBahanBaku'])->name('harga-bahan-baku.update');
+    Route::patch('/admin/bahan/{nama_bahan}/kemasan', [BahanController::class, 'updateBahanKemasan'])->name('harga-bahan-kemasan.update');
+    Route::delete('/admin/bahan-baku/{nama_bahan}/delete', [BahanController::class, 'deleteBahanBaku'])->name('harga-bahan-baku.delete');
+    Route::delete('/admin/bahan-kemasan/{nama_bahan}/delete', [BahanController::class, 'deleteBahanKemasan'])->name('harga-bahan-kemasan.delete');
+
     // Kalkulator
     Route::get("/admin/calculator/buttercake", [kalkulatorController::class, 'buttercake']);
     Route::post("/admin/calculator/buttercake/hp", [kalkulatorController::class, 'buttercakeHP'])->name('buttercake.hp');
+    Route::get("/admin/calculator/kue-sus-vanilla", [kalkulatorController::class, 'kueSusVanilla']);
+    Route::post("/admin/calculator/kue-sus-vanilla/hp", [kalkulatorController::class, 'kueSusVanillaHP'])->name('kueSusVanilla.hp');
 
 });
 
