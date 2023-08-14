@@ -52,9 +52,10 @@ Route::middleware(['isLogin'])->group(function () {
     Route::delete('/admin/bahan-kemasan/{nama_bahan}/delete', [BahanController::class, 'deleteBahanKemasan'])->name('harga-bahan-kemasan.delete');
 
     // Kalkulator
-    Route::get("/admin/calculator/buttercake", [kalkulatorController::class, 'buttercake']);
+    Route::get('/admin/calculator', [kalkulatorController::class, 'show'])->name('jenis-adonan');
+    Route::get("/admin/calculator/buttercake", [kalkulatorController::class, 'buttercake'])->name('buttercake');
     Route::post("/admin/calculator/buttercake/hp", [kalkulatorController::class, 'buttercakeHP'])->name('buttercake.hp');
-    Route::get("/admin/calculator/kue-sus-vanilla", [kalkulatorController::class, 'kueSusVanilla']);
+    Route::get("/admin/calculator/kue-sus-vanilla", [kalkulatorController::class, 'kueSusVanilla'])->name('kue-sus-vanilla');
     Route::post("/admin/calculator/kue-sus-vanilla/hp", [kalkulatorController::class, 'kueSusVanillaHP'])->name('kueSusVanilla.hp');
 
 });

@@ -100,7 +100,7 @@
                             <div class="card-header" id="menu-kue-loyang">
                                 <h3 class="card-title">
                                     <i class="fas fa-chart-pie mr-1"></i>
-                                    Menu Kue Loyang
+                                    Kue Loyang
                                 </h3>
 
                             </div><!-- /.card-header -->
@@ -176,7 +176,7 @@
                             <div class="card-header">
                                 <h3 class="card-title">
                                     <i class="fas fa-chart-pie mr-1"></i>
-                                    Menu Kue Kering
+                                    Kue Kering
                                 </h3>
 
                             </div><!-- /.card-header -->
@@ -253,7 +253,7 @@
                             <div class="card-header">
                                 <h3 class="card-title">
                                     <i class="fas fa-chart-pie mr-1"></i>
-                                    Menu Nasi
+                                    Nasi
                                 </h3>
 
                             </div><!-- /.card-header -->

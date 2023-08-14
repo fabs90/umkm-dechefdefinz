@@ -24,6 +24,11 @@ class kalkulatorController extends Controller
         });
     }
 
+    public function show()
+    {
+        return view('calc.jenis-adonan');
+    }
+
     public function buttercake()
     {
         return view('calc.hitung.buttercake');

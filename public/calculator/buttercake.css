@@ -1,55 +1,60 @@
 body {
     font-family: Arial, sans-serif;
-  }
-  
-  .calculator {
+}
+
+.calculator {
     width: 300px;
     margin: 50px auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-  }
-  .biayakemasan{
+}
+.biayakemasan {
     width: 300px;
     margin: 50px auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-  }
-  .biayaproduksi{
+}
+.biayaproduksi {
     width: 300px;
     margin: 50px auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-  }
-  
-  h1 {
+}
+
+.back-home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
     text-align: center;
-  }
-  
-  label {
+}
+
+label {
     display: block;
     margin-bottom: 5px;
-  }
-  
-  input {
+}
+
+input {
     width: 100%;
     padding: 5px;
     margin-bottom: 10px;
-  }
-  
-  button {
+}
+
+button {
     width: 100%;
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #4caf50;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: #45a049;
-  }
-  
+}
