@@ -57,6 +57,8 @@ Route::middleware(['isLogin'])->group(function () {
     Route::post("/admin/calculator/buttercake/hp", [kalkulatorController::class, 'buttercakeHP'])->name('buttercake.hp');
     Route::get("/admin/calculator/kue-sus-vanilla", [kalkulatorController::class, 'kueSusVanilla'])->name('kue-sus-vanilla');
     Route::post("/admin/calculator/kue-sus-vanilla/hp", [kalkulatorController::class, 'kueSusVanillaHP'])->name('kueSusVanilla.hp');
+    Route::get("/admin/calculator/sagu-keju", [kalkulatorController::class, 'saguKeju'])->name('sagu-keju');
+    Route::post("/admin/calculator/sagu-keju/hp", [kalkulatorController::class, 'saguKejuHP'])->name('sagu-keju.hp');
 
 });
 
