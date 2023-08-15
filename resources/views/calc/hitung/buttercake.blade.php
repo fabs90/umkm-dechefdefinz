@@ -27,7 +27,7 @@
     </div>
     <div class="calculator">
 
-        <h1>Kalkulator Biaya Produksi</h1>
+        <h1>Kalkulator Biaya Bahan Baku</h1>
         <br />
         <label for="harga-bahan">Butter:</label>
         <input type="number" name="butter" id="butter" placeholder="Masukan jumlah butter yang dipakai"

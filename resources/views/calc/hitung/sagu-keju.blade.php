@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title>Kalkulator Harga Pokok Produksi Adonan Kue</title>
@@ -27,7 +27,7 @@
     </div>
     <div class="calculator">
 
-        <h1>Kalkulator Biaya Produksi</h1>
+        <h1>Kalkulator Biaya Bahan Baku</h1>
         <br />
         <label for="harga-bahan">Tepung Sagu:</label>
         <input type="number" name="tepung_sagu" id="tepung_sagu"

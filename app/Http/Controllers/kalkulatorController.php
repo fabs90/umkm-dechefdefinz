@@ -150,35 +150,42 @@ class kalkulatorController extends Controller
         $request->session()->flash('input_values', $request->all());
 
         // (HP)
-        $harga_tepung_terigu = $request->tepung_sagu * $this->getHargaBahan('tepung-sagu');
-        $harga_gula_halus = $request->gula_halus * $this->getHargaBahan('gula_halus');
-        $harga_keju_parut = $request->keju_parut * $this->getHargaBahan('keju_parut');
-        $harga_kuning_telur = $request->kuning_telur * $this->getHargaBahan('kuning_telur');
-        $harga_margarin = $request->margarin * $this->getHargaBahan('margarin');
-        $harga_butter = $request->butter * $this->getHargaBahan('butter');
-        $harga_santan = $request->santan * $this->getHargaBahan('santan');
-        $harga_keju_toping = $request->harga_keju_toping;
+        $bahanBaku = [
+            'harga_tepung_terigu' => $request->tepung_sagu * $this->getHargaBahan('tepung-sagu'),
+            'harga_gula_halus' => $request->gula_halus * $this->getHargaBahan('gula_halus'),
+            'harga_keju_parut' => $request->keju_parut * $this->getHargaBahan('keju_parut'),
+            'harga_kuning_telur' => $request->kuning_telur * $this->getHargaBahan('kuning_telur'),
+            'harga_margarin' => $request->margarin * $this->getHargaBahan('margarin'),
+            'harga_butter' => $request->butter * $this->getHargaBahan('butter'),
+            'harga_santan' => $request->santan * $this->getHargaBahan('santan'),
+            'harga_keju_toping' => $request->harga_keju_toping,
 
-        $bahanBaku = ($harga_tepung_terigu + $harga_gula_halus + $harga_keju_parut + $harga_margarin + $harga_butter + $harga_santan + $harga_keju_toping);
+        ];
+
+        $bahanBaku = array_sum($bahanBaku);
 
         // (BK)
-        $harga_toples = $request->toples * $request->harga_toples;
-        $harga_paper_doley = $request->paper_doley * $request->harga_paper_doley;
-        $harga_solatip = $request->solatip * $request->harga_solatip;
-        $harga_stiker = $request->stiker * $request->harga_stiker;
+        $biayaKemasan = [
+            'harga_toples' => $request->toples * $request->harga_toples,
+            'harga_paper_doley' => $request->paper_doley * $request->harga_paper_doley,
+            'harga_solatip' => $request->solatip * $request->harga_solatip,
+            'harga_stiker' => $request->stiker * $request->harga_stiker,
+        ];
 
-        $biayaKemasan = $harga_toples + $harga_paper_doley + $harga_solatip + $harga_stiker;
+        $biayaKemasan = array_sum($biayaKemasan);
 
         // (BP)
-        $harga_listrik = $request->listrik;
-        $harga_gas = $request->gas;
-        $harga_air = $request->air;
-        $harga_gaji_karyawan = $request->gaji;
-        $harga_perjam = $request->waktu;
-        $harga_total_gaji = $harga_gaji_karyawan * $harga_perjam;
+        $hargaGajiKaryawan = $request->gaji;
+        $hargaPerjam = $request->waktu;
 
-        $biayaProduksi = ($harga_listrik + $harga_gas + $harga_air + $harga_gaji_karyawan + $harga_total_gaji);
+        $biayaProduksi = [
+            'harga_listrik' => $request->listrik,
+            'harga_gas' => $request->gas,
+            'harga_air' => $request->air,
+            'harga_total_gaji' => $hargaGajiKaryawan * $hargaPerjam,
+        ];
 
+        $biayaProduksi = array_sum($biayaProduksi);
         // Menghitung HPP
         $biayaHPP = ($bahanBaku + $biayaKemasan + $biayaProduksi) / $request->jumlah_pesanan;
 

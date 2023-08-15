@@ -27,7 +27,7 @@
     </div>
     <div class="calculator">
 
-        <h1>Kalkulator Biaya Produksi</h1>
+        <h1>Kalkulator Biaya Bahan Baku</h1>
         <br />
         <label for="harga-bahan">Air:</label>
         <input type="number" name="air" id="air" placeholder="Masukan jumlah (ml) air yang dipakai"
