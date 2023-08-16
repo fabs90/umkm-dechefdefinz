@@ -37,40 +37,54 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-    $.widget.bridge('uibutton', $.ui.button)
-
-    new DataTable('#table-nasi', {
-        responsive: true
-    });
-    new DataTable('#table-kue-loyang', {
-        responsive: true
-    });
-    new DataTable('#table-kue-kering', {
-        responsive: true
-    });
-    new DataTable('#tabel-bahan-baku', {
-        responsive: true
-    })
     // Delete confirm sweetalert
-    $(function() {
+    $(document).ready(function() {
 
         $('.btn-hapus').on('click', function(e) {
             e.preventDefault();
-            var form = $(this).parents('form');
+            var form = $(this).closest('form');
             Swal.fire({
-                title: "Mau hapus data?",
-                text: "Data menu ini akan terhapus secara permanen!",
-                type: "warning",
-                icon: "warning",
-                showCancelButton: true,
-                cancelButtonColor: '#d33',
-                confirmButtonColor: "#3085d6",
-                confirmButtonText: "Ya, hapus!",
-                cancelButtonText: 'Cancel',
-                closeOnConfirm: false
-            }, function(isConfirm) {
-                if (isConfirm) form.submit();
-            });
+                    title: "Mau hapus data?",
+                    text: "Data menu ini akan terhapus secara permanen!",
+                    type: "warning",
+                    icon: "warning",
+                    showCancelButton: true,
+                    cancelButtonColor: '#d33',
+                    confirmButtonColor: "#3085d6",
+                    confirmButtonText: "Ya, hapus!",
+                    cancelButtonText: 'Cancel',
+                    closeOnConfirm: false
+
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                    }
+                });
+        });
+
+
+        $('.btnHapusNasi').on('click', function(e) {
+            e.preventDefault();
+            var form = $(this).closest('form');
+            Swal.fire({
+                    title: "Mau hapus data?",
+                    text: "Data menu ini akan terhapus secara permanen!",
+                    type: "warning",
+                    icon: "warning",
+                    showCancelButton: true,
+                    cancelButtonColor: '#d33',
+                    confirmButtonColor: "#3085d6",
+                    confirmButtonText: "Ya, hapus!",
+                    cancelButtonText: 'Cancel',
+                    closeOnConfirm: false
+
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                    }
+                });
         });
 
         $('#btn-update').click(function(event) {
@@ -94,7 +108,40 @@
         });
 
 
+        $('.update-bahan').click(function(event) {
+            event.preventDefault();
+            var form = $(this).closest('form');
+            Swal.fire({
+                title: 'Ingin mengubah data menu?',
+                text: 'Harga menu bahan baku akan berubah!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, ubah!',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit;
+                }
+            })
+        });
+
     });
+    $.widget.bridge('uibutton', $.ui.button)
+
+    new DataTable('#table-nasi', {
+        responsive: true
+    });
+    new DataTable('#table-kue-loyang', {
+        responsive: true
+    });
+    new DataTable('#table-kue-kering', {
+        responsive: true
+    });
+    new DataTable('#tabel-bahan-baku', {
+        responsive: true
+    })
 </script>
 </body>
 

@@ -64,7 +64,8 @@
                                                         placeholder="Masukan harga baru">
                                             </td>
                                             <td>
-                                                <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                                                <button type="submit" class="btn btn-sm btn-primary update-bahan"
+                                                    id="btn-update-bahan">Update</button>
                                                 </form>
                                             </td>
                                             <td>

@@ -56,10 +56,10 @@
         <input type="number" id="garam" name="garam" placeholder="Masukkan jumlah (gr) garam yang dipakai"
             step="any" value="{{ old('garam', session('input_values.garam')) }}" required />
 
-        <label for="harga-bahan">Tepung Maezeka:</label>
-        <input type="number" id="tepung_maezeka" name="tepung_maezeka"
+        <label for="harga-bahan">Tepung Maezena:</label>
+        <input type="number" id="tepung_maezena" name="tepung_maezena"
             placeholder="Masukkan jumlah (gr) tepung-maezeka yang dipakai" step="any"
-            value="{{ old('tepung_maezeka', session('input_values.tepung_maezeka')) }}" required />
+            value="{{ old('tepung_maezena', session('input_values.tepung_maezena')) }}" required />
 
         <label for="harga-bahan">Susu Cair:</label>
         <input type="number" id="susu_cair" name="susu_cair" placeholder="Masukkan jumlah (ml) susu cair yang dipakai"

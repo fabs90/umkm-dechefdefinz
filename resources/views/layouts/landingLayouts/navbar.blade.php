@@ -9,14 +9,6 @@
         <a href="#product">product</a>
         <a href="#review">review</a>
         <a href="#order">order</a>
-        <div class="dropdown">
-            <button>Profile</button>
-            <div class="dropdown-options">
-                <a href="#">Dashboard</a>
-                <a href="#">Setting</a>
-                <a href="#">Logout</a>
-            </div>
-        </div>
     </nav>
 
     <div class="icons">

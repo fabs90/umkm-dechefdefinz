@@ -147,7 +147,7 @@
                                                         <a class="btn btn-sm btn-success"
                                                             href="{{ route('menu.showKueLoyang', ['slug' => $menu->slug]) }}"
                                                             role="button" id="btn-update">Ubah</a>
-                                                        | <form
+                                                        <form
                                                             action="{{ route('menu.hapusMenuKueLoyang', ['slug' => $menu->slug]) }}"
                                                             method="POST">
                                                             @csrf
@@ -222,7 +222,7 @@
                                                         <a class="btn btn-sm btn-success"
                                                             href="{{ route('menu.showKueKering', ['slug' => $menu->slug]) }}"
                                                             role="button" id="btn-update">Ubah</a>
-                                                        | <form
+                                                        <form
                                                             action="{{ route('menu.hapusMenuKueKering', ['slug' => $menu->slug]) }}"
                                                             method="POST">
                                                             @csrf
@@ -298,13 +298,13 @@
                                                         <a class="btn btn-sm btn-success"
                                                             href="{{ route('menu.showMenuNasi', ['slug' => $menu->slug]) }}"
                                                             role="button" id="btn-update">Ubah</a>
-                                                        | <form
+                                                        <form
                                                             action="{{ route('menu.hapusMenuNasi', ['slug' => $menu->slug]) }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit"
-                                                                class="btn btn-sm btn-danger btn-hapus">Delete</button>
+                                                                class="btn btn-sm btn-danger btnHapusNasi">Delete</button>
                                                         </form>
                                                     </td>
 

@@ -18,7 +18,7 @@ class BahanController extends Controller
 
     public function storeBahan(Request $request)
     {
-        $data = $request->validate([
+        $request->validate([
 
             'nama_bahan' => 'required|min:2|unique:bahan_baku,nama_bahan',
             'harga_bahan' => 'required|numeric',
