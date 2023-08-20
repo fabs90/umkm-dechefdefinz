@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="{{ asset('AdminLTE-3.2.0') }}/dist/css/image-table.css">
     {{-- Bootstrap --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">

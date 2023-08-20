@@ -73,10 +73,21 @@
                                                 class="form-check-input @error('kategori')
                                             is-invalid
                                         @enderror"
+                                                type="radio" name="kategori" id="kue_tradisional" value="kue_tradisional"
+                                                @if (old('kategori') == 'kue_tradisional') checked @endif required>
+                                            <label class="form-check-label" for="kue_tradisional">
+                                                Kue Tradisional (Jajanan Pasar)
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input
+                                                class="form-check-input @error('kategori')
+                                            is-invalid
+                                        @enderror"
                                                 type="radio" name="kategori" id="kue" value="kue"
                                                 @if (old('kategori') == 'kue') checked @endif required>
                                             <label class="form-check-label" for="kue">
-                                                Kue Loyang
+                                                Cake
                                             </label>
                                         </div>
                                         <div class="form-check">
@@ -85,6 +96,13 @@
                                                 @if (old('kategori') == 'kue_kering') checked @endif required>
                                             <label class="form-check-label" for="kue_kering">
                                                 Kue Kering
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="kategori" value="bakery"
+                                                id="bakery" @if (old('kategori') == 'bakery') checked @endif required>
+                                            <label class="form-check-label" for="bakery">
+                                                Bakery
                                             </label>
                                         </div>
                                         <div class="form-check">
@@ -110,7 +128,8 @@
                                     </div>
                                     <div class="col-lg-10 mb-3 mx-auto">
                                         <label for="image" class="form-label">Gambar</label>
-                                        <input type="file" class="form-control" name="image" required accept="image/*">
+                                        <input type="file" class="form-control" name="image" required
+                                            accept="image/*">
                                         @error('image')
                                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                                 <ul>
@@ -118,7 +137,8 @@
                                                         <li>{{ $error }}</li>
                                                     @endforeach
                                                 </ul>
-                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>

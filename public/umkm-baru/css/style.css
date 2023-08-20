@@ -7,7 +7,7 @@
     --bg: #f2f1ec;
     --black: #000;
     --white: #fff;
-    --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 * {
@@ -46,6 +46,15 @@ section {
 }
 
 .heading {
+    text-align: center;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    padding: 1.2rem 0;
+    font-size: 4rem;
+}
+.heading2 {
+    margin-top: 100px;
     text-align: center;
     color: var(--primary-color);
     text-transform: uppercase;
@@ -399,6 +408,26 @@ section {
     size: 85%;
 } */
 
+/* Gaya untuk wadah utama Swiper */
+.swiper-container {
+    width: 100%;
+    height: 300px; /* Sesuaikan tinggi dengan kebutuhan */
+}
+.swiper-container img {
+    width: 200px;
+}
+
+/* Gaya untuk setiap slide */
+.swiper-slide {
+    text-align: center;
+}
+
+/* Gaya untuk deskripsi testimonial */
+.swiper-slide p {
+    margin-top: 10px;
+    font-style: italic;
+}
+
 .content-slide {
     display: flex;
     flex-direction: column;
@@ -591,6 +620,13 @@ lottie-player {
     line-height: 1.6;
     color: var(--black);
 }
+
+.acumalaka {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--black);
+}
+
 .product .product-row .product-content .orderNow {
     height: 3rem;
     margin-top: 2rem;
@@ -614,6 +650,11 @@ lottie-player {
     font-size: 1.5rem;
 }
 .price {
+    color: black;
+    font-size: 2.5rem;
+}
+
+.acumalaka {
     color: black;
     font-size: 2.5rem;
 }

@@ -90,3 +90,12 @@ var swiper = new Swiper(".product-row", {
         },
     },
 });
+
+var swiper = new Swiper(".swiper-container", {
+    slidesPerView: 1, // Jumlah slide yang ditampilkan sekaligus
+    spaceBetween: 3, // Spasi antara slide
+    pagination: {
+        el: ".swiper-pagination", // Navigasi paginasi
+        clickable: true,
+    },
+});

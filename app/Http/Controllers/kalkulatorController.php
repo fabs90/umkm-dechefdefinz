@@ -223,4 +223,9 @@ class kalkulatorController extends Controller
         return redirect()->back();
     }
 
+    public function nastar()
+    {
+        return view('calc.hitung.nastar');
+    }
+
 }

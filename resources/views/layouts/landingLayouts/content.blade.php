@@ -6,7 +6,7 @@
              <div class="swiper-slide slide">
                  <img src="{{ asset('umkm-baru/images/UKM-dechefdefinz.jpg') }}" class="swiper-img">
                  <div class="content">
-                     <h3>Selamat Datang Di Web Kami</h3>
+                     {{-- <h3>Selamat Datang Di Web Kami</h3> --}}
                      <a href="#product" class="btn"> get started </a>
                  </div>
              </div>
@@ -16,74 +16,65 @@
                      <img src="{{ asset('umkm-baru/images/UKM-dechefdefinz.jpg') }}" class="swiper-img">
                      <lottie-player src="https://lottie.host/c0a38045-e9b3-469d-b9a7-1d1682c7d712/ibLVanJSyR.json"
                          background="transparent" speed="0.5" loop autoplay></lottie-player>
-                     <h3 class="content-slide-text">Kami membuat sesuatu yang spesial setiap harinya</h3>
                      <a href="#product" class="btn"> get started </a>
                  </div>
              </div>
-
          </div>
-
-         <div class="swiper-button-next"></div>
-         <div class="swiper-button-prev"></div>
-
      </div>
-
  </section>
 
  <!-- home section ends -->
 
  {{-- Best Seller --}}
  <section class="product" id="product">
-     <div class="heading">
-         <h2>Best Seller Kami</h2>
-     </div>
-     <div class="swiper product-row">
-         <div class="swiper-wrapper">
-             <div class="swiper-slide box">
-                 <div class="img">
-                     <img src="{{ asset('umkm-baru') }}/images/brownies.jpeg" alt="">
-                 </div>
-                 <div class="product-content">
-                     <h3>Brownies </h3>
-                     <p>siap santap </p>
-                     <div class="price">Rp.75.000 <span>Rp.85.000</span></div>
-                 </div>
+     <h1 class="heading">Produk <span> Kue Tradisional Kami</span></h1>
+     <div class="box-container">
+         <div class="box">
+             <div class="image">
+                 <img src="{{ asset('umkm-baru') }}/images/risol.jpeg" alt="">
              </div>
-             <div class="swiper-slide box">
-                 <div class="img">
-                     <img src="{{ asset('umkm-baru') }}/images/kue sus vanilla.jpeg" style="width: 65%;">
-                 </div>
-                 <div class="product-content">
-                     <h3>Kue Sus rasa Vanilla</h3>
-                     <p>siap santap.
-
-                     </p>
-                     <div class="price">Rp.15.000 <span>Rp.25.000</span></div>
-                 </div>
+             <div class="content">
+                 <h3>Risol Ragout</h3>
+                 <span class="price">Rp 5.500/pcs</span>
+                 <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
              </div>
-             <div class="swiper-slide box">
-                 <div class="img">
-                     <img src="{{ asset('umkm-baru') }}/images/kuedonat.jpeg">
-                 </div>
-                 <div class="product-content">
-                     <h3>Kue Donat</h3>
-                     <p>siap santap.
-
-                     </p>
-                     <div class="price">Rp.15.000 <span>Rp.25.000</span></div>
-                 </div>
-             </div>
-
-
          </div>
-         <div class="swiper-pagination"></div>
-     </div>
 
-     <div class="swiper-pagination"></div>
-     </div>
+         <div class="box">
+             <div class="image">
+                 <img src="{{ asset('umkm-baru') }}/images/Bitterbalen.jpeg" alt="">
+             </div>
+             <div class="content">
+                 <h3>Bitterbalen</h3>
+
+                 <span class="price">Rp 4.000/pcs</span>
+                 <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
+             </div>
+         </div>
+
+         <div class="box">
+             <div class="image">
+                 <img src="{{ asset('umkm-baru') }}/images/pastel bihun sayur telur.jpeg" alt="">
+             </div>
+             <div class="content">
+                 <h3>Pastel Bihun Sayur Telur</h3>
+                 <span class="price">Rp 4.000/pcs</span>
+                 <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
+             </div>
+         </div>
+         <div class="pesan">
+             <div class="">
+             </div>
+             <div class="content">
+             </div>
+         </div>
+         <div class="box">
+             <div class="content price">
+                 <h4>Jika ingin melihat menu yang lain silahkan klik menu lain yang ada dibawah ini</h4>
+                 <a href="https://kjkmu.000webhostapp.com/menukue.html" class="acumalaka">Menu Lain</a>
+             </div>
+         </div>
  </section>
-
-
 
  <!-- about us -->
 
@@ -278,13 +269,23 @@
 
  <!-- review -->
  <section class="review" id="review">
-     <h1 class="heading">Review <span>Kustomer</span> </h1>
+     <h1 class="heading">Testimoni <span>Kustomer</span> </h1>
+     <div class="swiper-container">
+         <div class="swiper-wrapper">
+             <!-- Setiap slide -->
+             @yield('testimoni-section')
+             <!-- Tambahkan slide lain sesuai kebutuhan -->
+         </div>
+         <div class="swiper-pagination"></div>
+     </div>
+     <h1 class="heading2">Review <span>Kustomer</span> </h1>
      <div class="swiper review-row">
          <div class="swiper-wrapper">
              @yield('review-section')
          </div>
          <div class="swiper-pagination"></div>
      </div>
+
  </section>
 
  <!-- review -->

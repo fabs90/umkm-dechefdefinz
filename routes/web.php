@@ -23,6 +23,7 @@ Route::get('/', [ReviewController::class, 'showReview'])->name('home');
 Route::get('/kue', [ReviewController::class, 'showMenuKue'])->name('landing.menuKue');
 Route::get('/kue-kering', [ReviewController::class, 'showMenuKueKering'])->name('landing.menuKueKering');
 Route::get('/nasi', [ReviewController::class, 'showMenuNasi'])->name('landing.menuNasi');
+Route::get('/kue-tradisional', [ReviewController::class, 'showKueTradisional'])->name('landing.kueTradisional');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('onlyGuest');
 Route::post('/login', [LoginController::class, 'login'])->name('login.process');
@@ -35,12 +36,17 @@ Route::middleware(['isLogin'])->group(function () {
     Route::get('/admin/kueloyang/{slug}', [MenuController::class, 'showKueLoyang'])->name('menu.showKueLoyang');
     Route::get('/admin/kuekering/{slug}', [MenuController::class, 'showKueKering'])->name('menu.showKueKering');
     Route::get('/admin/menunasi/{slug}', [MenuController::class, 'showMenuNasi'])->name('menu.showMenuNasi');
+    Route::get('/admin/bakery/{slug}', [MenuController::class, 'showMenuBakery'])->name('menu.showMenuBakery');
+    Route::get('/admin/kuetradisional/{slug}', [MenuController::class, 'showMenuKueTradisional'])->name('menu.showMenuKueTradisional');
+
     Route::patch('/admin/kueloyang/update/{slug}', [MenuController::class, 'updateKueLoyang'])->name('menu.prosesUpdateKueLoyang');
     Route::patch('/admin/kuekering/update/{slug}', [MenuController::class, 'updateKueKering'])->name('menu.prosesUpdateKueKering');
     Route::patch('/admin/menunasi/update/{slug}', [MenuController::class, 'updateMenuNasi'])->name('menu.prosesUpdateMenuNasi');
+
     Route::delete('/admin/deleteNasi/{slug}', [MenuController::class, 'hapusMenuNasi'])->name('menu.hapusMenuNasi');
     Route::delete('/admin/deleteKueLoyang/{slug}', [MenuController::class, 'hapusMenuKueLoyang'])->name('menu.hapusMenuKueLoyang');
     Route::delete('/admin/deleteKueKering/{slug}', [MenuController::class, 'hapusMenuKuekering'])->name('menu.hapusMenuKueKering');
+    Route::delete('/admin/deleteBakery/{slug}', [MenuController::class, 'hapusMenuBakery'])->name('menu.hapusMenuBakery');
 
     // Bahan
     Route::get('/admin/bahan/tambah', [BahanController::class, 'createBahan'])->name('create-bahan');
@@ -59,6 +65,14 @@ Route::middleware(['isLogin'])->group(function () {
     Route::post("/admin/calculator/kue-sus-vanilla/hp", [kalkulatorController::class, 'kueSusVanillaHP'])->name('kueSusVanilla.hp');
     Route::get("/admin/calculator/sagu-keju", [kalkulatorController::class, 'saguKeju'])->name('sagu-keju');
     Route::post("/admin/calculator/sagu-keju/hp", [kalkulatorController::class, 'saguKejuHP'])->name('sagu-keju.hp');
+    Route::get("/admin/calculator/nastar", [kalkulatorController::class, 'nastar'])->name('nastar');
+
+    // List Review
+    Route::get('/admin/list-review', [ReviewController::class, 'listReview'])->name('listReview');
+    Route::delete('/admin/list-review/{id}/delete', [ReviewController::class, 'deleteReview'])->name('listReview.delete');
+    Route::get('/admin/add-review-photo', [ReviewController::class, 'showFormImageReview'])->name('imageReview');
+    Route::post('/admin/add-review-photo/upload', [ReviewController::class, 'storeImageReview'])->name('imageReview.add');
+    Route::delete('admin/add-review-photo/{id}/delete', [ReviewController::class, 'deleteImageReview'])->name('imageReview.delete');
 
 });
 

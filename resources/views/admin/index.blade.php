@@ -27,7 +27,7 @@
                         <!-- small box -->
                         <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3>{{ $jumlahKL + $jumlahKK + $jumlahNasi }}</h3>
+                                <h3>{{ $jumlahKL + $jumlahKK + $jumlahNasi + $jumlahBakery }}</h3>
                                 <p>Jumlah Menu</p>
                             </div>
                             <div class="icon">
@@ -41,13 +41,31 @@
 
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
+                        <div class="small-box bg-success">
+                            <div class="inner">
+                                <h3>
+                                    {{ $jumlahKueTradisional }}
+                                </h3>
+                                <p>Jajanan Tradisional</p>
+                            </div>
+                            <div class="icon">
+                                {{-- <i class="ion ion-bag"></i> --}}
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <a href="#menu-kue-loyang" class="small-box-footer">More info <i
+                                    class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
                                 <h3>
                                     {{ $jumlahKL }}
                                 </h3>
-
-                                <p>Kue Loyang</p>
+                                <p>Cake</p>
                             </div>
                             <div class="icon">
                                 {{-- <i class="ion ion-bag"></i> --}}
@@ -60,7 +78,7 @@
                     <!-- ./col -->
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
-                        <div class="small-box bg-success">
+                        <div class="small-box bg-secondary">
                             <div class="inner">
                                 <h3>{{ $jumlahKK }}</h3>
                                 {{-- <sup style="font-size: 20px">%</sup> --}}
@@ -76,6 +94,22 @@
                     <!-- ./col -->
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
+                        <div class="small-box bg-primary">
+                            <div class="inner">
+                                <h3>{{ $jumlahBakery }}</h3>
+                                {{-- <sup style="font-size: 20px">%</sup> --}}
+                                <p>Bakery</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-bread-slice"></i>
+                            </div>
+                            <a href="#table-bakery" class="small-box-footer">More info <i
+                                    class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
                         <div class="small-box bg-warning">
                             <div class="inner">
                                 <h3 style="color: white">{{ $jumlahNasi }}</h3>
@@ -85,7 +119,7 @@
                             <div class="icon">
                                 <i class="fas fa-utensils"></i>
                             </div>
-                            <a href="#menu_nasi" class="small-box-footer" style="color: white">More info <i
+                            <a href="#table-nasi" class="small-box-footer" style="color: white">More info <i
                                     class="fas fa-arrow-circle-right" style="color: white"></i></a>
                         </div>
                     </div>
@@ -100,7 +134,83 @@
                             <div class="card-header" id="menu-kue-loyang">
                                 <h3 class="card-title">
                                     <i class="fas fa-chart-pie mr-1"></i>
-                                    Kue Loyang
+                                    Kue Tradisional (Jajanan Pasar)
+                                </h3>
+
+                            </div><!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="tab-content p-0">
+                                    <table id="table-kue-loyang"
+                                        class="table table-striped table-bordered text-center table-responsive-sm"
+                                        cellpadding="0" cellspacing="0" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">No.</th>
+                                                <th scope="col">Nama</th>
+                                                <th scope="col">Harga Normal</th>
+                                                <th scope="col">Harga diskon</th>
+                                                <th scope="col">Deskripsi</th>
+                                                <th scope="col">Image</th>
+                                                <th scope="col" class="col-2">Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <?php $i = 1; ?>
+
+                                            @foreach ($kueTradisional as $menu)
+                                                <tr>
+                                                    <td>{{ $i }}</td>
+                                                    <td>{{ $menu->name }}</td>
+                                                    <td>Rp.{{ number_format($menu->harga_normal, 2, ',', '.') }}</td>
+                                                    <td>
+                                                        @if ($menu->harga_diskon > 0)
+                                                            {{ $menu->harga_diskon }}
+                                                        @else
+                                                            0
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        {{ $menu->deskripsi }}
+                                                    </td>
+                                                    <td>
+                                                        <img src="{{ asset("storage/kueTradisional/$menu->image") }}"
+                                                            class="image-kue-loyang">
+                                                    </td>
+                                                    <td>
+                                                        <a class="btn btn-sm btn-success"
+                                                            href="{{ route('menu.showKueLoyang', ['slug' => $menu->slug]) }}"
+                                                            role="button" id="btn-update">Ubah</a>
+                                                        <form
+                                                            action="{{ route('menu.hapusMenuKueLoyang', ['slug' => $menu->slug]) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit"
+                                                                class="btn btn-sm btn-danger btn-hapus">Delete</button>
+                                                        </form>
+                                                    </td>
+
+                                                </tr>
+                                                <?php $i++; ?>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div><!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Card Nasi-->
+                        <div class="card">
+                            <div class="card-header" id="menu-kue-loyang">
+                                <h3 class="card-title">
+                                    <i class="fas fa-chart-pie mr-1"></i>
+                                    Cake
                                 </h3>
 
                             </div><!-- /.card-header -->
@@ -253,6 +363,81 @@
                             <div class="card-header">
                                 <h3 class="card-title">
                                     <i class="fas fa-chart-pie mr-1"></i>
+                                    Bakery
+                                </h3>
+
+                            </div><!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="tab-content p-0">
+                                    <table id="table-bakery"
+                                        class="table table-striped table-bordered text-center table-responsive-sm"
+                                        cellpadding="0" cellspacing="0" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">No.</th>
+                                                <th scope="col">Nama</th>
+                                                <th scope="col">Harga Normal</th>
+                                                <th scope="col">Harga diskon</th>
+                                                <th scope="col">Deskripsi</th>
+                                                <th scope="col">Image</th>
+                                                <th scope="col" class="col-2">Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $i = 1; ?>
+                                            @foreach ($bakery as $menu)
+                                                <tr>
+                                                    <td>{{ $i }}</td>
+                                                    <td>{{ $menu->name }}</td>
+                                                    <td>Rp.{{ number_format($menu->harga_normal, 2, ',', '.') }}</td>
+                                                    <td>
+                                                        @if ($menu->harga_diskon > 0)
+                                                            {{ $menu->harga_diskon }}
+                                                        @else
+                                                            0
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        {{ $menu->deskripsi }}
+                                                    </td>
+                                                    <td>
+                                                        <img src="{{ asset("storage/bakery/$menu->image") }}"
+                                                            class="image-nasi">
+                                                    </td>
+                                                    <td>
+                                                        <a class="btn btn-sm btn-success"
+                                                            href="{{ route('menu.showMenuBakery', ['slug' => $menu->slug]) }}"
+                                                            role="button" id="btn-update">Ubah</a>
+                                                        <form
+                                                            action="{{ route('menu.hapusMenuBakery', ['slug' => $menu->slug]) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit"
+                                                                class="btn btn-sm btn-danger btnHapusNasi">Delete</button>
+                                                        </form>
+                                                    </td>
+
+                                                </tr>
+                                                <?php $i++; ?>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div><!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </section>
+                </div>
+                <!-- /.row (main row) -->
+                <!-- Main row -->
+                <div class="row">
+                    <section class="col-12">
+                        <!-- Card Nasi-->
+                        <div class="card" id="menu_nasi">
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <i class="fas fa-chart-pie mr-1"></i>
                                     Nasi
                                 </h3>
 
@@ -261,7 +446,7 @@
                                 <div class="tab-content p-0">
                                     <table id="table-nasi"
                                         class="table table-striped table-bordered text-center table-responsive-sm"
-                                        cellpadding="0" cellspacing="0" style="width:100%">
+                                        style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th scope="col">No.</th>

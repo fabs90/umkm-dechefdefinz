@@ -1,5 +1,12 @@
 @extends('layouts.landing')
-
+@section('testimoni-section')
+    @foreach ($testimoni as $item)
+        <div class="swiper-slide">
+            <img src="{{ asset("storage/testimoni/$item->image") }}" alt="Testimoni">
+            <p>Nama : {{ $item->name }}</p>
+        </div>
+    @endforeach
+@endsection
 @section('review-section')
     @foreach ($datas as $item)
         <div class="swiper-slide box">
@@ -8,11 +15,7 @@
             </div>
             <div class="client-info">
                 <div class="img">
-                    @if ($item->image == null)
                         <img src="{{ asset('umkm-baru') }}/images/user-circle.png" class="user">
-                    @else
-                        <img src="{{ asset('umkm-baru') }}/images/afrel.jpeg" class="user">
-                    @endif
                 </div>
                 <div class="clientDetailed">
                     <h3>{{ $item->name }}</h3>

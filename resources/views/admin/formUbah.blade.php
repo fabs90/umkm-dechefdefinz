@@ -82,7 +82,18 @@
                                                 type="radio" name="kategori" id="kue" value="kue"
                                                 @if ($tableName == 'menu_kue') checked @endif required>
                                             <label class="form-check-label" for="kue">
-                                                Kue Loyang
+                                                Cake
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input
+                                                class="form-check-input @error('kategori')
+                                        is-invalid
+                                    @enderror"
+                                                type="radio" name="kategori" id="kue_tradisional" value="kue_tradisional"
+                                                @if ($tableName == 'kue_tradisional') checked @endif required>
+                                            <label class="form-check-label" for="kue_tradisional">
+                                                Kue Tradisional (Jajanan Pasar)
                                             </label>
                                         </div>
                                         <div class="form-check">
@@ -98,6 +109,13 @@
                                                 value="nasi" @if ($tableName == 'menu_nasi') checked @endif required>
                                             <label class="form-check-label" for="nasi">
                                                 Nasi
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="kategori" id="bakery"
+                                                value="bakery" @if ($tableName == 'bakeries') checked @endif required>
+                                            <label class="form-check-label" for="bakery">
+                                                Bakery
                                             </label>
                                         </div>
                                     </div>
@@ -137,7 +155,8 @@
                                                         <li>{{ $error }}</li>
                                                     @endforeach
                                                 </ul>
-                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>

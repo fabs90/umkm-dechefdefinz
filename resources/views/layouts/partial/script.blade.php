@@ -108,29 +108,32 @@
         });
 
 
-        $('.update-bahan').click(function(event) {
+        $('#btn-update-bahan').on('click', function(event) {
             event.preventDefault();
             var form = $(this).closest('form');
             Swal.fire({
-                title: 'Ingin mengubah data menu?',
-                text: 'Harga menu bahan baku akan berubah!',
+                title: 'Ingin mengubah harga bahan baku?',
+                text: 'Harga bahan baku akan terubah!',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, ubah!',
-                cancelButtonText: 'Cancel'
+                confirmButtonText: 'Ya, ubah',
+                cancelButtonText: 'Tidak'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    form.submit;
+                    form.submit();
                 }
             })
-        });
+        })
 
     });
     $.widget.bridge('uibutton', $.ui.button)
 
     new DataTable('#table-nasi', {
+        responsive: true
+    });
+    new DataTable('#table-bakery', {
         responsive: true
     });
     new DataTable('#table-kue-loyang', {
@@ -140,6 +143,12 @@
         responsive: true
     });
     new DataTable('#tabel-bahan-baku', {
+        responsive: true
+    })
+    new DataTable('#tabel-review', {
+        responsive: true
+    })
+    new DataTable('#tabel-testimoni', {
         responsive: true
     })
 </script>

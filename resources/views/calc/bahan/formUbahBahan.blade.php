@@ -35,8 +35,7 @@
                         {{-- Table --}}
                         <div class="tab-content p-0">
                             <table id="tabel-bahan-baku"
-                                class="table table-striped table-bordered text-center table-responsive-sm" cellpadding="0"
-                                cellspacing="0">
+                                class="table table-striped table-bordered text-center table-responsive-sm">
                                 <thead>
                                     <tr>
                                         <th scope="col">No.</th>
@@ -57,9 +56,9 @@
                                             <td>
                                                 <form
                                                     action="{{ route('harga-bahan-baku.update', ['nama_bahan' => $menu->nama_bahan]) }}"
-                                                    method="post">
+                                                    method="POST">
                                                     @csrf
-                                                    @method('patch')
+                                                    @method('PATCH')
                                                     <input type="number" name="harga_baru"
                                                         placeholder="Masukan harga baru">
                                             </td>

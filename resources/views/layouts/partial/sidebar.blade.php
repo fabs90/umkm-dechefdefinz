@@ -54,6 +54,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="/admin/bahan" class="nav-link">
+                        <i class="nav-icon bi bi-card-checklist"></i>
+                        <p>
+                            List Bahan Baku
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('create-bahan') }}" class="nav-link">
                         <i class="nav-icon fas fa-carrot"></i>
                         <p>
@@ -62,10 +70,18 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/admin/bahan" class="nav-link">
-                        <i class="nav-icon bi bi-card-checklist"></i>
+                    <a href="{{ route('listReview') }}" class="nav-link">
+                        <i class="nav-icon bi bi-person-lines-fill"></i>
                         <p>
-                            List Bahan Baku
+                            List Review
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('imageReview') }}" class="nav-link">
+                        <i class="nav-icon bi bi-image"></i>
+                        <p>
+                            Tambah Testimoni
                         </p>
                     </a>
                 </li>
