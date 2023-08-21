@@ -29,54 +29,78 @@
 
         <h1>Kalkulator Biaya Bahan Baku</h1>
         <br />
-        <label for="harga-bahan">Air:</label>
-        <input type="number" name="air" id="air" placeholder="Masukan jumlah (ml) air yang dipakai"
-            step="any" value="{{ old('air', session('input_values.air')) }}" required />
+        <label for="harga-bahan">Butter:</label>
+        <input type="number" name="butter" id="butter" placeholder="Masukan jumlah (gr) butter yang dipakai"
+            step="any" value="{{ old('butter', session('input_values.butter')) }}" required />
         <label for="harga-bahan">Margarin:</label>
         <input type="number" name="margarin" id="margarin" placeholder="Masukan jumlah (gr) margarin yang dipakai"
             step="any" value="{{ old('margarin', session('input_values.margarin')) }}" required />
+
+        <label for="harga-bahan">Telur:</label>
+        <input type="number" id="telur" name="telur" placeholder="Masukkan jumlah telur yang dipakai"
+            step="any" value="{{ old('telur', session('input_values.telur')) }}" required />
+
+        <label for="gula-halus">Gula Halus:</label>
+        <input type="number" id="gula-halus"
+            name="gula-halus"placeholder="Masukkan jumlah (gr) gula halus yang dipakai" step="any"
+            value="{{ old('gula-halus', session('input_values.gula-halus')) }}" required />
+
+        <label for="harga-bahan">Vanilla:</label>
+        <input type="number" id="vanilla" name="vanilla" placeholder="Masukkan jumlah (gr) vanilla yang dipakai"
+            step="any" value="{{ old('vanilla', session('input_values.vanilla')) }}" required />
+
+        <label for="harga-bahan">Susu Bubuk:</label>
+        <input type="number" id="susu_bubuk" name="susu_bubuk"
+            placeholder="Masukkan jumlah sachet susu_bubuk yang dipakai" step="any"
+            value="{{ old('susu_bubuk', session('input_values.susu_bubuk')) }}" required />
 
         <label for="harga-bahan">Tepung Terigu:</label>
         <input type="number" id="tepung_terigu" name="tepung_terigu"
             placeholder="Masukkan jumlah (gr) tepung terigu yang dipakai" step="any"
             value="{{ old('tepung_terigu', session('input_values.tepung_terigu')) }}" required />
 
-        <label for="tepung_terigu_pro_tinggi">Tepung Terigu Pro. Tinggi:</label>
-        <input type="number" id="tepung_terigu_pro_tinggi"
-            name="tepung_terigu_pro_tinggi"placeholder="Masukkan jumlah (gr) tepung terigu pro. tinggi yang dipakai"
-            step="any"
-            value="{{ old('tepung_terigu_pro_tinggi', session('input_values.tepung_terigu_pro_tinggi')) }}" required />
+        <label for="harga-bahan">Nanas:</label>
+        <input type="number" id="nanas" name="nanas" placeholder="Masukkan jumlah nanas yang dipakai"
+            step="any" value="{{ old('nanas', session('input_values.nanas')) }}" required />
 
         <label for="harga-bahan">Gula Pasir:</label>
-        <input type="number" id="gula_pasir" name="gula_pasir"
-            placeholder="Masukkan jumlah (gr) gula pasir yang dipakai" step="any"
-            value="{{ old('gula_pasir', session('input_values.gula_pasir')) }}" required />
+        <input type="number" id="gula_pasir" name="gula_pasir" placeholder="Masukkan (gr) gula pasir yang dipakai"
+            step="any" value="{{ old('gula_pasir', session('input_values.gula_pasir')) }}" required />
 
         <label for="harga-bahan">Garam:</label>
-        <input type="number" id="garam" name="garam" placeholder="Masukkan jumlah (gr) garam yang dipakai"
+        <input type="number" id="garam" name="garam" placeholder="Masukkan (sdt) garam yang dipakai"
             step="any" value="{{ old('garam', session('input_values.garam')) }}" required />
 
-        <label for="harga-bahan">Tepung Maezena:</label>
-        <input type="number" id="tepung_maezena" name="tepung_maezena"
-            placeholder="Masukkan jumlah (gr) tepung-maezeka yang dipakai" step="any"
-            value="{{ old('tepung_maezena', session('input_values.tepung_maezena')) }}" required />
+        <label for="harga-bahan">Batang Kayu Manis:</label>
+        <input type="number" id="batang_kayu" name="batang_kayu" placeholder="Masukkan batang kayu yang dipakai"
+            step="any" value="{{ old('batang_kayu', session('input_values.batang_kayu')) }}" required />
+
+        <label for="harga-bahan">Daun Pandan:</label>
+        <input type="number" id="daun_pandan" name="daun_pandan" placeholder="Masukkan lembar daun pandan yang dipakai"
+            step="any" value="{{ old('daun_pandan', session('input_values.daun_pandan')) }}" required />
+
+        <label for="harga-bahan">Kuning Telur:</label>
+        <input type="number" id="kuning_telurr" name="kuning_telurr"
+            placeholder="Masukkan butir kuning telur yang dipakai" step="any"
+            value="{{ old('kuning_telurr', session('input_values.kuning_telurr')) }}" required />
 
         <label for="harga-bahan">Susu Cair:</label>
-        <input type="number" id="susu_cair" name="susu_cair" placeholder="Masukkan jumlah (ml) susu cair yang dipakai"
+        <input type="number" id="susu_cair" name="susu_cair" placeholder="Masukkan (sdt) susu cair yang dipakai"
             step="any" value="{{ old('susu_cair', session('input_values.susu_cair')) }}" required />
 
-        <label for="harga-bahan">Kuning Telur</label>
-        <input type="number" id="kuning_telur" name="kuning_telur"
-            placeholder="Masukkan jumlah (butir) kuning telur yang dipakai" step="any"
-            value="{{ old('kuning_telur', session('input_values.kuning_telur')) }}" required />
+        <label for="harga-bahan">Minyak Sayur:</label>
+        <input type="number" id="minyak_sayur" name="minyak_sayur"
+            placeholder="Masukkan (sdt) minyak sayur yang dipakai" step="any"
+            value="{{ old('minyak_sayur', session('input_values.minyak_sayur')) }}" required />
 
-        <label for="harga-bahan">Butter:</label>
-        <input type="number" id="butter" name="butter" placeholder="Masukkan jumlah (gr) butter yang dipakai"
-            step="any" value="{{ old('butter', session('input_values.butter')) }}" required />
+        <label for="harga-bahan">Pasta Vanilla:</label>
+        <input type="number" id="daun_pandan" name="daun_pandan"
+            placeholder="Masukkan (sdt) pasta vanilla yang dipakai" step="any"
+            value="{{ old('daun_pandan', session('input_values.daun_pandan')) }}" required />
 
-        <label for="harga-bahan">Vanilla:</label>
-        <input type="number" id="vanilla" name="vanilla" placeholder="Masukkan jumlah (sdt) Vanilla yang dipakai"
-            step="any" value="{{ old('vanilla', session('input_values.vanilla')) }}" required />
+        <label for="harga-bahan">Madu:</label>
+        <input type="number" id="madu" name="madu" placeholder="Masukkan (sdt) madu yang dipakai"
+            step="any" value="{{ old('madu', session('input_values.madu')) }}" required />
 
 
         {{-- <button type="submit">Hitung</button> --}}
@@ -96,30 +120,38 @@
 
         <h1>Kalkulator biaya kemasan</h1>
 
-        <label for="harga-bahan">Paper Cup:</label>
-        <input type="number" id="paper" name="paper_cup" placeholder="Masukkan jumlah paper" step="any"
-            value="{{ old('paper_cup', session('input_values.paper_cup')) }}" required />
+        <label for="harga-bahan">Toples:</label>
+        <input type="number" id="toples" name="toples" placeholder="Masukkan jumlah toples" step="any"
+            value="{{ old('toples', session('input_values.toples')) }}" required />
 
-        <label for="harga-bahan">Harga Paper:</label>
-        <input type="number" id="harga_paper_cup" name="harga_paper_cup"
-            placeholder="Masukkan harga satuan paper cup" step="any"
-            value="{{ old('harga-paper', session('input_values.harga-paper')) }}" required />
+        <label for="harga-bahan">Harga Toples:</label>
+        <input type="number" id="harga_toples" name="harga_toples" placeholder="Masukkan harga satuan toples"
+            step="any" value="{{ old('harga_toples', session('input_values.harga_toples')) }}" required />
         <br><br>
-        <label for="harga-bahan">Kardus:</label>
-        <input type="number" id="kardus" name="kardus" placeholder="Masukkan jumlah kardus" step="any"
-            value="{{ old('kardus', session('input_values.kardus')) }}" required />
+        <label for="harga-bahan">Paper Doley:</label>
+        <input type="number" id="paper_doley" name="paper_doley" placeholder="Masukkan jumlah paper_doley"
+            step="any" value="{{ old('paper_doley', session('input_values.paper_doley')) }}" required />
 
-        <label for="harga-bahan">Harga Kardus:</label>
-        <input type="number" id="harga-kardus" name="harga_kardus" placeholder="Masukkan harga satuan kardus"
-            step="any" value="{{ old('harga_kardus', session('input_values.harga_kardus')) }}" required />
+        <label for="harga-bahan">Harga Paper Doley:</label>
+        <input type="number" id="harga_paper_doley" name="harga_paper_doley"
+            placeholder="Masukkan harga paper doley" step="any"
+            value="{{ old('harga_paper_doley', session('input_values.harga_paper_doley')) }}" required />
         <br><br>
-        <label for="harga-bahan">Label:</label>
-        <input type="number" id="label" name="label" placeholder="Masukkan jumlah label" step="any"
-            value="{{ old('label', session('input_values.label')) }}"required />
+        <label for="harga-bahan">Solatip:</label>
+        <input type="number" id="solatip" name="solatip" placeholder="Masukkan jumlah solatip yang dipakai"
+            step="any" value="{{ old('solatip', session('input_values.solatip')) }}"required />
 
-        <label for="harga-bahan">Harga Label:</label>
-        <input type="number" id="harga-label" name="harga_label" placeholder="Masukkan harga satuan label"
-            step="any" value="{{ old('harga_label', session('input_values.harga_label')) }}" required />
+        <label for="harga-bahan">Harga Solatip:</label>
+        <input type="number" id="harga_solatip" name="harga_solatip" placeholder="Masukkan harga solatip"
+            step="any" value="{{ old('harga_solatip', session('input_values.harga_solatip')) }}" required />
+        <br><br>
+        <label for="harga-bahan">Stiker:</label>
+        <input type="number" id="stiker" name="stiker" placeholder="Masukkan jumlah stiker yang dipakai"
+            step="any" value="{{ old('stiker', session('input_values.stiker')) }}"required />
+
+        <label for="harga-bahan">Harga Stiker:</label>
+        <input type="number" id="harga_stiker" name="harga_stiker" placeholder="Masukkan harga solatip"
+            step="any" value="{{ old('harga_stiker', session('input_values.harga_stiker')) }}" required />
 
         {{-- <button type="submit">Hitung</button> --}}
 
@@ -147,6 +179,10 @@
         <label for="harga-bahan">Air:</label>
         <input type="number" id="air" name="air" placeholder="Masukkan harga air yang digunakan"
             value="{{ old('air', session('input_values.air')) }}" required />
+
+        <label for="harga-bahan">Jumlah Karyawan:</label>
+        <input type="number" id="jumlah_karyawan" name="jumlah_karyawan" placeholder="Masukkan jumlah karyawan"
+            value="{{ old('jumlah_karyawan', session('input_values.jumlah_karyawan')) }}" required />
 
         <label for="harga-bahan">Gaji Karyawan:</label>
         <input type="number" id="gaji" name="gaji" placeholder="Masukkan harga gaji karyawan per jam"
