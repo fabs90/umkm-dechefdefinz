@@ -228,4 +228,73 @@ class kalkulatorController extends Controller
         return view('calc.hitung.nastar');
     }
 
+    public function nastarHP(Request $request)
+    {
+        // Buat session nilai yang diinput user tadi
+        $request->session()->flash('input_values', $request->all());
+
+        // (HP)
+        $bahanBaku = [
+            'butter' => $request->butter * $this->getHargaBahan('butter'),
+            'margarin' => $request->margarin * $this->getHargaBahan('margarin'),
+            'telur' => $request->telur * $this->getHargaBahan('telur'),
+            'gula_halus' => $request->gula_halus * $this->getHargaBahan('gula_halus'),
+            'vanilla' => $request->vanilla * $this->getHargaBahan('vanilla'),
+            'susu-bubuk' => $request->susu_bubuk * $this->getHargaBahan('susu-bubuk-sachet'),
+            'tepung-terigu' => $request->tepung_terigu * $this->getHargaBahan('tepung-terigu'),
+            'nanas' => $request->nanas * $this->getHargaBahan('nanas'),
+            'gula-pasir' => $request->gula_pasir * $this->getHargaBahan('gula-pasir'),
+            'garam' => $request->garam * $this->getHargaBahan('gula-pasir'),
+            'batang-kayu-manis' => $request->batang_kayu_manis * $this->getHargaBahan('batang-kayu-manis'),
+            'daun-pandan' => $request->daun_pandan * $this->getHargaBahan('daun-pandan'),
+            'kuning-telur' => $request->kuning_telur * $this->getHargaBahan('kuning-telur'),
+            'susu-cair' => $request->susu_cair * $this->getHargaBahan('susu-cair'),
+            'minyak-sayur' => $request->minyak_sayur * $this->getHargaBahan('minyak-sayur'),
+            'pasta-vanilla' => $request->pasta_vanilla * $this->getHargaBahan('pasta-vanilla'),
+            'madu' => $request->madu * $this->getHargaBahan('madu'),
+
+        ];
+
+        $bahanBaku = array_sum($bahanBaku);
+
+        // (BK)
+        $biayaKemasan = [
+            'harga_toples' => $request->toples * $request->harga_toples,
+            'harga_paper_doley' => $request->paper_doley * $request->harga_paper_doley,
+            'harga_solatip' => $request->solatip * $request->harga_solatip,
+            'harga_stiker' => $request->stiker * $request->harga_stiker,
+        ];
+
+        $biayaKemasan = array_sum($biayaKemasan);
+
+        // (BP)
+        $hargaGajiKaryawan = $request->gaji;
+        $hargaPerjam = $request->waktu;
+
+        $biayaProduksi = [
+            'harga_listrik' => $request->listrik,
+            'harga_gas' => $request->gas,
+            'harga_air' => $request->air,
+            'harga_total_gaji' => $request->jumlah_karyawan * ($hargaGajiKaryawan * $hargaPerjam),
+        ];
+
+        $biayaProduksi = array_sum($biayaProduksi);
+        // Menghitung HPP
+        $biayaHPP = ($bahanBaku + $biayaKemasan + $biayaProduksi) / $request->jumlah_pesanan;
+
+        // Hitung harga jual
+        $hargaJual = $biayaHPP + (($request->margin / 100) * $biayaHPP);
+
+        // Simpan nilai kedalam session
+        session([
+            'hargaBahanBaku' => $bahanBaku,
+            'biayaKemasan' => $biayaKemasan,
+            'biayaProduksi' => $biayaProduksi,
+            'hpp' => $biayaHPP,
+            'hargaJual' => $hargaJual,
+        ]);
+
+        return redirect()->back();
+    }
+
 }

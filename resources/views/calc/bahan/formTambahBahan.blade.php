@@ -21,7 +21,8 @@
                                         <input type="text" name="nama_bahan"
                                             class="form-control @error('nama_bahan') is-invalid @enderror" id="nama_bahan"
                                             aria-describedby="nama_bahanHelp" placeholder="Nama bahan" required
-                                            autocomplete="off" value="{{ old('nama_bahan') }}">
+                                            autocomplete="off" value="{{ old('nama_bahan') }}"
+                                            style="text-transform:lowercase">
                                         @error('nama_bahan')
                                             <div id="validationServer03Feedback" class="invalid-feedback">
                                                 {{ $message }}
@@ -82,11 +83,33 @@
                                                 1 ml (mililiter)
                                             </label>
                                         </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="kategori" id="buah"
+                                                value="buah" @if (old('kategori') == 'buah') checked @endif required>
+                                            <label class="form-check-label" for="buah">
+                                                1 Buah
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="kategori" id="batang"
+                                                value="batang" @if (old('kategori') == 'batang') checked @endif required>
+                                            <label class="form-check-label" for="batang">
+                                                1 Batang
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="kategori" id="lembar"
+                                                value="lembar" @if (old('kategori') == 'lembar') checked @endif required>
+                                            <label class="form-check-label" for="lembar">
+                                                1 Lembar
+                                            </label>
+                                        </div>
                                     </div>
                                     {{-- End Col Satuan --}}
                                     {{-- Button --}}
                                     <div class="col-lg-10 my-4 d-flex justify-content-center mx-auto">
-                                        <input class="btn btn-success w-75 btn-block" type="submit" value="Tambah bahan!">
+                                        <input class="btn btn-success w-75 btn-block" type="submit"
+                                            value="Tambah bahan!">
                                     </div>
                                     <div class="col-lg-10 my-2">
                                         <h6>Catatan:</h6>

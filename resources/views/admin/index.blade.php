@@ -27,7 +27,7 @@
                         <!-- small box -->
                         <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3>{{ $jumlahKL + $jumlahKK + $jumlahNasi + $jumlahBakery }}</h3>
+                                <h3>{{ $jumlahKL + $jumlahKK + $jumlahNasi + $jumlahBakery + $jumlahKueTradisional }}</h3>
                                 <p>Jumlah Menu</p>
                             </div>
                             <div class="icon">
@@ -174,15 +174,15 @@
                                                         {{ $menu->deskripsi }}
                                                     </td>
                                                     <td>
-                                                        <img src="{{ asset("storage/kueTradisional/$menu->image") }}"
+                                                        <img src="{{ asset("storage/kue_tradisional/$menu->image") }}"
                                                             class="image-kue-loyang">
                                                     </td>
                                                     <td>
                                                         <a class="btn btn-sm btn-success"
-                                                            href="{{ route('menu.showKueLoyang', ['slug' => $menu->slug]) }}"
+                                                            href="{{ route('menu.showMenuKueTradisional', ['slug' => $menu->slug]) }}"
                                                             role="button" id="btn-update">Ubah</a>
                                                         <form
-                                                            action="{{ route('menu.hapusMenuKueLoyang', ['slug' => $menu->slug]) }}"
+                                                            action="{{ route('menu.hapusKueTradisional', ['slug' => $menu->slug]) }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')

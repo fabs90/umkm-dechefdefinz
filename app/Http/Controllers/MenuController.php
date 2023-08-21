@@ -228,30 +228,46 @@ class MenuController extends Controller
     public function showKueLoyang(string $slug)
     {
         $data = Menu_Kue::where('slug', $slug)->first();
+        if (!$data) {
+            redirect()->back()->withErrors("Data tidak ditemukan");
+        }
         $tableName = $data->getTable();
         return view('admin.formUbah', compact('data', 'tableName'));
     }
     public function showKueKering(string $slug)
     {
         $data = Menu_Kue_Kering::where('slug', $slug)->first();
+        if (!$data) {
+            redirect()->back()->withErrors("Data tidak ditemukan");
+        }
         $tableName = $data->getTable();
         return view('admin.formUbah', compact('data', 'tableName'));
     }
     public function showMenuNasi(string $slug)
     {
         $data = Menu_Nasi::where('slug', $slug)->first();
+        if (!$data) {
+            redirect()->back()->withErrors("Data tidak ditemukan");
+        }
         $tableName = $data->getTable();
         return view('admin.formUbah', compact('data', 'tableName'));
     }
     public function showMenuBakery(string $slug)
     {
         $data = Bakery::where('slug', $slug)->first();
+        if (!$data) {
+            redirect()->back()->withErrors("Data tidak ditemukan");
+        }
         $tableName = $data->getTable();
+
         return view('admin.formUbah', compact('data', 'tableName'));
     }
     public function showMenuKueTradisional(string $slug)
     {
         $data = KueTradisional::where('slug', $slug)->first();
+        if (!$data) {
+            redirect()->back()->withErrors("Data tidak ditemukan");
+        }
         $tableName = $data->getTable();
         return view('admin.formUbah', compact('data', 'tableName'));
     }
@@ -296,6 +312,28 @@ class MenuController extends Controller
             } else {
                 return redirect()->back()->withErrors("Menu gagal diupdate :(");
             }
+        } elseif ($request->kategori == "bakery") {
+            $baru = Menu_Kue_Kering::create($menu->toArray());
+            if ($baru) {
+                // Move the old file
+                File::move(public_path('storage/menu_kue_loyang/' . $menu->image), public_path('storage/bakery/' . $menu->image));
+                // Delete the old record file
+                $menu->delete();
+                return redirect(route('menu.showMenuBakery', ["slug" => $slug]))->withSuccess("Data berhasil diupdate!");
+            } else {
+                return redirect()->back()->withErrors("Menu gagal diupdate :(");
+            }
+        } elseif ($request->kategori == "kue_tradisional") {
+            $baru = KueTradisional::create($menu->toArray());
+            if ($baru) {
+                // Move the old file
+                File::move(public_path('storage/menu_kue_loyang/' . $menu->image), public_path('storage/kue_tradisional/' . $menu->image));
+                // Delete the old record file
+                $menu->delete();
+                return redirect(route('menu.showMenuKueTradisional', ["slug" => $slug]))->withSuccess("Data berhasil diupdate!");
+            } else {
+                return redirect()->back()->withErrors("Menu gagal diupdate :(");
+            }
         }
 
         // Update only the fields that are provided by the user
@@ -317,7 +355,7 @@ class MenuController extends Controller
 
         $menu->save();
 
-        return redirect(route('menu.showKueLoyang', ['slug' => $slug]))->withSuccess('Menu berhasil diupdate!');
+        return redirect()->back()->withSuccess("Data berhasil diupdate!");
     }
     public function updateKueKering(MenuUpdateRequest $request, string $slug)
     {
@@ -347,7 +385,7 @@ class MenuController extends Controller
                 return redirect()->back()->withErrors("Menu gagal diupdate :(");
             }
 
-        } else if ($request->kategori == "nasi") {
+        } elseif ($request->kategori == "nasi") {
             $baru = Menu_Nasi::create($menu->toArray());
             if ($baru) {
                 // Move the old file
@@ -358,8 +396,29 @@ class MenuController extends Controller
             } else {
                 return redirect()->back()->withErrors("Menu gagal diupdate :(");
             }
+        } elseif ($request->kategori == "kue_tradisional") {
+            $baru = KueTradisional::create($menu->toArray());
+            if ($baru) {
+                // Move the old file
+                File::move(public_path('storage/menu_kue_kering/' . $menu->image), public_path('storage/kue_tradisional/' . $menu->image));
+                // Delete the old record file
+                $menu->delete();
+                return redirect(route('menu.showMenuKueTradisional', ["slug" => $slug]))->withSuccess("Data berhasil diupdate!");
+            } else {
+                return redirect()->back()->withErrors("Menu gagal diupdate :(");
+            }
+        } elseif ($request->kategori == "bakery") {
+            $baru = Menu_Kue_Kering::create($menu->toArray());
+            if ($baru) {
+                // Move the old file
+                File::move(public_path('storage/menu_kue_kering/' . $menu->image), public_path('storage/bakery/' . $menu->image));
+                // Delete the old record file
+                $menu->delete();
+                return redirect(route('menu.showMenuBakery', ["slug" => $slug]))->withSuccess("Data berhasil diupdate!");
+            } else {
+                return redirect()->back()->withErrors("Menu gagal diupdate :(");
+            }
         }
-
         // Update only the fields that are provided by the user
         $menu->fill([
             'name' => $request->input('name', $menu->name),
@@ -380,7 +439,7 @@ class MenuController extends Controller
 
         $menu->save();
 
-        return redirect(route('menu.showKueKering', ['slug' => $slug]))->withSuccess("Data berhasil diupdate!");
+        return redirect()->back()->withSuccess("Data berhasil diupdate!");
     }
     public function updateMenuNasi(MenuUpdateRequest $request, string $slug)
     {
@@ -421,6 +480,28 @@ class MenuController extends Controller
             } else {
                 return redirect()->back()->withErrors("Menu gagal diupdate :(");
             }
+        } elseif ($request->kategori == "bakery") {
+            $baru = Menu_Kue_Kering::create($menu->toArray());
+            if ($baru) {
+                // Move the old file
+                File::move(public_path('storage/menu_nasi/' . $menu->image), public_path('storage/bakery/' . $menu->image));
+                // Delete the old record file
+                $menu->delete();
+                return redirect(route('menu.showMenuBakery', ["slug" => $slug]))->withSuccess("Data berhasil diupdate!");
+            } else {
+                return redirect()->back()->withErrors("Menu gagal diupdate :(");
+            }
+        } elseif ($request->kategori == "kue_tradisional") {
+            $baru = KueTradisional::create($menu->toArray());
+            if ($baru) {
+                // Move the old file
+                File::move(public_path('storage/menu_nasi/' . $menu->image), public_path('storage/kue_tradisional/' . $menu->image));
+                // Delete the old record file
+                $menu->delete();
+                return redirect(route('menu.showMenuKueTradisional', ["slug" => $slug]))->withSuccess("Data berhasil diupdate!");
+            } else {
+                return redirect()->back()->withErrors("Menu gagal diupdate :(");
+            }
         }
 
         // Update only the fields that are provided by the user
@@ -442,7 +523,7 @@ class MenuController extends Controller
         }
 
         $menu->save();
-        return redirect(route('menu.showMenuNasi', ['slug' => $slug]))->withSuccess("Data berhasil diupdate!");
+        return redirect()->back()->withSuccess("Data berhasil diupdate!");
     }
     public function updateMenuBakery(MenuUpdateRequest $request, string $slug)
     {
@@ -525,7 +606,91 @@ class MenuController extends Controller
         }
 
         $menu->save();
-        return redirect(route('menu.showMenuNasi', ['slug' => $slug]))->withSuccess("Data berhasil diupdate!");
+        return redirect()->back()->withSuccess("Data berhasil diupdate!");
+    }
+
+    public function updateKueTradisional(MenuUpdateRequest $request, string $slug)
+    {
+        // Validasi data
+        $validated = $request->validated();
+        $menu = KueTradisional::where('slug', $slug)->first();
+
+        if (!$menu) {
+            // Handle the case when the record with the given slug is not found
+            return redirect()->back()->withErrors("Menu gagal diupdate :(");
+        }
+
+        // Check if kategori not nasi
+        if ($request->kategori == "cake") {
+            // Create the new record in Menu_Kue Table
+            $baru = Menu_Kue::create($menu->toArray());
+
+            // Kalau pembuatan data di tabel baru berhasil
+            if ($baru) {
+                // Move the old file
+                File::move(public_path('storage/kue_tradisional/' . $menu->image), public_path('storage/menu_kue_loyang/' . $menu->image));
+                // Delete the old record file
+                $menu->delete();
+                return redirect(route('menu.showKueLoyang', ['slug' => $slug]))->withSuccess("Data berhasil diupdate!");
+            } else {
+                return redirect()->back()->withErrors("Menu gagal diupdate :(");
+            }
+
+        } elseif ($request->kategori == "kue_kering") {
+            $baru = Menu_Kue_Kering::create($menu->toArray());
+            if ($baru) {
+                // Move the old file
+                File::move(public_path('storage/kue_tradisional/' . $menu->image), public_path('storage/menu_kue_kering/' . $menu->image));
+                // Delete the old record file
+                $menu->delete();
+                return redirect(route('menu.showKueKering', ["slug" => $slug]))->withSuccess("Data berhasil diupdate!");
+            } else {
+                return redirect()->back()->withErrors("Menu gagal diupdate :(");
+            }
+        } elseif ($request->kategori == "nasi") {
+            $baru = Menu_Nasi::create($menu->toArray());
+            if ($baru) {
+                // Move the old file
+                File::move(public_path('storage/kue_tradisional/' . $menu->image), public_path('storage/menu_nasi/' . $menu->image));
+                // Delete the old record file
+                $menu->delete();
+                return redirect(route('menu.showMenuNasi', ["slug" => $slug]))->withSuccess("Data berhasil diupdate!");
+            } else {
+                return redirect()->back()->withErrors("Menu gagal diupdate :(");
+            }
+        } elseif ($request->kategori == "bakery") {
+            $baru = KueTradisional::create($menu->toArray());
+            if ($baru) {
+                // Move the old file
+                File::move(public_path('storage/kue_tradisional/' . $menu->image), public_path('storage/bakery/' . $menu->image));
+                // Delete the old record file
+                $menu->delete();
+                return redirect(route('menu.showMenuNasi', ["slug" => $slug]))->withSuccess("Data berhasil diupdate!");
+            } else {
+                return redirect()->back()->withErrors("Menu gagal diupdate :(");
+            }
+        }
+
+        // Update only the fields that are provided by the user
+        $menu->fill([
+            'name' => $request->input('name', $menu->name),
+            'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+            'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+
+        ]);
+
+        // Handle the image update
+        if ($request->hasFile('image')) {
+            // Delete the old image (optional)
+            unlink(public_path('storage/menu_nasi/' . $menu->image));
+
+            // Store and set the new image
+            $menu->image = $request->file('image')->getClientOriginalName();
+            $request->file('image')->storeAs('menu_nasi', $menu->image);
+        }
+
+        $menu->save();
+        return redirect()->back()->withSuccess("Data berhasil diupdate!");
     }
 
     /**
@@ -577,6 +742,20 @@ class MenuController extends Controller
 
         if ($data != null) {
             unlink(public_path('storage/bakery/' . $data->image));
+
+            $data->delete();
+            return redirect()->route('adminPage')->withSuccess('Data berhasil di hapus');
+        } else {
+            return redirect()->route('adminPage')->withErrors('Data gagal dihapus :(');
+        }
+    }
+
+    public function hapusKueTradisional($slug)
+    {
+        $data = KueTradisional::where('slug', $slug)->first();
+
+        if ($data != null) {
+            unlink(public_path('storage/kue_tradisional/' . $data->image));
 
             $data->delete();
             return redirect()->route('adminPage')->withSuccess('Data berhasil di hapus');

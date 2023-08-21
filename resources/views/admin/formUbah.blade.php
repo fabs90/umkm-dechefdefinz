@@ -21,7 +21,11 @@
                                 @elseif ($tableName == 'menu_kue_kering')
                                 {{ route('menu.prosesUpdateKueKering', ['slug' => $data->slug]) }} 
                                 @elseif ($tableName == 'menu_nasi') 
-                                {{ route('menu.prosesUpdateMenuNasi', ['slug' => $data->slug]) }} @endif"
+                                {{ route('menu.prosesUpdateMenuNasi', ['slug' => $data->slug]) }} 
+                                @elseif ($tableName == 'bakeries')
+                                {{ route('menu.prosesUpdateBakery', ['slug' => $data->slug]) }} 
+                                @elseif($tableName == 'kue_tradisional')
+                                {{ route('menu.prosesKueTradisional', ['slug' => $data->slug]) }} @endif"
                                 method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PATCH')

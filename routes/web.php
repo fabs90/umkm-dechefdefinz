@@ -33,6 +33,7 @@ Route::middleware(['isLogin'])->group(function () {
     Route::get('/admin', [MenuController::class, 'index'])->name('adminPage');
     Route::get('/admin/tambah', [MenuController::class, 'create'])->name('menu.create');
     Route::post('/admin/tambah', [MenuController::class, 'store'])->name('menu.store');
+
     Route::get('/admin/kueloyang/{slug}', [MenuController::class, 'showKueLoyang'])->name('menu.showKueLoyang');
     Route::get('/admin/kuekering/{slug}', [MenuController::class, 'showKueKering'])->name('menu.showKueKering');
     Route::get('/admin/menunasi/{slug}', [MenuController::class, 'showMenuNasi'])->name('menu.showMenuNasi');
@@ -42,11 +43,14 @@ Route::middleware(['isLogin'])->group(function () {
     Route::patch('/admin/kueloyang/update/{slug}', [MenuController::class, 'updateKueLoyang'])->name('menu.prosesUpdateKueLoyang');
     Route::patch('/admin/kuekering/update/{slug}', [MenuController::class, 'updateKueKering'])->name('menu.prosesUpdateKueKering');
     Route::patch('/admin/menunasi/update/{slug}', [MenuController::class, 'updateMenuNasi'])->name('menu.prosesUpdateMenuNasi');
+    Route::patch('/admin/bakery/update/{slug}', [MenuController::class, 'updateMenuBakery'])->name('menu.prosesUpdateBakery');
+    Route::patch('/admin/kuetradisional/update/{slug}', [MenuController::class, 'updateKueTradisional'])->name('menu.prosesKueTradisional');
 
     Route::delete('/admin/deleteNasi/{slug}', [MenuController::class, 'hapusMenuNasi'])->name('menu.hapusMenuNasi');
     Route::delete('/admin/deleteKueLoyang/{slug}', [MenuController::class, 'hapusMenuKueLoyang'])->name('menu.hapusMenuKueLoyang');
     Route::delete('/admin/deleteKueKering/{slug}', [MenuController::class, 'hapusMenuKuekering'])->name('menu.hapusMenuKueKering');
     Route::delete('/admin/deleteBakery/{slug}', [MenuController::class, 'hapusMenuBakery'])->name('menu.hapusMenuBakery');
+    Route::delete('/admin/deleteKueTradisional/{slug}', [MenuController::class, 'hapusKueTradisional'])->name('menu.hapusKueTradisional');
 
     // Bahan
     Route::get('/admin/bahan/tambah', [BahanController::class, 'createBahan'])->name('create-bahan');
@@ -66,6 +70,7 @@ Route::middleware(['isLogin'])->group(function () {
     Route::get("/admin/calculator/sagu-keju", [kalkulatorController::class, 'saguKeju'])->name('sagu-keju');
     Route::post("/admin/calculator/sagu-keju/hp", [kalkulatorController::class, 'saguKejuHP'])->name('sagu-keju.hp');
     Route::get("/admin/calculator/nastar", [kalkulatorController::class, 'nastar'])->name('nastar');
+    Route::post("/admin/calculator/nastar/hp", [kalkulatorController::class, 'nastarHP'])->name('nastar.hp');
 
     // List Review
     Route::get('/admin/list-review', [ReviewController::class, 'listReview'])->name('listReview');
