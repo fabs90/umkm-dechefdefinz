@@ -3,6 +3,7 @@
 
 <head>
     <title>Halaman Login</title>
+    <link rel="shortcut icon" href="{{ asset('umkm-baru') }}/images/Logo-dechefdefinz-baru-transparent.png" />
     <link rel="stylesheet" type="text/css" href="{{ asset('login-resources') }}/css/style.css" />
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
