@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserReviewRequest;
+use App\Models\Bakery;
+use App\Models\KueTradisional;
+use App\Models\Menu_Kue;
+use App\Models\Menu_Kue_Kering;
+use App\Models\Menu_Nasi;
 use App\Models\ReviewRating;
 use App\Models\UserImageReview;
 use Illuminate\Http\Request;
@@ -29,8 +34,12 @@ class ReviewController extends Controller
     {
         $testimoni = UserImageReview::all();
         $datas = ReviewRating::all();
+        $bakery = Bakery::paginate(3);
+        $kueTradisional = KueTradisional::paginate(3);
+        $kueKering = Menu_Kue_Kering::paginate(3);
+        $nasi = Menu_Nasi::paginate(3);
 
-        return view('uji', compact('datas', 'testimoni'));
+        return view('uji', compact('datas', 'testimoni', 'bakery','kueTradisional','kueKering','nasi'));
     }
 
     // Show all review in admin
@@ -102,9 +111,10 @@ class ReviewController extends Controller
     public function deleteImageReview($id)
     {
         $user = UserImageReview::find($id);
+        unlink(storage_path('app/public/' . $user->image));
         $user->delete();
         if ($user) {
-            return redirect()->back()->withSuccess("Data berhasil dihapus!");
+            return redirect()->back()->withSuccess("Review berhasil dihapus!");
         } else {
             return redirect()->back()->withErrors("Data tidak ditemukan! (coba refresh halaman dan ulangi)");
         }
@@ -112,21 +122,31 @@ class ReviewController extends Controller
 
     public function showMenuKue()
     {
-        return view('landing.menukue');
+        $datas = Menu_Kue::all();
+        return view('landing.menukue', compact('datas'));
     }
 
     public function showMenuKueKering()
     {
-        return view('landing.menukuekering');
+        $datas = Menu_Kue_Kering::all();
+        return view('landing.menukuekering', compact('datas'));
     }
 
     public function showMenuNasi()
     {
-        return view('landing.menuNasi');
+        $datas = Menu_Nasi::all();
+        return view('landing.menunasi', compact('datas'));
     }
 
     public function showKueTradisional()
     {
-        return view('landing.menukuetradisional');
+        $datas = KueTradisional::all();
+        return view('landing.menukuetradisional', compact('datas'));
+    }
+
+    public function showBakery()
+    {
+        $datas = Bakery::all();
+        return view('landing.menubakery', compact('datas'));
     }
 }

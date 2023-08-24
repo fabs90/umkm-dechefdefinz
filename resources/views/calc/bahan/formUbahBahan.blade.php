@@ -73,7 +73,8 @@
                                                     method="post">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-danger btn-delete-bahan"
+                                                    <button type="submit"
+                                                        class="btn btn-sm btn-danger btn-delete-bahan btnHapusBahan"
                                                         id="btn-delete">Delete</button>
                                                 </form>
                                             </td>

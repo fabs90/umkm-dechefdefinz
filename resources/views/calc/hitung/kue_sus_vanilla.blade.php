@@ -13,7 +13,7 @@
         <br>
         <br>
         <div class="back-home">
-            <a href="{{ route('adminPage') }}">Kembali ke admin</a>
+            <a href="{{ route('adminPage') }}">Kembali ke dashboard</a>
         </div>
     </div>
 

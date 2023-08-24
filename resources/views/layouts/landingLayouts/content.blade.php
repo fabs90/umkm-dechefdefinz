@@ -7,7 +7,7 @@
                  <img src="{{ asset('umkm-baru/images/UKM-dechefdefinz.jpg') }}" class="swiper-img">
                  <div class="content">
                      {{-- <h3>Selamat Datang Di Web Kami</h3> --}}
-                     <a href="#product" class="btn"> get started </a>
+
                  </div>
              </div>
 
@@ -16,68 +16,67 @@
                      <img src="{{ asset('umkm-baru/images/UKM-dechefdefinz.jpg') }}" class="swiper-img">
                      <lottie-player src="https://lottie.host/c0a38045-e9b3-469d-b9a7-1d1682c7d712/ibLVanJSyR.json"
                          background="transparent" speed="0.5" loop autoplay></lottie-player>
-                     <a href="#product" class="btn"> get started </a>
+
                  </div>
              </div>
          </div>
+         <div class="swiper-button-next"></div>
+         <div class="swiper-button-prev"></div>
      </div>
  </section>
 
  <!-- home section ends -->
 
  {{-- Best Seller --}}
- <section class="product" id="product">
-     <h1 class="heading">Produk <span> Kue Tradisional Kami</span></h1>
-     <div class="box-container">
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/risol.jpeg" alt="">
+ <section class="product" id="best">
+     <div class="heading">
+         <h2>Best Seller Kami</h2>
+     </div>
+     <div class="swiper product-row">
+         <div class="swiper-wrapper">
+             <div class="swiper-slide box">
+                 <div class="img">
+                     <img src="{{ asset('umkm-baru') }}/images/brownies.jpeg" style="width: 60%;">
+                 </div>
+                 <div class="product-content">
+                     <h3>Brownies </h3>
+                     <p>siap santap </p>
+                     <div class="price">Rp.125.000/loyang <span>Rp.135.000/loyang</span></div>
+                 </div>
              </div>
-             <div class="content">
-                 <h3>Risol Ragout</h3>
-                 <span class="price">Rp 5.500/pcs</span>
-                 <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
+             <div class="swiper-slide box">
+                 <div class="img">
+                     <img src="{{ asset('umkm-baru') }}/images/kue sus vanilla.jpeg" style="width: 40%;">
+                 </div>
+                 <div class="product-content">
+                     <h3>Kue Sus rasa Vanilla</h3>
+                     <p>siap santap.
 
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/Bitterbalen.jpeg" alt="">
+                     </p>
+                     <div class="price">Rp.5.500/pcs <br> <span>Rp.7.000/pcs</span></div>
+                 </div>
              </div>
-             <div class="content">
-                 <h3>Bitterbalen</h3>
+             <div class="swiper-slide box">
+                 <div class="img">
+                     <img src="{{ asset('umkm-baru') }}/images/flubbydonat.jpeg" style="width: 40%;">
+                 </div>
+                 <div class="product-content">
+                     <h3>Bomboloni</h3>
+                     <p>siap santap.
 
-                 <span class="price">Rp 4.000/pcs</span>
-                 <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
+                     </p>
+                     <div class="price">Rp.5.500/pcs <br> <span>Rp.8.000/pcs</span></div>
+                 </div>
              </div>
-         </div>
 
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/pastel bihun sayur telur.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Pastel Bihun Sayur Telur</h3>
-                 <span class="price">Rp 4.000/pcs</span>
-                 <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
+
          </div>
-         <div class="pesan">
-             <div class="">
-             </div>
-             <div class="content">
-             </div>
-         </div>
-         <div class="box">
-             <div class="content price">
-                 <h4>Jika ingin melihat menu yang lain silahkan klik menu lain yang ada dibawah ini</h4>
-                 <a href="https://kjkmu.000webhostapp.com/menukue.html" class="acumalaka">Menu Lain</a>
-             </div>
-         </div>
+         <div class="swiper-pagination"></div>
+     </div>
+
+     <div class="swiper-pagination"></div>
+     </div>
  </section>
-
- <!-- about us -->
-
  <section class="about" id="about">
 
      <h1 class="heading"> <span>about</span> us </h1>
@@ -85,7 +84,7 @@
      <div class="row">
 
          <div class="image">
-             <img src="{{ asset('umkm-baru') }}/images/logoumkm.jpeg" alt="">
+             <img src="{{ asset('umkm-baru') }}/images/Logo Ukm tanpa ig dan wa.jpeg" alt="">
          </div>
 
          <div class="content">
@@ -104,12 +103,138 @@
                  Dengan konsep 'Made by Order' dan menggunakan bahan-bahan yang berkualitas sehingga kualitas produk
                  kami memiliki khas dan cita rasa tersendiri.
              </p>
-             <a href="#" class="btn">Baca lebih banyak</a>
+             <a href="https://www.instagram.com/dechefdefinzs/" class="btn">Baca lebih banyak tentang kami disini</a>
          </div>
 
      </div>
 
  </section>
+
+ <section class="product" id="product">
+
+     <h1 class="heading">Produk <span> Bakery Kami</span></h1>
+
+     <div class="box-container">
+
+         @foreach ($bakery as $item)
+             <div class="box">
+                 <div class="image">
+                     <img alt="bakery" src="{{ asset("storage/bakery/$item->image") }}">
+                 </div>
+                 <div class="content">
+                     <h3>{{ $item->name }}</h3>
+
+                     <span class="price">Rp.{{ $item->harga_normal }}</span>
+                     <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
+                 </div>
+             </div>
+         @endforeach
+
+
+         <div class="boks">
+             <div class="">
+
+             </div>
+             <div class="content">
+
+             </div>
+         </div>
+
+         <div class="pesan">
+
+
+
+             <div class="content">
+
+
+                 <h4>Jika ingin melihat menu yang lain silahkan klik menu lain yang ada dibawah ini</h4>
+                 <a href="{{ route('landing.bakery') }}" class="acumalaka">Menu Lain</a>
+             </div>
+         </div>
+
+ </section>
+
+ <section class="product" id="product">
+     <h1 class="heading">Produk <span> Kue Tradisional Kami</span></h1>
+     <div class="box-container">
+         @foreach ($kueTradisional as $item)
+             <div class="box">
+                 <div class="image">
+                     <img alt="bakery" src="{{ asset("storage/kue_tradisional/$item->image") }}">
+                 </div>
+                 <div class="content">
+                     <h3>{{ $item->name }}</h3>
+
+                     <span class="price">Rp.{{ $item->harga_normal }}</span>
+                     <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
+                 </div>
+             </div>
+         @endforeach
+         <div class="boks">
+             <div class="">
+
+             </div>
+             <div class="content">
+
+             </div>
+         </div>
+
+         <div class="pesan">
+
+
+
+             <div class="content">
+
+
+                 <h4>Jika ingin melihat menu yang lain silahkan klik menu lain yang ada dibawah ini</h4>
+                 <a href="{{ route('landing.kueTradisional') }}" class="acumalaka">Menu Lain</a>
+             </div>
+         </div>
+ </section>
+
+ <section class="product" id="product">
+
+     <h1 class="heading">Produk <span> Nasi Kami</span></h1>
+
+     <div class="box-container">
+
+         @foreach ($nasi as $item)
+             <div class="box">
+                 <div class="image">
+                     <img alt="bakery" src="{{ asset("storage/menu_nasi/$item->image") }}">
+                 </div>
+                 <div class="content">
+                     <h3>{{ $item->name }}</h3>
+
+                     <span class="price">Rp.{{ $item->harga_normal }}</span>
+                     <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
+                 </div>
+             </div>
+         @endforeach
+         <div class="boks">
+             <div class="">
+
+             </div>
+             <div class="content">
+
+             </div>
+         </div>
+
+         <div class="pesan">
+
+
+
+             <div class="content">
+
+
+                 <h4>Jika ingin melihat menu yang lain silahkan klik menu lain yang ada dibawah ini</h4>
+                 <a href="{{ route('landing.menuNasi') }}" class="acumalaka">Menu Lain</a>
+             </div>
+         </div>
+ </section>
+
+ <!-- about us -->
+
 
 
  <!-- about us end-->
@@ -123,136 +248,49 @@
 
      <div class="box-container">
 
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/kue klepon.jpeg" alt="">
+         @foreach ($kueKering as $item)
+             <div class="box">
+                 <div class="image">
+                     <img alt="bakery" src="{{ asset("storage/menu_kue_kering/$item->image") }}">
+                 </div>
+                 <div class="content">
+                     <h3>{{ $item->name }}</h3>
+
+                     <span class="price">Rp.{{ $item->harga_normal }}</span>
+                     <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
+                 </div>
+             </div>
+         @endforeach
+         <div class="boks">
+             <div class="">
+
              </div>
              <div class="content">
-                 <h3>Kue Klepon</h3>
 
-                 <span class="price">Rp 20.000</span>
-                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
              </div>
          </div>
 
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/Lotus butter cookies.jpeg" alt="">
-             </div>
+         <div class="pesan">
+
+
+
              <div class="content">
-                 <h3>Lotus Butter Cookies</h3>
 
-                 <span class="price">Rp 135.000/Toples</span>
-                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
 
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/kue tart nanas.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Kue Tart Nanas</h3>
-
-                 <span class="price">Rp 110.000/Toples</span>
-                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/kue cashew coklat.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Kue Cashew Coklat</h3>
-
-                 <span class="price">Rp 110.000/Toples</span>
-                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/sagu keju.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Sagu Keju</h3>
-
-                 <span class="price">Rp 100.000/Toples</span>
-                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/lidah kucing keju.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Lidah Kucing Keju</h3>
-
-                 <span class="price">Rp 105.000/Toples</span>
-                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/putri salju.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Putri Salju</h3>
-
-                 <span class="price">Rp 100.000/Toples</span>
-                 <a href="https://wa.me/6285694361951" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/kue nastar.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Kue Nastar Klasik</h3>
-
-                 <span class="price">Rp 115.000/Toples</span>
-                 <a href="https://wa.me/6285777816860" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/kastengeles.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Kastengels</h3>
-
-                 <span class="price">Rp 120.000/Toples</span>
-                 <a href="https://wa.me/6285777816860" class="btn">Pesan</a>
-             </div>
-         </div>
-
-         <div class="box">
-             <div class="image">
-                 <img src="{{ asset('umkm-baru') }}/images/kue jagung.jpeg" alt="">
-             </div>
-             <div class="content">
-                 <h3>Kue Jagung</h3>
-
-                 <span class="price">Rp 100.000/Toples</span>
-                 <a href="https://wa.me/6285777816860" class="btn">Pesan</a>
+                 <h4>Jika ingin melihat menu yang lain silahkan klik menu lain yang ada dibawah ini</h4>
+                 <a href="{{ route('landing.menuKueKering') }}" class="acumalaka">Menu Lain</a>
              </div>
          </div>
 
 
  </section>
 
-
  <!-- product end-->
 
 
  <!-- team -->
 
- <section class="contact" id="contact">
+ <section class="contact" id="maps">
      <h1 class="heading"> <span>Maps</span> Kita </h1>
      <div class="row">
          <iframe
@@ -273,7 +311,12 @@
      <div class="swiper-container">
          <div class="swiper-wrapper">
              <!-- Setiap slide -->
-             @yield('testimoni-section')
+             @foreach ($testimoni as $item)
+                 <div class="swiper-slide">
+                     <img src="{{ asset("storage/testimoni/$item->image") }}" alt="Testimoni">
+                     <p>Nama : {{ $item->name }}</p>
+                 </div>
+             @endforeach
              <!-- Tambahkan slide lain sesuai kebutuhan -->
          </div>
          <div class="swiper-pagination"></div>
@@ -281,7 +324,56 @@
      <h1 class="heading2">Review <span>Kustomer</span> </h1>
      <div class="swiper review-row">
          <div class="swiper-wrapper">
-             @yield('review-section')
+             @foreach ($datas as $item)
+                 <div class="swiper-slide box">
+                     <div class="client-review">
+                         <p>{{ $item->comments }}</p>
+                     </div>
+                     <div class="client-info">
+                         <div class="img">
+                             <img src="{{ asset('umkm-baru') }}/images/user-circle.png" class="user">
+                         </div>
+                         <div class="clientDetailed">
+                             <h3>{{ $item->name }}</h3>
+                             <div class="stars">
+                                 <div class="look-at-the-star">
+                                     @if ($item->star_rating == '5')
+                                         <i class="fas fa-star" style="color: #ffdd00;"></i>
+                                         <i class="fas fa-star" style="color: #ffdd00;"></i>
+                                         <i class="fas fa-star" style="color: #ffdd00;"></i>
+                                         <i class="fas fa-star" style="color: #ffdd00;"></i>
+                                         <i class="fas fa-star" style="color: #ffdd00;"></i>
+                                     @elseif ($item->star_rating == '4')
+                                         <i class="fas fa-star" style="color: #ffdd00;"></i>
+                                         <i class="fas fa-star" style="color: #ffdd00;"></i>
+                                         <i class="fas fa-star" style="color: #ffdd00;"></i>
+                                         <i class="fas fa-star" style="color: #ffdd00;"></i>
+                                         <i class="fas fa-star" style="color: #ffdd00;"></i>
+                                     @elseif ($item->star_rating == '3')
+                                         <i class="fas fa-star" style="color: #ffdd00;"></i>
+                                         <i class="fas fa-star" style="color: #ffdd00;"></i>
+                                         <i class="fas fa-star" style="color: #ffdd00;"></i>
+                                         <i class="far fa-star" style="color: #fbff00;"></i>
+                                         <i class="far fa-star" style="color: #fbff00;"></i>
+                                     @elseif ($item->star_rating == '2')
+                                         <i class="fas fa-star" style="color: #ffdd00;"></i>
+                                         <i class="fas fa-star" style="color: #ffdd00;"></i>
+                                         <i class="far fa-star" style="color: #fbff00;"></i>
+                                         <i class="far fa-star" style="color: #fbff00;"></i>
+                                         <i class="far fa-star" style="color: #fbff00;"></i>
+                                     @else
+                                         <i class="fas fa-star" style="color: #ffdd00;"></i>
+                                         <i class="far fa-star" style="color: #fbff00;"></i>
+                                         <i class="far fa-star" style="color: #fbff00;"></i>
+                                         <i class="far fa-star" style="color: #fbff00;"></i>
+                                         <i class="far fa-star" style="color: #fbff00;"></i>
+                                     @endif
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             @endforeach
          </div>
          <div class="swiper-pagination"></div>
      </div>
@@ -301,14 +393,14 @@
          <form action="">
              <h4>Terdapat 2 Nomor aktif yang bisa dihubungi</h4>
              <br>
-             <h3>Nomor yang pertama, Klik <a href="https://wa.me/6285777816860"><i class="fab fa-whatsapp "
-                         style="font-size:50px;color:green"></i></a> </h3>
+             <h3>Nomor yang pertama, Klik <a target="_blank" href="https://wa.me/6285777816860"><i
+                         class="fab fa-whatsapp " style="font-size:50px;color:green"></i></a> </h3>
              <br>
              <br>
              <p>Atau</p>
              <br>
-             <h3>Nomor yang kedua, Klik <a href="https://wa.me/6285694361951"><i class="fab fa-whatsapp "
-                         style="font-size:50px;color:green"></i></a> </h3>
+             <h3>Nomor yang kedua, Klik <a target="_blank" href="https://wa.me/6285694361951"><i
+                         class="fab fa-whatsapp " style="font-size:50px;color:green"></i></a> </h3>
              <br>
          </form>
      </div>

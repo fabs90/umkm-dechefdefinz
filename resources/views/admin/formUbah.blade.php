@@ -83,7 +83,7 @@
                                                 class="form-check-input @error('kategori')
                                         is-invalid
                                     @enderror"
-                                                type="radio" name="kategori" id="kue" value="kue"
+                                                type="radio" name="kategori" id="kue" value="cake"
                                                 @if ($tableName == 'menu_kue') checked @endif required>
                                             <label class="form-check-label" for="kue">
                                                 Cake

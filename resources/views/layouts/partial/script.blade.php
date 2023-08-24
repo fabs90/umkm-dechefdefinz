@@ -56,8 +56,8 @@
                     closeOnConfirm: false
 
                 })
-                .then((willDelete) => {
-                    if (willDelete) {
+                .then((result) => {
+                    if (result.isConfirmed) {
                         form.submit();
                     }
                 });
@@ -80,8 +80,96 @@
                     closeOnConfirm: false
 
                 })
-                .then((willDelete) => {
-                    if (willDelete) {
+                .then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+        });
+        $('.btnHapusCake').on('click', function(e) {
+            e.preventDefault();
+            var form = $(this).closest('form');
+            Swal.fire({
+                    title: "Mau hapus data?",
+                    text: "Data menu ini akan terhapus secara permanen!",
+                    type: "warning",
+                    icon: "warning",
+                    showCancelButton: true,
+                    cancelButtonColor: '#d33',
+                    confirmButtonColor: "#3085d6",
+                    confirmButtonText: "Ya, hapus!",
+                    cancelButtonText: 'Cancel',
+                    closeOnConfirm: false
+
+                })
+                .then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+        });
+        $('.btnHapusKueKering').on('click', function(e) {
+            e.preventDefault();
+            var form = $(this).closest('form');
+            Swal.fire({
+                    title: "Mau hapus data?",
+                    text: "Data menu ini akan terhapus secara permanen!",
+                    type: "warning",
+                    icon: "warning",
+                    showCancelButton: true,
+                    cancelButtonColor: '#d33',
+                    confirmButtonColor: "#3085d6",
+                    confirmButtonText: "Ya, hapus!",
+                    cancelButtonText: 'Cancel',
+                    closeOnConfirm: false
+
+                })
+                .then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+        });
+        $('.btnHapusBakery').on('click', function(e) {
+            e.preventDefault();
+            var form = $(this).closest('form');
+            Swal.fire({
+                    title: "Mau hapus data?",
+                    text: "Data menu ini akan terhapus secara permanen!",
+                    type: "warning",
+                    icon: "warning",
+                    showCancelButton: true,
+                    cancelButtonColor: '#d33',
+                    confirmButtonColor: "#3085d6",
+                    confirmButtonText: "Ya, hapus!",
+                    cancelButtonText: 'Cancel',
+                    closeOnConfirm: false
+
+                })
+                .then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+        });
+        $('.btnHapusKueTradisional').on('click', function(e) {
+            e.preventDefault();
+            var form = $(this).closest('form');
+            Swal.fire({
+                    title: "Mau hapus data?",
+                    text: "Data menu ini akan terhapus secara permanen!",
+                    type: "warning",
+                    icon: "warning",
+                    showCancelButton: true,
+                    cancelButtonColor: '#d33',
+                    confirmButtonColor: "#3085d6",
+                    confirmButtonText: "Ya, hapus!",
+                    cancelButtonText: 'Cancel',
+                    closeOnConfirm: false
+
+                })
+                .then((result) => {
+                    if (result.isConfirmed) {
                         form.submit();
                     }
                 });
@@ -107,6 +195,84 @@
             })
         });
 
+        $('.btn-update-cake').click(function(event) {
+            event.preventDefault();
+            var url = $(this).attr("href");
+
+            Swal.fire({
+                title: 'Ingin mengubah data menu?',
+                text: 'Kamu akan dialihkan ke halaman ubah data!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, ubah!',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = url;
+                }
+            })
+        });
+        $('.btn-update-kuekering').click(function(event) {
+            event.preventDefault();
+            var url = $(this).attr("href");
+
+            Swal.fire({
+                title: 'Ingin mengubah data menu?',
+                text: 'Kamu akan dialihkan ke halaman ubah data!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, ubah!',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = url;
+                }
+            })
+        });
+
+        $('.btn-update-bakery').click(function(event) {
+            event.preventDefault();
+            var url = $(this).attr("href");
+
+            Swal.fire({
+                title: 'Ingin mengubah data menu?',
+                text: 'Kamu akan dialihkan ke halaman ubah data!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, ubah!',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = url;
+                }
+            })
+        });
+
+        $('.btn-update-nasi').click(function(event) {
+            event.preventDefault();
+            var url = $(this).attr("href");
+
+            Swal.fire({
+                title: 'Ingin mengubah data menu?',
+                text: 'Kamu akan dialihkan ke halaman ubah data!',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, ubah!',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = url;
+                }
+            })
+        });
 
         $('#btn-update-bahan').on('click', function(event) {
             event.preventDefault();
@@ -126,6 +292,53 @@
                 }
             })
         })
+
+        $('.btnHapusBahan').on('click', function(e) {
+            e.preventDefault();
+            var form = $(this).closest('form');
+            Swal.fire({
+                    title: "Mau hapus bahan?",
+                    text: "Bahan ini akan terhapus secara permanen!",
+                    type: "warning",
+                    icon: "warning",
+                    showCancelButton: true,
+                    cancelButtonColor: '#d33',
+                    confirmButtonColor: "#3085d6",
+                    confirmButtonText: "Ya, hapus!",
+                    cancelButtonText: 'Cancel',
+                    closeOnConfirm: false
+
+                })
+                .then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+        });
+
+
+        $('.btnHapusReview').on('click', function(e) {
+            e.preventDefault();
+            var form = $(this).closest('form');
+            Swal.fire({
+                    title: "Mau hapus review?",
+                    text: "Review ini akan terhapus secara permanen!",
+                    type: "warning",
+                    icon: "warning",
+                    showCancelButton: true,
+                    cancelButtonColor: '#d33',
+                    confirmButtonColor: "#3085d6",
+                    confirmButtonText: "Ya, hapus!",
+                    cancelButtonText: 'Cancel',
+                    closeOnConfirm: false
+
+                })
+                .then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+        });
 
     });
     $.widget.bridge('uibutton', $.ui.button)

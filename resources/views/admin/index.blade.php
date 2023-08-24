@@ -187,7 +187,7 @@
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit"
-                                                                class="btn btn-sm btn-danger btn-hapus">Delete</button>
+                                                                class="btn-hapus btn btn-sm btn-danger">Delete</button>
                                                         </form>
                                                     </td>
 
@@ -254,9 +254,9 @@
                                                             class="image-kue-loyang">
                                                     </td>
                                                     <td>
-                                                        <a class="btn btn-sm btn-success"
+                                                        <a class="btn btn-sm btn-success btn-update-cake"
                                                             href="{{ route('menu.showKueLoyang', ['slug' => $menu->slug]) }}"
-                                                            role="button" id="btn-update">Ubah</a>
+                                                            role="button">Ubah</a>
                                                         <form
                                                             action="{{ route('menu.hapusMenuKueLoyang', ['slug' => $menu->slug]) }}"
                                                             method="POST">
@@ -329,9 +329,9 @@
                                                             class="image-kue-kering">
                                                     </td>
                                                     <td>
-                                                        <a class="btn btn-sm btn-success"
+                                                        <a class="btn btn-sm btn-success btn-update-kuekering"
                                                             href="{{ route('menu.showKueKering', ['slug' => $menu->slug]) }}"
-                                                            role="button" id="btn-update">Ubah</a>
+                                                            role="button" id="btn-update-kuekering">Ubah</a>
                                                         <form
                                                             action="{{ route('menu.hapusMenuKueKering', ['slug' => $menu->slug]) }}"
                                                             method="POST">
@@ -405,9 +405,9 @@
                                                             class="image-nasi">
                                                     </td>
                                                     <td>
-                                                        <a class="btn btn-sm btn-success"
+                                                        <a class="btn btn-sm btn-success btn-update-bakery"
                                                             href="{{ route('menu.showMenuBakery', ['slug' => $menu->slug]) }}"
-                                                            role="button" id="btn-update">Ubah</a>
+                                                            role="button" id="btn-update-bakery">Ubah</a>
                                                         <form
                                                             action="{{ route('menu.hapusMenuBakery', ['slug' => $menu->slug]) }}"
                                                             method="POST">
@@ -480,9 +480,9 @@
                                                             class="image-nasi">
                                                     </td>
                                                     <td>
-                                                        <a class="btn btn-sm btn-success"
+                                                        <a class="btn btn-sm btn-success btn-update-nasi"
                                                             href="{{ route('menu.showMenuNasi', ['slug' => $menu->slug]) }}"
-                                                            role="button" id="btn-update">Ubah</a>
+                                                            role="button">Ubah</a>
                                                         <form
                                                             action="{{ route('menu.hapusMenuNasi', ['slug' => $menu->slug]) }}"
                                                             method="POST">

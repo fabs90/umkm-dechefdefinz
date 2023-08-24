@@ -5,19 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('umkm-baru/menu-kuekering') }}/menukuekering2.css" />
+    <link rel="stylesheet" href=" {{ asset('umkm-baru/menu-bakery/menubakery2.css') }} " />
     <title>Menu Kami</title>
 </head>
 
 <body>
     <div class="menu">
         <div class="heading">
-            <h1>Menu Kue Kering Lainnya</h1>
+            <h1>Menu Bakery Lainnya</h1>
             <h3>&mdash;Menu&mdash;</h3>
         </div>
         @foreach ($datas as $item)
             <div class="food-items">
-                <img src="{{ asset("storage/menu_kue_kering/$item->image") }}">
+                <img src="{{ asset("storage/bakery/$item->image") }}">
                 <div class="details">
                     <div class="details-sub">
                         <h3>{{ $item->name }}</h3>
@@ -29,9 +29,6 @@
 
             </div>
         @endforeach
-
-
-
 
     </div>
     </div>

@@ -24,6 +24,7 @@ Route::get('/kue', [ReviewController::class, 'showMenuKue'])->name('landing.menu
 Route::get('/kue-kering', [ReviewController::class, 'showMenuKueKering'])->name('landing.menuKueKering');
 Route::get('/nasi', [ReviewController::class, 'showMenuNasi'])->name('landing.menuNasi');
 Route::get('/kue-tradisional', [ReviewController::class, 'showKueTradisional'])->name('landing.kueTradisional');
+Route::get('/bakery', [ReviewController::class, 'showBakery'])->name('landing.bakery');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('onlyGuest');
 Route::post('/login', [LoginController::class, 'login'])->name('login.process');
