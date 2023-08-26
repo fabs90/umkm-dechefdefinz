@@ -72,6 +72,8 @@ Route::middleware(['isLogin'])->group(function () {
     Route::post("/admin/calculator/sagu-keju/hp", [kalkulatorController::class, 'saguKejuHP'])->name('sagu-keju.hp');
     Route::get("/admin/calculator/nastar", [kalkulatorController::class, 'nastar'])->name('nastar');
     Route::post("/admin/calculator/nastar/hp", [kalkulatorController::class, 'nastarHP'])->name('nastar.hp');
+    Route::get('/admin/calculator/bolu-gulung-keju', [kalkulatorController::class, 'boluGulungKeju'])->name('bolu-gulung-keju');
+    Route::post('/admin/calculator/bolu-gulung-keju/hp', [kalkulatorController::class, 'boluGulungKejuHP'])->name('boluGulungKeju.hp');
 
     // List Review
     Route::get('/admin/list-review', [ReviewController::class, 'listReview'])->name('listReview');

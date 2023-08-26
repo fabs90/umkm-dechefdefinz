@@ -140,7 +140,7 @@
                             </div><!-- /.card-header -->
                             <div class="card-body">
                                 <div class="tab-content p-0">
-                                    <table id="table-kue-loyang"
+                                    <table id="table-kue-tradisional"
                                         class="table table-striped table-bordered text-center table-responsive-sm"
                                         cellpadding="0" cellspacing="0" style="width:100%">
                                         <thead>
@@ -178,9 +178,9 @@
                                                             class="image-kue-loyang">
                                                     </td>
                                                     <td>
-                                                        <a class="btn btn-sm btn-success"
+                                                        <a class="btn btn-sm btn-success btn-update-kueTradisional"
                                                             href="{{ route('menu.showMenuKueTradisional', ['slug' => $menu->slug]) }}"
-                                                            role="button" id="btn-update">Ubah</a>
+                                                            role="button">Ubah</a>
                                                         <form
                                                             action="{{ route('menu.hapusKueTradisional', ['slug' => $menu->slug]) }}"
                                                             method="POST">

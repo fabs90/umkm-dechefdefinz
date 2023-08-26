@@ -79,6 +79,7 @@ class MenuController extends Controller
                 $data->name = $request->name;
                 $data->image = $fileName;
                 $data->harga_normal = $request->harga_normal;
+                $data->harga_diskon = 0;
                 $data->deskripsi = $request->deskripsi;
                 $data->slug = Str::slug($request->name);
                 $data->save();
@@ -113,6 +114,7 @@ class MenuController extends Controller
                 $data->name = $request->name;
                 $data->image = $fileName;
                 $data->harga_normal = $request->harga_normal;
+                $data->harga_diskon = 0;
                 $data->deskripsi = $request->deskripsi;
                 $data->slug = Str::slug($request->name);
                 $data->save();
@@ -146,6 +148,7 @@ class MenuController extends Controller
                 $data->name = $request->name;
                 $data->image = $fileName;
                 $data->harga_normal = $request->harga_normal;
+                $data->harga_diskon = 0;
                 $data->deskripsi = $request->deskripsi;
                 $data->slug = Str::slug($request->name);
                 $data->save();
@@ -179,6 +182,7 @@ class MenuController extends Controller
                 $data->name = $request->name;
                 $data->image = $fileName;
                 $data->harga_normal = $request->harga_normal;
+                $data->harga_diskon = 0;
                 $data->deskripsi = $request->deskripsi;
                 $data->slug = Str::slug($request->name);
                 $data->save();
@@ -211,6 +215,7 @@ class MenuController extends Controller
                 $data->name = $request->name;
                 $data->image = $fileName;
                 $data->harga_normal = $request->harga_normal;
+                $data->harga_diskon = 0;
                 $data->deskripsi = $request->deskripsi;
                 $data->slug = Str::slug($request->name);
                 $data->save();
@@ -300,6 +305,7 @@ class MenuController extends Controller
         $menu->fill([
             'name' => $request->input('name', $menu->name),
             'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+            'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
             'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
         ]);
 
@@ -383,6 +389,7 @@ class MenuController extends Controller
         $menu->fill([
             'name' => $request->input('name', $menu->name),
             'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+            'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
             'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
 
         ]);
@@ -467,6 +474,7 @@ class MenuController extends Controller
         $menu->fill([
             'name' => $request->input('name', $menu->name),
             'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+            'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
             'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
 
         ]);
@@ -549,6 +557,7 @@ class MenuController extends Controller
         $menu->fill([
             'name' => $request->input('name', $menu->name),
             'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+            'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
             'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
 
         ]);
@@ -633,6 +642,7 @@ class MenuController extends Controller
         $menu->fill([
             'name' => $request->input('name', $menu->name),
             'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+            'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
             'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
 
         ]);

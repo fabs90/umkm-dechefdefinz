@@ -124,7 +124,7 @@
                  <div class="content">
                      <h3>{{ $item->name }}</h3>
 
-                     <span class="price">Rp.{{ $item->harga_normal }}</span>
+                     <span class="price">Rp. {{ number_format($item->harga_normal, 0, ',', '.') }}</span>
                      <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
                  </div>
              </div>
@@ -164,8 +164,7 @@
                  </div>
                  <div class="content">
                      <h3>{{ $item->name }}</h3>
-
-                     <span class="price">Rp.{{ $item->harga_normal }}</span>
+                     <span class="price">Rp. {{ number_format($item->harga_normal, 0, ',', '.') }}</span>
                      <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
                  </div>
              </div>
@@ -206,7 +205,7 @@
                  <div class="content">
                      <h3>{{ $item->name }}</h3>
 
-                     <span class="price">Rp.{{ $item->harga_normal }}</span>
+                     <span class="price">Rp. {{ number_format($item->harga_normal, 0, ',', '.') }}</span>
                      <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
                  </div>
              </div>
@@ -256,7 +255,7 @@
                  <div class="content">
                      <h3>{{ $item->name }}</h3>
 
-                     <span class="price">Rp.{{ $item->harga_normal }}</span>
+                     <span class="price">Rp. {{ number_format($item->harga_normal, 0, ',', '.') }}</span>
                      <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
                  </div>
              </div>

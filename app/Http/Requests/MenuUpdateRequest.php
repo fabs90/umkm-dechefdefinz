@@ -24,6 +24,7 @@ class MenuUpdateRequest extends FormRequest
         return [
             'name' => ['required', 'min:3', 'max:100'],
             'harga_normal' => ['required', 'numeric', 'min:400'],
+            'harga_diskon' => ['numeric'],
             'deskripsi' => ['required'],
             'image' => ['file', 'mimes:png,jpg,jpeg,svg', 'max:8092'],
         ];

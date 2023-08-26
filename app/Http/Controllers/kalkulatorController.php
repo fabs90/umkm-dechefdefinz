@@ -297,4 +297,66 @@ class kalkulatorController extends Controller
         return redirect()->back();
     }
 
+    public function boluGulungKeju()
+    {
+        return view('calc.hitung.boluGulungKeju');
+    }
+
+    public function boluGulungKejuHP(Request $request)
+    {
+        // Buat session nilai yang diinput user tadi
+        $request->session()->flash('input_values', $request->all());
+
+        // Bahan Baku
+        $bahanBaku = [
+            'telur' => $request->telur * $this->getHargaBahan('telur'),
+            'gulaPasir' => $request->gula_pasir * $this->getHargaBahan('gula-pasir'),
+            'tepungTerigu' => $request->tepung_terigu * $this->getHargaBahan('tepung-terigu'),
+            'tepung-maezena' => $request->tepung_maezena * $this->getHargaBahan('tepung-maezena'),
+            'susuBubuk' => $request->susu_bubuk * $this->getHargaBahan('susu-bubuk'),
+            'cream' => $request->cream,
+            'keju' => $request->keju,
+        ];
+
+        $bahanBaku = array_sum($bahanBaku);
+
+        // (BK)
+        $biayaKemasan = [
+            'harga_kardus' => $request->kardus * $request->harga_kardus,
+            'harga_paper_doley' => $request->paper_doley * $request->harga_paper_doley,
+            'harga_stiker' => $request->stiker * $request->harga_stiker,
+        ];
+
+        $biayaKemasan = array_sum($biayaKemasan);
+
+        // (BP)
+        $hargaGajiKaryawan = $request->gaji;
+        $hargaPerjam = $request->waktu;
+
+        $biayaProduksi = [
+            'harga_listrik' => $request->listrik,
+            'harga_gas' => $request->gas,
+            'harga_air' => $request->air,
+            'harga_total_gaji' => $request->jumlah_karyawan * ($hargaGajiKaryawan * $hargaPerjam),
+        ];
+
+        $biayaProduksi = array_sum($biayaProduksi);
+        // Menghitung HPP
+        $biayaHPP = ($bahanBaku + $biayaKemasan + $biayaProduksi) / $request->jumlah_pesanan;
+
+        // Hitung harga jual
+        $hargaJual = $biayaHPP + (($request->margin / 100) * $biayaHPP);
+
+        // Simpan nilai kedalam session
+        session([
+            'hargaBahanBaku' => $bahanBaku,
+            'biayaKemasan' => $biayaKemasan,
+            'biayaProduksi' => $biayaProduksi,
+            'hpp' => $biayaHPP,
+            'hargaJual' => $hargaJual,
+        ]);
+
+        return redirect()->back();
+    }
+
 }

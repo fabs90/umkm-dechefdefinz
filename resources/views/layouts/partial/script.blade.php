@@ -175,7 +175,9 @@
                 });
         });
 
-        $('#btn-update').click(function(event) {
+
+
+        $('.btn-update-kueTradisional').click(function(event) {
             event.preventDefault();
             var url = $(this).attr("href");
 
@@ -344,6 +346,9 @@
     $.widget.bridge('uibutton', $.ui.button)
 
     new DataTable('#table-nasi', {
+        responsive: true
+    });
+    new DataTable('#table-kue-tradisional', {
         responsive: true
     });
     new DataTable('#table-bakery', {

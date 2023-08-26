@@ -4,6 +4,7 @@
     <option value="{{ route('kue-sus-vanilla') }}">Kue Sus Vla Vanilla</option>
     <option value="{{ route('sagu-keju') }}">Sagu Keju</option>
     <option value="{{ route('nastar') }}">Nastar</option>
+    <option value="{{ route('bolu-gulung-keju') }}">Bolu Gulung Keju</option>
     <option value="kue-coklat">Kue Coklat</option>
     <option value="bitterbalen">Bitterbalen</option>
     <option value="kue-vanila">Pastel Bihun Sayur Telur</option>
@@ -21,3 +22,8 @@
     <option value="kue-vanila">Kue Unicorn</option>
     <!-- Tambahkan opsi lainnya sesuai kebutuhan -->
 </select>
+<br>
+<br>
+<div class="back-home">
+    <a href="{{ route('adminPage') }}">Kembali ke dashboard</a>
+</div>

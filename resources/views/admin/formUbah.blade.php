@@ -63,6 +63,7 @@
                                     </div>
                                     {{-- End Col --}}
                                     <div class="col-lg-10 mb-3 mx-auto">
+                                        <label for="">Harga Normal</label>
                                         {{-- <label for="Harga" class="form-label">Harga</label> --}}
                                         <input type="number"
                                             class="form-control @error('harga_normal')
@@ -71,6 +72,21 @@
                                             id="Harga" placeholder="Harga menu (Masukan angka tanpa koma)"
                                             name="harga_normal" required value="{{ $data->harga_normal }}">
                                         @error('harga_normal')
+                                            <div id="validationServer03Feedback" class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="col-lg-10 mb-3 mx-auto">
+                                        <label for="">Harga Diskon</label>
+                                        {{-- <label for="Harga" class="form-label">Harga</label> --}}
+                                        <input type="number"
+                                            class="form-control @error('harga_diskon')
+                                    is-invalid
+                                @enderror"
+                                            id="Harga" placeholder="Harga diskon (Masukan angka tanpa koma)"
+                                            name="harga_diskon" value="{{ $data->harga_diskon }}">
+                                        @error('harga_diskon')
                                             <div id="validationServer03Feedback" class="invalid-feedback">
                                                 {{ $message }}
                                             </div>

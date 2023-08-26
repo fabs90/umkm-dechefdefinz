@@ -9,5 +9,5 @@ class Menu_Nasi extends Model
 {
     use HasFactory;
     protected $table = "menu_nasi";
-    protected $fillable = ['image', 'name', 'harga_normal', 'deskripsi', 'slug'];
+    protected $fillable = ['image', 'name', 'harga_normal', 'harga_diskon', 'deskripsi', 'slug'];
 }
