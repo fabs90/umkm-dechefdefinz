@@ -36,55 +36,80 @@
 
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('menu.create') }}" class="nav-link">
-                        <i class="nav-icon fas fa-plus-square"></i>
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-globe"></i>
                         <p>
-                            Tambah Menu
+                            Website
+                            <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('menu.create') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Tambah Menu
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('listReview') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    List Review
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('imageReview') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Tambah Testimoni
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-
                 <li class="nav-header">Tambahan</li>
                 <li class="nav-item">
-                    <a href="/admin/calculator" class="nav-link">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon bi bi-calculator"></i>
                         <p>
-                            Calculator HPP
+                            HPP
+                            <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/admin/calculator" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Kalkulator HPP
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/bahan" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    List Bahan Baku
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('create-bahan') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Tambah Bahan Baku
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a href="/admin/bahan" class="nav-link">
-                        <i class="nav-icon bi bi-card-checklist"></i>
-                        <p>
-                            List Bahan Baku
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('create-bahan') }}" class="nav-link">
-                        <i class="nav-icon fas fa-carrot"></i>
-                        <p>
-                            Tambah Bahan Baku
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('listReview') }}" class="nav-link">
-                        <i class="nav-icon bi bi-person-lines-fill"></i>
-                        <p>
-                            List Review
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('imageReview') }}" class="nav-link">
-                        <i class="nav-icon bi bi-image"></i>
-                        <p>
-                            Tambah Testimoni
-                        </p>
-                    </a>
-                </li>
+
+
+
+
 
                 {{-- <li class="nav-item">
                     <a href="#" class="nav-link">
