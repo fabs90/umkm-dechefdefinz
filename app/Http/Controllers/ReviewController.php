@@ -38,8 +38,9 @@ class ReviewController extends Controller
         $kueTradisional = KueTradisional::paginate(3);
         $kueKering = Menu_Kue_Kering::paginate(3);
         $nasi = Menu_Nasi::paginate(3);
+        $cake = Menu_Kue::paginate(3);
 
-        return view('uji', compact('datas', 'testimoni', 'bakery','kueTradisional','kueKering','nasi'));
+        return view('uji', compact('datas', 'testimoni', 'bakery', 'kueTradisional', 'kueKering', 'nasi', 'cake'));
     }
 
     // Show all review in admin

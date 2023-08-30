@@ -155,6 +155,48 @@
  </section>
 
  <section class="product" id="product">
+
+     <h1 class="heading">Produk <span>Cake Kami</span></h1>
+
+     <div class="box-container">
+         @foreach ($cake as $item)
+             <div class="box">
+                 <div class="image">
+                     <img alt="bakery" src="{{ asset("storage/menu_kue_loyang/$item->image") }}">
+                 </div>
+                 <div class="content">
+                     <h3>{{ $item->name }}</h3>
+                     <span class="price">Rp. {{ number_format($item->harga_normal, 0, ',', '.') }}</span>
+                     <a target="_blank" href="https://wa.me/6285694361951" class="btn">Pesan</a>
+                 </div>
+             </div>
+         @endforeach
+
+         <div class="boks">
+             <div class="">
+
+             </div>
+             <div class="content">
+
+             </div>
+         </div>
+
+         <div class="pesan">
+
+
+
+             <div class="content">
+
+
+                 <h4>Jika ingin melihat menu yang lain silahkan klik menu lain yang ada dibawah ini</h4>
+                 <a href="{{ route('landing.bakery') }}" class="acumalaka">Menu Lain</a>
+             </div>
+         </div>
+
+ </section>
+
+
+ <section class="product" id="product">
      <h1 class="heading">Produk <span> Kue Tradisional Kami</span></h1>
      <div class="box-container">
          @foreach ($kueTradisional as $item)
