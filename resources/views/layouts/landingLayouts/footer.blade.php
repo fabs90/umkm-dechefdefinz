@@ -76,13 +76,18 @@
                 </form>
             </div>
         </div>
-
+        <div class="box">
+            <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+            <div class="elfsight-app-c535a8d7-e332-4cf9-be5b-9ae469debdc2"></div>
+        </div>
 
 
     </div>
     <div class="credit">
         <p>created by <span>Fabian dan Raldy</span> all rights reserved! </p>
         <a href="/login" style="color:black; text-decoration:'none'">Admin</a>
+
+
     </div>
 
 </section>

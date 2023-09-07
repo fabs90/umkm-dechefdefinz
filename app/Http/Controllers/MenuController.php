@@ -294,7 +294,9 @@ class MenuController extends Controller
         // Handle the image update
         if ($request->hasFile('image')) {
             // Delete the old image (optional)
-            unlink(public_path('storage/menu_kue_loyang/' . $menu->image));
+            if (File::exists(public_path('storage/menu_kue_loyang/' . $menu->image))) {
+                unlink(public_path('storage/menu_kue_loyang/' . $menu->image));
+            }
 
             // Store and set the new image
             $menu->image = $request->file('image')->getClientOriginalName();
@@ -378,7 +380,9 @@ class MenuController extends Controller
         // Handle the image update
         if ($request->hasFile('image')) {
             // Delete the old image (optional)
-            unlink(public_path('storage/menu_kue_kering/' . $menu->image));
+            if (File::exists(public_path('storage/menu_kue_kering/' . $menu->image))) {
+                unlink(public_path('storage/menu_kue_kering/' . $menu->image));
+            }
 
             // Store and set the new image
             $menu->image = $request->file('image')->getClientOriginalName();
@@ -463,7 +467,9 @@ class MenuController extends Controller
         // Handle the image update
         if ($request->hasFile('image')) {
             // Delete the old image (optional)
-            unlink(public_path('storage/menu_nasi/' . $menu->image));
+            if (File::exists(public_path('storage/menu_nasi/' . $menu->image))) {
+                unlink(public_path('storage/menu_nasi/' . $menu->image));
+            }
 
             // Store and set the new image
             $menu->image = $request->file('image')->getClientOriginalName();
@@ -546,7 +552,9 @@ class MenuController extends Controller
         // Handle the image update
         if ($request->hasFile('image')) {
             // Delete the old image (optional)
-            unlink(public_path('storage/bakery/' . $menu->image));
+            if (File::exists(public_path('storage/bakery/' . $menu->image))) {
+                unlink(public_path('storage/bakery/' . $menu->image));
+            }
 
             // Store and set the new image
             $menu->image = $request->file('image')->getClientOriginalName();
@@ -631,11 +639,14 @@ class MenuController extends Controller
         // Handle the image update
         if ($request->hasFile('image')) {
             // Delete the old image (optional)
-            unlink(public_path('storage/kue_tradisional/' . $menu->image));
+            if (File::exists(public_path('storage/kue_tradisional/' . $menu->image))) {
+                unlink(public_path('storage/kue_tradisional/' . $menu->image));
+            }
 
             // Store and set the new image
             $menu->image = $request->file('image')->getClientOriginalName();
             $request->file('image')->storeAs('kue_tradisional', $menu->image);
+
         }
 
         // Update only the fields that are provided by the user
