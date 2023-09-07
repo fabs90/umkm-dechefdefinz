@@ -52,7 +52,7 @@
                                 {{-- <i class="ion ion-bag"></i> --}}
                                 <i class="fas fa-seedling"></i>
                             </div>
-                            <a href="#menu-kue-loyang" class="small-box-footer">More info <i
+                            <a href="#menuTradisional" class="small-box-footer">More info <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                                 {{-- <i class="ion ion-bag"></i> --}}
                                 <i class="fas fa-birthday-cake"></i>
                             </div>
-                            <a href="#menu-kue-loyang" class="small-box-footer">More info <i
+                            <a href="#menuCake" class="small-box-footer">More info <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -140,7 +140,7 @@
                             </div><!-- /.card-header -->
                             <div class="card-body">
                                 <div class="tab-content p-0">
-                                    <table id="table-kue-tradisional"
+                                    <table id="menuTradisional"
                                         class="table table-striped table-bordered text-center table-responsive-sm"
                                         cellpadding="0" cellspacing="0" style="width:100%">
                                         <thead>
@@ -175,7 +175,7 @@
                                                     </td>
                                                     <td>
                                                         <img src="{{ asset("storage/kue_tradisional/$menu->image") }}"
-                                                            class="image-kue-loyang">
+                                                            class="image-nasi">
                                                     </td>
                                                     <td>
                                                         <a class="btn btn-sm btn-success btn-update-kueTradisional"
@@ -216,9 +216,9 @@
                             </div><!-- /.card-header -->
                             <div class="card-body">
                                 <div class="tab-content p-0">
-                                    <table id="table-kue-loyang"
+                                    <table id="menuCake"
                                         class="table table-striped table-bordered text-center table-responsive-sm"
-                                        cellpadding="0" cellspacing="0" style="width:100%">
+                                        style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th scope="col">No.</th>

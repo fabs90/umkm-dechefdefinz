@@ -48,9 +48,7 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $kategori = $request->input('kategori');
-
         switch ($kategori) {
             case 'kue':
                 // Ambil nama asli file, kl ga pake ini namanya di generate acak sm laravel
@@ -72,9 +70,7 @@ class MenuController extends Controller
                     'image.mimes' => 'Ekstensi yang diperbolehkan hanya:png,jpg,jpeg,svg',
                     'image.max' => 'Ukuran maksimum gambar adalah 8mb (8092kb)!',
                 ]);
-
                 $fileName = $request->image->getClientOriginalname();
-
                 $data = new Menu_Kue;
                 $data->name = $request->name;
                 $data->image = $fileName;
@@ -83,11 +79,9 @@ class MenuController extends Controller
                 $data->deskripsi = $request->deskripsi;
                 $data->slug = Str::slug($request->name);
                 $data->save();
-
                 // Taro hard copy file ke dalam folder thumbnail yg ada di public
                 $request->image->storeAs('menu_kue_loyang', $fileName);
                 return redirect(route('menu.create'))->withSuccess('Menu berhasil ditambah!');
-
             case 'kue_kering':
                 $validate = $request->validate([
                     'name' => ['required', 'min:3', 'max:100', 'unique:menu_kue_kering,name'],
@@ -107,9 +101,7 @@ class MenuController extends Controller
                     'image.mimes' => 'Ekstensi yang diperbolehkan hanya:png,jpg,jpeg,svg',
                     'image.max' => 'Ukuran maksimum gambar adalah 8mb (8092kb)!',
                 ]);
-
                 $fileName = $request->image->getClientOriginalname();
-
                 $data = new Menu_Kue_Kering;
                 $data->name = $request->name;
                 $data->image = $fileName;
@@ -118,11 +110,9 @@ class MenuController extends Controller
                 $data->deskripsi = $request->deskripsi;
                 $data->slug = Str::slug($request->name);
                 $data->save();
-
                 // Taro hard copy file ke dalam folder thumbnail yg ada di public
                 $request->image->storeAs('menu_kue_kering', $fileName);
                 return redirect(route('menu.create'))->withSuccess('Menu berhasil ditambah!');
-
             case 'nasi':
                 $validate = $request->validate([
                     'name' => ['required', 'min:3', 'max:100', 'unique:menu_nasi,name'],
@@ -143,7 +133,6 @@ class MenuController extends Controller
                     'image.max' => 'Ukuran maksimum gambar adalah 8mb (8092kb)!',
                 ]);
                 $fileName = $request->image->getClientOriginalname();
-
                 $data = new Menu_Nasi;
                 $data->name = $request->name;
                 $data->image = $fileName;
@@ -152,10 +141,8 @@ class MenuController extends Controller
                 $data->deskripsi = $request->deskripsi;
                 $data->slug = Str::slug($request->name);
                 $data->save();
-
                 // Taro hard copy file ke dalam folder thumbnail yg ada di public
                 $request->image->storeAs('menu_nasi', $fileName);
-
                 return redirect(route('menu.create'))->withSuccess('Menu berhasil ditambah!');
             case "kue_tradisional":
                 $validate = $request->validate([
@@ -177,7 +164,6 @@ class MenuController extends Controller
                     'image.max' => 'Ukuran maksimum gambar adalah 8mb (8092kb)!',
                 ]);
                 $fileName = $request->image->getClientOriginalname();
-
                 $data = new KueTradisional;
                 $data->name = $request->name;
                 $data->image = $fileName;
@@ -189,7 +175,6 @@ class MenuController extends Controller
                 // Taro hard copy file ke dalam folder thumbnail yg ada di public
                 $request->image->storeAs('kue_tradisional', $fileName);
                 return redirect(route('menu.create'))->withSuccess('Menu berhasil ditambah!');
-
             case 'bakery':
                 $validate = $request->validate([
                     'name' => ['required', 'min:3', 'max:100', 'unique:bakeries,name'],
