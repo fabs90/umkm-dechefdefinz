@@ -70,7 +70,7 @@ class MenuController extends Controller
                     'image.mimes' => 'Ekstensi yang diperbolehkan hanya:png,jpg,jpeg,svg',
                     'image.max' => 'Ukuran maksimum gambar adalah 8mb (8092kb)!',
                 ]);
-                $fileName = $request->image->getClientOriginalname();
+                $fileName = time() . '-' . $request->image->getClientOriginalname();
                 $data = new Menu_Kue;
                 $data->name = $request->name;
                 $data->image = $fileName;
@@ -101,7 +101,7 @@ class MenuController extends Controller
                     'image.mimes' => 'Ekstensi yang diperbolehkan hanya:png,jpg,jpeg,svg',
                     'image.max' => 'Ukuran maksimum gambar adalah 8mb (8092kb)!',
                 ]);
-                $fileName = $request->image->getClientOriginalname();
+                $fileName = time() . '-' . $request->image->getClientOriginalname();
                 $data = new Menu_Kue_Kering;
                 $data->name = $request->name;
                 $data->image = $fileName;
@@ -132,7 +132,7 @@ class MenuController extends Controller
                     'image.mimes' => 'Ekstensi yang diperbolehkan hanya:png,jpg,jpeg,svg',
                     'image.max' => 'Ukuran maksimum gambar adalah 8mb (8092kb)!',
                 ]);
-                $fileName = $request->image->getClientOriginalname();
+                $fileName = time() . '-' . $request->image->getClientOriginalname();
                 $data = new Menu_Nasi;
                 $data->name = $request->name;
                 $data->image = $fileName;
@@ -163,7 +163,7 @@ class MenuController extends Controller
                     'image.mimes' => 'Ekstensi yang diperbolehkan hanya:png,jpg,jpeg,svg',
                     'image.max' => 'Ukuran maksimum gambar adalah 8mb (8092kb)!',
                 ]);
-                $fileName = $request->image->getClientOriginalname();
+                $fileName = time() . '-' . $request->image->getClientOriginalname();
                 $data = new KueTradisional;
                 $data->name = $request->name;
                 $data->image = $fileName;
@@ -194,8 +194,7 @@ class MenuController extends Controller
                     'image.mimes' => 'Ekstensi yang diperbolehkan hanya:png,jpg,jpeg,svg',
                     'image.max' => 'Ukuran maksimum gambar adalah 8mb (8092kb)!',
                 ]);
-                $fileName = $request->image->getClientOriginalname();
-
+                $fileName = time() . '-' . $request->image->getClientOriginalname();
                 $data = new Bakery;
                 $data->name = $request->name;
                 $data->image = $fileName;
@@ -284,7 +283,7 @@ class MenuController extends Controller
             }
 
             // Store and set the new image
-            $menu->image = $request->file('image')->getClientOriginalName();
+            $menu->image = time() . '-' . $request->file('image')->getClientOriginalName();
             $request->file('image')->storeAs('menu_kue_loyang', $menu->image);
         }
 
@@ -370,7 +369,7 @@ class MenuController extends Controller
             }
 
             // Store and set the new image
-            $menu->image = $request->file('image')->getClientOriginalName();
+            $menu->image = time() . '-' . $request->file('image')->getClientOriginalName();
             $request->file('image')->storeAs('menu_kue_kering', $menu->image);
         }
 
@@ -457,7 +456,7 @@ class MenuController extends Controller
             }
 
             // Store and set the new image
-            $menu->image = $request->file('image')->getClientOriginalName();
+            $menu->image = time() . '-' . $request->file('image')->getClientOriginalName();
             $request->file('image')->storeAs('menu_nasi', $menu->image);
         }
 
@@ -542,7 +541,7 @@ class MenuController extends Controller
             }
 
             // Store and set the new image
-            $menu->image = $request->file('image')->getClientOriginalName();
+            $menu->image = time() . '-' . $request->file('image')->getClientOriginalName();
             $request->file('image')->storeAs('bakery', $menu->image);
         }
 
@@ -629,7 +628,7 @@ class MenuController extends Controller
             }
 
             // Store and set the new image
-            $menu->image = $request->file('image')->getClientOriginalName();
+            $menu->image = time() . '-' . $request->file('image')->getClientOriginalName();
             $request->file('image')->storeAs('kue_tradisional', $menu->image);
 
         }
