@@ -54,7 +54,7 @@
                                         is-invalid
                                     @enderror"
                                             id="nama_menu" aria-describedby="namaMenuHelp" name="name"
-                                            placeholder="Nama menu" required value="{{ $data->name }}">
+                                            placeholder="Nama menu" required value="{{ $data->name }}" autocomplete="off">
                                         @error('name')
                                             <div id="validationServer03Feedback" class="invalid-feedback">
                                                 {{ $message }}

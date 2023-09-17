@@ -15,7 +15,7 @@
     <div class="calculator">
         <form action="{{ route('nastar.hp') }}" method="post">
             @csrf
-            <h1>Nastar</h1>
+            <h1>Sagu Keju</h1>
             <label for="jumlah">Masukan jumlah pesanan</label>
             <input type="number" name="jumlah_pesanan" id="jumlah_pesanan" placeholder="Masukan jumlah pesanan"
                 value="{{ session('input_values.jumlah_pesanan') }}" required />

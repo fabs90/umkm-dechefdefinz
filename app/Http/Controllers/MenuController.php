@@ -8,6 +8,7 @@ use App\Models\KueTradisional;
 use App\Models\Menu_Kue;
 use App\Models\Menu_Kue_Kering;
 use App\Models\Menu_Nasi;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -228,7 +229,16 @@ class MenuController extends Controller
         // Check if kategori not kue loyang
         if ($request->kategori == "kue_kering") {
             // Create the new record in Menu_Kue Table
-            $baru = Menu_Kue_Kering::create($menu->toArray());
+            $baru = Menu_Kue_Kering::create([
+                'name' => $request->input('name', $menu->name),
+                'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+                'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
+                'image' => $request->input('image', $menu->image),
+                'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+                'created_at' => Carbon::now()->timestamp,
+                'updated_at' => Carbon::now()->timestamp,
+                'slug' => Str::slug($request->input('name', $menu->slug)),
+            ]);
 
             if ($baru) {
                 // Move the old file
@@ -241,7 +251,16 @@ class MenuController extends Controller
             }
 
         } elseif ($request->kategori == "nasi") {
-            $baru = Menu_Nasi::create($menu->toArray());
+            $baru = Menu_Nasi::create([
+                'name' => $request->input('name', $menu->name),
+                'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+                'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
+                'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+                'image' => $request->input('image', $menu->image),
+                'created_at' => Carbon::now()->timestamp,
+                'updated_at' => Carbon::now()->timestamp,
+                'slug' => Str::slug($request->input('name', $menu->slug)),
+            ]);
             if ($baru) {
                 // Move the old file
                 File::move(public_path('storage/menu_kue_loyang/' . $menu->image), public_path('storage/menu_nasi/' . $menu->image));
@@ -252,7 +271,16 @@ class MenuController extends Controller
                 return redirect()->back()->withErrors("Menu gagal diupdate :(");
             }
         } elseif ($request->kategori == "bakery") {
-            $baru = Bakery::create($menu->toArray());
+            $baru = Bakery::create([
+                'name' => $request->input('name', $menu->name),
+                'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+                'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
+                'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+                'image' => $request->input('image', $menu->image),
+                'created_at' => Carbon::now()->timestamp,
+                'updated_at' => Carbon::now()->timestamp,
+                'slug' => Str::slug($request->input('name', $menu->slug)),
+            ]);
             if ($baru) {
                 // Move the old file
                 File::move(public_path('storage/menu_kue_loyang/' . $menu->image), public_path('storage/bakery/' . $menu->image));
@@ -293,11 +321,12 @@ class MenuController extends Controller
             'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
             'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
             'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+            'slug' => Str::slug($request->input('name', $menu->slug)),
         ]);
 
         $menu->save();
 
-        return redirect()->back()->withSuccess("Data berhasil diupdate!");
+        return redirect()->route('menu.showKueLoyang', ['slug' => $menu->slug])->withSuccess("Data berhasil diupdate!");
     }
     public function updateKueKering(MenuUpdateRequest $request, string $slug)
     {
@@ -314,7 +343,16 @@ class MenuController extends Controller
         // Check if kategori not kue kering
         if ($request->kategori == "cake") {
             // Create the new record in Menu_Kue Table
-            $baru = Menu_Kue::create($menu->toArray());
+            $baru = Menu_Kue::create([
+                'name' => $request->input('name', $menu->name),
+                'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+                'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
+                'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+                'image' => $request->input('image', $menu->image),
+                'created_at' => Carbon::now()->timestamp,
+                'updated_at' => Carbon::now()->timestamp,
+                'slug' => Str::slug($request->input('name', $menu->slug)),
+            ]);
 
             // Kalau pembuatan data di tabel baru berhasil
             if ($baru) {
@@ -328,7 +366,16 @@ class MenuController extends Controller
             }
 
         } elseif ($request->kategori == "nasi") {
-            $baru = Menu_Nasi::create($menu->toArray());
+            $baru = Menu_Nasi::create([
+                'name' => $request->input('name', $menu->name),
+                'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+                'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
+                'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+                'image' => $request->input('image', $menu->image),
+                'created_at' => Carbon::now()->timestamp,
+                'updated_at' => Carbon::now()->timestamp,
+                'slug' => Str::slug($request->input('name', $menu->slug)),
+            ]);
             if ($baru) {
                 // Move the old file
                 File::move(public_path('storage/menu_kue_kering/' . $menu->image), public_path('storage/menu_nasi/' . $menu->image));
@@ -339,7 +386,16 @@ class MenuController extends Controller
                 return redirect()->back()->withErrors("Menu gagal diupdate :(");
             }
         } elseif ($request->kategori == "kue_tradisional") {
-            $baru = KueTradisional::create($menu->toArray());
+            $baru = KueTradisional::create([
+                'name' => $request->input('name', $menu->name),
+                'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+                'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
+                'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+                'image' => $request->input('image', $menu->image),
+                'created_at' => Carbon::now()->timestamp,
+                'updated_at' => Carbon::now()->timestamp,
+                'slug' => Str::slug($request->input('name', $menu->slug)),
+            ]);
             if ($baru) {
                 // Move the old file
                 File::move(public_path('storage/menu_kue_kering/' . $menu->image), public_path('storage/kue_tradisional/' . $menu->image));
@@ -350,7 +406,16 @@ class MenuController extends Controller
                 return redirect()->back()->withErrors("Menu gagal diupdate :(");
             }
         } elseif ($request->kategori == "bakery") {
-            $baru = Bakery::create($menu->toArray());
+            $baru = Bakery::create([
+                'name' => $request->input('name', $menu->name),
+                'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+                'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
+                'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+                'image' => $request->input('image', $menu->image),
+                'created_at' => Carbon::now()->timestamp,
+                'updated_at' => Carbon::now()->timestamp,
+                'slug' => Str::slug($request->input('name', $menu->slug)),
+            ]);
             if ($baru) {
                 // Move the old file
                 File::move(public_path('storage/menu_kue_kering/' . $menu->image), public_path('storage/bakery/' . $menu->image));
@@ -379,12 +444,13 @@ class MenuController extends Controller
             'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
             'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
             'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+            'slug' => Str::slug($request->input('name', $menu->slug)),
 
         ]);
 
         $menu->save();
 
-        return redirect()->back()->withSuccess("Data berhasil diupdate!");
+        return redirect(route('menu.showKueKering', ['slug' => $menu->slug]))->withSuccess("Data berhasil diupdate!");
     }
     public function updateMenuNasi(MenuUpdateRequest $request, string $slug)
     {
@@ -401,7 +467,16 @@ class MenuController extends Controller
         // Check if kategori not nasi
         if ($request->kategori == "cake") {
             // Create the new record in Menu_Kue Table
-            $baru = Menu_Kue::create($menu->toArray());
+            $baru = Menu_Kue::create([
+                'name' => $request->input('name', $menu->name),
+                'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+                'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
+                'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+                'image' => $request->input('image', $menu->image),
+                'created_at' => Carbon::now()->timestamp,
+                'updated_at' => Carbon::now()->timestamp,
+                'slug' => Str::slug($request->input('name', $menu->slug)),
+            ]);
 
             // Kalau pembuatan data di tabel baru berhasil
             if ($baru) {
@@ -415,7 +490,16 @@ class MenuController extends Controller
             }
 
         } else if ($request->kategori == "kue_kering") {
-            $baru = Menu_Kue_Kering::create($menu->toArray());
+            $baru = Menu_Kue_Kering::create([
+                'name' => $request->input('name', $menu->name),
+                'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+                'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
+                'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+                'image' => $request->input('image', $menu->image),
+                'created_at' => Carbon::now()->timestamp,
+                'updated_at' => Carbon::now()->timestamp,
+                'slug' => Str::slug($request->input('name', $menu->slug)),
+            ]);
             if ($baru) {
                 // Move the old file
                 File::move(public_path('storage/menu_nasi/' . $menu->image), public_path('storage/menu_kue_kering/' . $menu->image));
@@ -426,7 +510,16 @@ class MenuController extends Controller
                 return redirect()->back()->withErrors("Menu gagal diupdate :(");
             }
         } elseif ($request->kategori == "bakery") {
-            $baru = Bakery::create($menu->toArray());
+            $baru = Bakery::create([
+                'name' => $request->input('name', $menu->name),
+                'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+                'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
+                'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+                'image' => $request->input('image', $menu->image),
+                'created_at' => Carbon::now()->timestamp,
+                'updated_at' => Carbon::now()->timestamp,
+                'slug' => Str::slug($request->input('name', $menu->slug)),
+            ]);
             if ($baru) {
                 // Move the old file
                 File::move(public_path('storage/menu_nasi/' . $menu->image), public_path('storage/bakery/' . $menu->image));
@@ -437,7 +530,16 @@ class MenuController extends Controller
                 return redirect()->back()->withErrors("Menu gagal diupdate :(");
             }
         } elseif ($request->kategori == "kue_tradisional") {
-            $baru = KueTradisional::create($menu->toArray());
+            $baru = KueTradisional::create([
+                'name' => $request->input('name', $menu->name),
+                'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+                'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
+                'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+                'image' => $request->input('image', $menu->image),
+                'created_at' => Carbon::now()->timestamp,
+                'updated_at' => Carbon::now()->timestamp,
+                'slug' => Str::slug($request->input('name', $menu->slug)),
+            ]);
             if ($baru) {
                 // Move the old file
                 File::move(public_path('storage/menu_nasi/' . $menu->image), public_path('storage/kue_tradisional/' . $menu->image));
@@ -466,11 +568,13 @@ class MenuController extends Controller
             'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
             'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
             'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+            'slug' => Str::slug($request->input('name', $menu->slug)),
 
         ]);
 
         $menu->save();
-        return redirect()->back()->withSuccess("Data berhasil diupdate!");
+        return redirect(route('menu.showMenuNasi', ['slug' => $menu->slug]))->withSuccess("Data berhasil diupdate!");
+
     }
     public function updateMenuBakery(MenuUpdateRequest $request, string $slug)
     {
@@ -486,7 +590,16 @@ class MenuController extends Controller
         // Check if kategori not nasi
         if ($request->kategori == "cake") {
             // Create the new record in Menu_Kue Table
-            $baru = Menu_Kue::create($menu->toArray());
+            $baru = Menu_Kue::create([
+                'name' => $request->input('name', $menu->name),
+                'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+                'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
+                'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+                'image' => $request->input('image', $menu->image),
+                'created_at' => Carbon::now()->timestamp,
+                'updated_at' => Carbon::now()->timestamp,
+                'slug' => Str::slug($request->input('name', $menu->slug)),
+            ]);
 
             // Kalau pembuatan data di tabel baru berhasil
             if ($baru) {
@@ -500,7 +613,16 @@ class MenuController extends Controller
             }
 
         } elseif ($request->kategori == "kue_kering") {
-            $baru = Menu_Kue_Kering::create($menu->toArray());
+            $baru = Menu_Kue_Kering::create([
+                'name' => $request->input('name', $menu->name),
+                'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+                'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
+                'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+                'image' => $request->input('image', $menu->image),
+                'created_at' => Carbon::now()->timestamp,
+                'updated_at' => Carbon::now()->timestamp,
+                'slug' => Str::slug($request->input('name', $menu->slug)),
+            ]);
             if ($baru) {
                 // Move the old file
                 File::move(public_path('storage/bakery/' . $menu->image), public_path('storage/menu_kue_kering/' . $menu->image));
@@ -511,7 +633,16 @@ class MenuController extends Controller
                 return redirect()->back()->withErrors("Menu gagal diupdate :(");
             }
         } elseif ($request->kategori == "nasi") {
-            $baru = Menu_Nasi::create($menu->toArray());
+            $baru = Menu_Nasi::create([
+                'name' => $request->input('name', $menu->name),
+                'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+                'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
+                'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+                'image' => $request->input('image', $menu->image),
+                'created_at' => Carbon::now()->timestamp,
+                'updated_at' => Carbon::now()->timestamp,
+                'slug' => Str::slug($request->input('name', $menu->slug)),
+            ]);
             if ($baru) {
                 // Move the old file
                 File::move(public_path('storage/bakery/' . $menu->image), public_path('storage/menu_nasi/' . $menu->image));
@@ -522,13 +653,22 @@ class MenuController extends Controller
                 return redirect()->back()->withErrors("Menu gagal diupdate :(");
             }
         } elseif ($request->kategori == "kue_tradisional") {
-            $baru = KueTradisional::create($menu->toArray());
+            $baru = KueTradisional::create([
+                'name' => $request->input('name', $menu->name),
+                'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+                'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
+                'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+                'image' => $request->input('image', $menu->image),
+                'created_at' => Carbon::now()->timestamp,
+                'updated_at' => Carbon::now()->timestamp,
+                'slug' => Str::slug($request->input('name', $menu->slug)),
+            ]);
             if ($baru) {
                 // Move the old file
                 File::move(public_path('storage/bakery/' . $menu->image), public_path('storage/kue_tradisional/' . $menu->image));
                 // Delete the old record file
                 $menu->delete();
-                return redirect(route('menu.showMenuNasi', ["slug" => $slug]))->withSuccess("Data berhasil diupdate!");
+                return redirect(route('menu.showMenuKueTradisional', ["slug" => $slug]))->withSuccess("Data berhasil diupdate!");
             } else {
                 return redirect()->back()->withErrors("Menu gagal diupdate :(");
             }
@@ -551,11 +691,11 @@ class MenuController extends Controller
             'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
             'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
             'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
-
+            'slug' => Str::slug($request->input('name', $menu->slug)),
         ]);
 
         $menu->save();
-        return redirect()->back()->withSuccess("Data berhasil diupdate!");
+        return redirect(route('menu.showMenuBakery', ['slug' => $menu->slug]))->withSuccess("Data berhasil diupdate!");
     }
 
     public function updateKueTradisional(MenuUpdateRequest $request, string $slug)
@@ -572,7 +712,16 @@ class MenuController extends Controller
         // Check if kategori not nasi
         if ($request->kategori == "cake") {
             // Create the new record in Menu_Kue Table
-            $baru = Menu_Kue::create($menu->toArray());
+            $baru = Menu_Kue::create([
+                'name' => $request->input('name', $menu->name),
+                'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+                'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
+                'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+                'image' => $request->input('image', $menu->image),
+                'created_at' => Carbon::now()->timestamp,
+                'updated_at' => Carbon::now()->timestamp,
+                'slug' => Str::slug($request->input('name', $menu->slug)),
+            ]);
 
             // Kalau pembuatan data di tabel baru berhasil
             if ($baru) {
@@ -586,7 +735,16 @@ class MenuController extends Controller
             }
 
         } elseif ($request->kategori == "kue_kering") {
-            $baru = Menu_Kue_Kering::create($menu->toArray());
+            $baru = Menu_Kue_Kering::create([
+                'name' => $request->input('name', $menu->name),
+                'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+                'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
+                'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+                'image' => $request->input('image', $menu->image),
+                'created_at' => Carbon::now()->timestamp,
+                'updated_at' => Carbon::now()->timestamp,
+                'slug' => Str::slug($request->input('name', $menu->slug)),
+            ]);
             if ($baru) {
                 // Move the old file
                 File::move(public_path('storage/kue_tradisional/' . $menu->image), public_path('storage/menu_kue_kering/' . $menu->image));
@@ -597,7 +755,16 @@ class MenuController extends Controller
                 return redirect()->back()->withErrors("Menu gagal diupdate :(");
             }
         } elseif ($request->kategori == "nasi") {
-            $baru = Menu_Nasi::create($menu->toArray());
+            $baru = Menu_Nasi::create([
+                'name' => $request->input('name', $menu->name),
+                'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+                'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
+                'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+                'image' => $request->input('image', $menu->image),
+                'created_at' => Carbon::now()->timestamp,
+                'updated_at' => Carbon::now()->timestamp,
+                'slug' => Str::slug($request->input('name', $menu->slug)),
+            ]);
             if ($baru) {
                 // Move the old file
                 File::move(public_path('storage/kue_tradisional/' . $menu->image), public_path('storage/menu_nasi/' . $menu->image));
@@ -608,13 +775,22 @@ class MenuController extends Controller
                 return redirect()->back()->withErrors("Menu gagal diupdate :(");
             }
         } elseif ($request->kategori == "bakery") {
-            $baru = Bakery::create($menu->toArray());
+            $baru = Bakery::create([
+                'name' => $request->input('name', $menu->name),
+                'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
+                'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
+                'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
+                'image' => $request->input('image', $menu->image),
+                'created_at' => Carbon::now()->timestamp,
+                'updated_at' => Carbon::now()->timestamp,
+                'slug' => Str::slug($request->input('name', $menu->slug)),
+            ]);
             if ($baru) {
                 // Move the old file
                 File::move(public_path('storage/kue_tradisional/' . $menu->image), public_path('storage/bakery/' . $menu->image));
                 // Delete the old record file
                 $menu->delete();
-                return redirect(route('menu.showMenuNasi', ["slug" => $slug]))->withSuccess("Data berhasil diupdate!");
+                return redirect(route('menu.showMenuBakery', ["slug" => $slug]))->withSuccess("Data berhasil diupdate!");
             } else {
                 return redirect()->back()->withErrors("Menu gagal diupdate :(");
             }
@@ -639,11 +815,11 @@ class MenuController extends Controller
             'harga_normal' => $request->input('harga_normal', $menu->harga_normal),
             'harga_diskon' => $request->input('harga_diskon', $menu->harga_diskon),
             'deskripsi' => $request->input('deskripsi', $menu->deskripsi),
-
+            'slug' => Str::slug($request->input('name', $menu->slug)),
         ]);
 
         $menu->save();
-        return redirect()->back()->withSuccess("Data berhasil diupdate!");
+        return redirect(route('menu.showMenuKueTradisional', ['slug' => $menu->slug]))->withSuccess("Data berhasil diupdate!");
     }
 
     /**
