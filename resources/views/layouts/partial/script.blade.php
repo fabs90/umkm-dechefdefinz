@@ -35,6 +35,9 @@
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
 {{-- Sweetalert 2 --}}
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{{-- Menu Bahan script --}}
+<script src="{{ asset('menu-bahan') }}/menuBahan.js"></script>
+
 
 <script>
     // Delete confirm sweetalert

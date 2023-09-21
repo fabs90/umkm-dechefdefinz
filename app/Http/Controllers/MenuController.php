@@ -884,7 +884,7 @@ class MenuController extends Controller
         $data = KueTradisional::where('slug', $slug)->first();
 
         if ($data != null) {
-            unlink(public_path('storage/kue_tradisional/' . $data->image));
+            File::delete(public_path('storage/kue_tradisional/' . $data->image));
 
             $data->delete();
             return redirect()->route('adminPage')->withSuccess('Data berhasil di hapus');

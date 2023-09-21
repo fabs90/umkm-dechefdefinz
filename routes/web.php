@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BahanController;
 use App\Http\Controllers\kalkulatorController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MenuBahanController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
@@ -52,6 +53,20 @@ Route::middleware(['isLogin'])->group(function () {
     Route::delete('/admin/deleteKueKering/{slug}', [MenuController::class, 'hapusMenuKuekering'])->name('menu.hapusMenuKueKering');
     Route::delete('/admin/deleteBakery/{slug}', [MenuController::class, 'hapusMenuBakery'])->name('menu.hapusMenuBakery');
     Route::delete('/admin/deleteKueTradisional/{slug}', [MenuController::class, 'hapusKueTradisional'])->name('menu.hapusKueTradisional');
+
+    // Menu Bahan
+    Route::get('/admin/menubahan/', [MenuBahanController::class, 'MenuBahanKue'])->name('menubahan');
+    // Route::get('/admin/menubahan/kuekering/{id}', function ($id) {
+    //     $course = BahanMenuKueKering::where('id_menu', $id)->get();
+    //     return response()->json($course);
+    // });
+    Route::get('/admin/menubahan/{jenis}', [MenuBahanController::class, 'findBahan'])->name('menubahan.jenis');
+
+    Route::post('/admin/menubahan/kue-kering/post', [MenuBahanController::class, 'postBahanKueKering'])->name('menubahan.post.kuekering');
+    Route::post('/admin/menubahan/cake/post', [MenuBahanController::class, 'postBahanCake'])->name('menubahan.post.cake');
+    Route::post('/admin/menubahan/kue-tradisional/post', [MenuBahanController::class, 'postBahanKueTradisional'])->name('menubahan.post.kuetradisional');
+    Route::post('/admin/menubahan/bakery/post', [MenuBahanController::class, 'postBahanBakery'])->name('menubahan.post.bakery');
+    Route::post('/admin/menubahan/nasi/post', [MenuBahanController::class, 'postBahanNasi'])->name('menubahan.post.nasi');
 
     // Bahan
     Route::get('/admin/bahan/tambah', [BahanController::class, 'createBahan'])->name('create-bahan');
