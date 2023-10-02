@@ -77,7 +77,7 @@
         {{-- <button type="submit">Hitung</button> --}}
 
 
-        <h2>Total Harga Pokok Produksi:</h2>
+        <h2>Total Biaya Bahan Baku:</h2>
         <span>Rp.</span>
         <p id="hasilBahanBaku" style="display: inline">
             {{ session('hargaBahanBaku') ? number_format(session('hargaBahanBaku'), 0, ',', '.') : 0 }}
@@ -98,7 +98,7 @@
         <label for="harga-bahan">Harga Paper:</label>
         <input type="number" id="harga_paper_cup" name="harga_paper_cup"
             placeholder="Masukkan harga satuan paper cup" step="any"
-            value="{{ old('harga-paper', session('input_values.harga-paper')) }}" required />
+            value="{{ old('harga_paper_cup', session('input_values.harga_paper_cup')) }}" required />
         <br><br>
         <label for="harga-bahan">Kardus:</label>
         <input type="number" id="kardus" name="kardus" placeholder="Masukkan jumlah kardus" step="any"
@@ -139,9 +139,9 @@
         <input type="number" id="gas" name="gas" placeholder="Masukkan harga gas yang digunakan"
             value="{{ old('gas', session('input_values.gas')) }}" required />
 
-        <label for="harga-bahan">Air:</label>
-        <input type="number" id="air" name="air" placeholder="Masukkan harga air yang digunakan"
-            value="{{ old('air', session('input_values.air')) }}" required />
+        <label for="harga-bahan">Air Rumah:</label>
+        <input type="number" id="air_rumah" name="air_rumah" placeholder="Masukkan harga air yang digunakan"
+            value="{{ old('air_rumah', session('input_values.air_rumah')) }}" required />
 
         <label for="harga-bahan">Gaji Karyawan:</label>
         <input type="number" id="gaji" name="gaji" placeholder="Masukkan harga gaji karyawan per jam"

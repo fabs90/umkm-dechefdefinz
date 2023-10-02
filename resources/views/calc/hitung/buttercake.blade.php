@@ -116,9 +116,9 @@
         <input type="number" id="gas" name="gas" placeholder="Masukkan harga gas yang digunakan"
             value="{{ old('gas', session('input_values.gas')) }}" required />
 
-        <label for="harga-bahan">Air:</label>
-        <input type="number" id="air" name="air" placeholder="Masukkan harga air yang digunakan"
-            value="{{ old('air', session('input_values.air')) }}" required />
+        <label for="harga-bahan">Air Rumah:</label>
+        <input type="number" id="air_rumah" name="air_rumah" placeholder="Masukkan harga air rumah yang digunakan"
+            value="{{ old('air', session('input_values.air_rumah')) }}" required />
 
         <label for="harga-bahan">Gaji Karyawan:</label>
         <input type="number" id="gaji" name="gaji" placeholder="Masukkan harga gaji karyawan per jam"

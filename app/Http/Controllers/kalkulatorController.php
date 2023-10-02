@@ -6,6 +6,7 @@ use App\Models\Bahan_Baku;
 use App\Models\Bahan_Kemasan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Session;
 
 class kalkulatorController extends Controller
 {
@@ -67,7 +68,7 @@ class kalkulatorController extends Controller
         $biayaProduksi = [
             'harga_listrik' => $request->listrik,
             'harga_gas' => $request->gas,
-            'harga_air' => $request->air,
+            'harga_air_rumah' => $request->air_rumah,
             'harga_total_gaji' => $hargaGajiKaryawan * $hargaPerjam,
         ];
 
@@ -99,7 +100,7 @@ class kalkulatorController extends Controller
 
     public function kueSusVanillaHP(Request $request)
     {
-// Buat session nilai yang diinput user tadi
+        // Buat session nilai yang diinput user tadi
         $request->session()->flash('input_values', $request->all());
 
         // (Bahan Baku)
@@ -112,13 +113,12 @@ class kalkulatorController extends Controller
             'harga_garam' => $request->garam * $this->getHargaBahan('garam'),
             'harga_tepung_maezena' => $request->tepung_maezena * $this->getHargaBahan('tepung-maezena'),
             'harga_susu_cair' => $request->susu_cair * $this->getHargaBahan('susu-cair'),
-            'harga_kuning_telur' => $request->kuning_telur * $this->getHargaBahan('kuning_telur'),
+            'harga_kuning_telur' => $request->kuning_telur * $this->getHargaBahan('kuning-telur'),
             'harga_butter' => $request->butter * $this->getHargaBahan('butter'),
             'harga_vanilla' => $request->vanilla * $this->getHargaBahan('vanilla'),
         ];
 
-        $bahanBaku = array_sum($bahanBaku);
-
+        $totalBahanBaku = array_sum($bahanBaku);
         // (Biaya Kemasan)
         $biayaKemasan = [
             'harga_paper_cup' => $request->paper_cup * $request->harga_paper_cup,
@@ -135,20 +135,20 @@ class kalkulatorController extends Controller
         $biayaProduksi = [
             'harga_listrik' => $request->listrik,
             'harga_gas' => $request->gas,
-            'harga_air' => $request->air,
+            'harga_air_rumah' => $request->air_rumah,
             'harga_total_gaji' => $hargaGajiKaryawan * $hargaPerjam,
         ];
 
         $biayaProduksi = array_sum($biayaProduksi);
         // menghitung hpp
-        $biayaHPP = ($bahanBaku + $biayaKemasan + $biayaProduksi) / $request->jumlah_pesanan;
+        $biayaHPP = ($totalBahanBaku + $biayaKemasan + $biayaProduksi) / $request->jumlah_pesanan;
 
         // Hitung harga jual
         $hargaJual = $biayaHPP + (($request->margin / 100) * $biayaHPP);
 
         // Simpan nilai $buttercakeHP dalam session
         session([
-            'hargaBahanBaku' => $bahanBaku,
+            'hargaBahanBaku' => $totalBahanBaku,
             'biayaKemasan' => $biayaKemasan,
             'biayaProduksi' => $biayaProduksi,
             'hpp' => $biayaHPP,
@@ -200,7 +200,7 @@ class kalkulatorController extends Controller
         $biayaProduksi = [
             'harga_listrik' => $request->listrik,
             'harga_gas' => $request->gas,
-            'harga_air' => $request->air,
+            'harga_air_rumah' => $request->air_rumah,
             'harga_total_gaji' => $hargaGajiKaryawan * $hargaPerjam,
         ];
 
@@ -274,7 +274,7 @@ class kalkulatorController extends Controller
         $biayaProduksi = [
             'harga_listrik' => $request->listrik,
             'harga_gas' => $request->gas,
-            'harga_air' => $request->air,
+            'harga_air_rumah' => $request->air_rumah,
             'harga_total_gaji' => $request->jumlah_karyawan * ($hargaGajiKaryawan * $hargaPerjam),
         ];
 
@@ -336,7 +336,7 @@ class kalkulatorController extends Controller
         $biayaProduksi = [
             'harga_listrik' => $request->listrik,
             'harga_gas' => $request->gas,
-            'harga_air' => $request->air,
+            'harga_air' => $request->air, 'harga_air_rumah' => $request->air_rumah,
             'harga_total_gaji' => $request->jumlah_karyawan * ($hargaGajiKaryawan * $hargaPerjam),
         ];
 
