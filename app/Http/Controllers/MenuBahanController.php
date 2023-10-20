@@ -14,6 +14,7 @@ use App\Models\Menu_Kue;
 use App\Models\Menu_Kue_Kering;
 use App\Models\Menu_Nasi;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Request;
 
 class MenuBahanController extends Controller
 {
@@ -31,19 +32,19 @@ class MenuBahanController extends Controller
         $bahanBaku = Bahan_Baku::all();
 
         switch ($jenis) {
-            case 'kue-kering':
+            case 'menu_kue-kering':
                 $kueKering = Menu_Kue_Kering::all();
                 return view('admin.menu_bahan.menuBahanKueKering', compact('kueKering', 'jenisKue', 'bahanBaku', 'jenis'));
-            case 'cake':
+            case 'menu_kue':
                 $cake = Menu_Kue::all();
                 return view('admin.menu_bahan.menuBahanCake', compact('cake', 'jenisKue', 'bahanBaku', 'jenis'));
-            case 'nasi':
+            case 'menu_nasi':
                 $nasi = Menu_Nasi::all();
                 return view('admin.menu_bahan.menuBahanNasi', compact('nasi', 'jenisKue', 'bahanBaku', 'jenis'));
             case 'bakery':
                 $bakery = Bakery::all();
                 return view('admin.menu_bahan.menuBahanBakery', compact('bakery', 'jenisKue', 'bahanBaku', 'jenis'));
-            case 'kue-tradisional':
+            case 'kue_tradisional':
                 $kueTradisional = KueTradisional::all();
                 return view('admin.menu_bahan.menuBahanKueTradisional', compact('kueTradisional', 'jenisKue', 'bahanBaku', 'jenis'));
             default:
@@ -212,6 +213,52 @@ class MenuBahanController extends Controller
         $menu->BahanMenuNasi()->insert($dataToInsert);
 
         return redirect()->back()->withSuccess('Berhasil Input Bahan Menu');
+    }
+
+    public function editPage()
+    {
+        $jenisKue = DB::table('jenis_kue')->get();
+
+        return view('admin.menu_bahan.update.showMenuBahanEdit', compact('jenisKue'));
+    }
+
+    public function editJenis(String $jenis)
+    {
+        $jenisKue = DB::table('jenis_kue')->get();
+        $bahanBaku = Bahan_Baku::all();
+
+        switch ($jenis) {
+            case 'menu_kue_kering':
+
+                $kueKering = Menu_Kue_Kering::all();
+
+                return view('admin.menu_bahan.update.showMenuBahanKueKering', compact('kueKering', 'jenisKue', 'bahanBaku', 'jenis'));
+            case 'menu_kue':
+                $cake = Menu_Kue::all();
+                return view('admin.menu_bahan.update.showMenuBahanCake', compact('cake', 'jenisKue', 'bahanBaku', 'jenis'));
+            case 'menu_nasi':
+                $nasi = Menu_Nasi::all();
+                return view('admin.menu_bahan.update.showMenuBahanNasi', compact('nasi', 'jenisKue', 'bahanBaku', 'jenis'));
+            case 'bakery':
+                $bakery = Bakery::all();
+                return view('admin.menu_bahan.update.showMenuBahanBakery', compact('bakery', 'jenisKue', 'bahanBaku', 'jenis'));
+            case 'kue_tradisional':
+                $kueTradisional = KueTradisional::all();
+                return view('admin.menu_bahan.update.showMenuBahanKueTradisional', compact('kueTradisional', 'jenisKue', 'bahanBaku', 'jenis'));
+            default:
+                return view('admin.menu_bahan.menuBahan', compact('jenisKue', 'bahanBaku', 'jenis'));
+        }
+    }
+
+    public function jenisBakery(Request $request)
+    {
+        $menu = Bakery::findOrFail($request->input('select_menu'));
+
+        if (!$menu) {
+            return redirect()->back()->withErrors("Data tidak ditemukan");
+        }
+
+        
     }
 
 }

@@ -5,11 +5,11 @@
         {{-- Main-content --}}
         <section class="content">
             <div class="container-fluid">
-                <form action="{{ route('menubahan.post.nasi') }}" method="post">
+                <form action="{{ route('menubahan.post.cake') }}" method="post">
                     @csrf
                     <div class="row mb-2">
                         <div class="col mt-3">
-                            <h3>{{ $jenis }}</h3>
+                            <h3>Cake</h3>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group mb-3">
@@ -29,7 +29,7 @@
                                 <label for="select-menu" class="form-label">Pilih Menu</label>
                                 <select name="select_menu" id="select-menu" class="form-select input-select">
                                     <option value="#">-- Option --</option>
-                                    @foreach ($nasi as $item)
+                                    @foreach ($cake as $item)
                                         <option value="{{ $item->id }}">{{ $item->name }}
                                         </option>
                                     @endforeach

@@ -68,6 +68,14 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('promo') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Promo
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-header">Tambahan</li>
@@ -109,6 +117,14 @@
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Atur Bahan Menu
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('editmenubahan.page') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Update Bahan Menu
                                 </p>
                             </a>
                         </li>

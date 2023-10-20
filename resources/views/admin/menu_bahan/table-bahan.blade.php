@@ -1,4 +1,4 @@
-    <table id="menuTradisional" class="table table-striped table-bordered text-center table-responsive-sm"
+    <table id="tabel-bahan-blade" class="table table-striped table-bordered text-center table-responsive-sm"
         style="width:100%">
         <thead>
             <tr>

@@ -27,6 +27,65 @@
 
  <!-- home section ends -->
 
+ {{-- Promo --}}
+ <section class="product" id="product">
+
+     <h1 class="heading">Promo <span> Menarik Dari Kami</span></h1>
+
+     <div class="box-container">
+
+         <div class="boks">
+             <div class="">
+
+             </div>
+             <div class="content">
+
+             </div>
+         </div>
+         @foreach ($promo as $item)
+             <div class="box">
+                 <div class="image">
+                     <img src="{{ asset("storage/promo/$item->image") }}" style="width: 80%;">
+                 </div>
+                 <div class="content">
+                     <h3>{{ $item->nama }}</h3>
+                     <span class="price">{{ $item->deskripsi }}</span>
+                 </div>
+             </div>
+         @endforeach
+
+         <div class="boks">
+             <div class="">
+
+             </div>
+             <div class="content">
+
+             </div>
+         </div>
+
+         <div class="boks">
+             <div class="">
+
+             </div>
+             <div class="content">
+
+             </div>
+         </div>
+
+         <div class="pesan">
+
+
+
+             <div class="content">
+
+
+
+             </div>
+         </div>
+
+ </section>
+ {{-- End Promo --}}
+
  {{-- Best Seller --}}
  <section class="product" id="best">
      <div class="heading">

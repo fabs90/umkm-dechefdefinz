@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserReviewRequest;
+use App\Models\Promo;
 use App\Models\Bakery;
-use App\Models\KueTradisional;
 use App\Models\Menu_Kue;
-use App\Models\Menu_Kue_Kering;
 use App\Models\Menu_Nasi;
 use App\Models\ReviewRating;
-use App\Models\UserImageReview;
 use Illuminate\Http\Request;
+use App\Models\KueTradisional;
+use App\Models\Menu_Kue_Kering;
+use App\Models\UserImageReview;
+use App\Http\Requests\UserReviewRequest;
 
 class ReviewController extends Controller
 {
@@ -39,8 +40,9 @@ class ReviewController extends Controller
         $kueKering = Menu_Kue_Kering::paginate(3);
         $nasi = Menu_Nasi::paginate(3);
         $cake = Menu_Kue::paginate(3);
+        $promo = Promo::all();
 
-        return view('uji', compact('datas', 'testimoni', 'bakery', 'kueTradisional', 'kueKering', 'nasi', 'cake'));
+        return view('uji', compact('datas', 'testimoni', 'bakery', 'kueTradisional', 'kueKering', 'nasi', 'cake', 'promo'));
     }
 
     // Show all review in admin

@@ -5,11 +5,11 @@
         {{-- Main-content --}}
         <section class="content">
             <div class="container-fluid">
-                <form action="{{ route('menubahan.post.nasi') }}" method="post">
+                <form action="{{ route('menubahan.post.cake') }}" method="post">
                     @csrf
                     <div class="row mb-2">
                         <div class="col mt-3">
-                            <h3>{{ $jenis }}</h3>
+                            <h3>Nasi</h3>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group mb-3">

@@ -372,6 +372,12 @@
     new DataTable('#tabel-testimoni', {
         responsive: true
     })
+    new DataTable('#tabel-bahan-blade', {
+        responsive: true
+    })
+    new DataTable('#tabelPromo', {
+        responsive: true
+    })
 </script>
 </body>
 

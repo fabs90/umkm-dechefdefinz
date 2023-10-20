@@ -6,6 +6,7 @@ use App\Http\Controllers\kalkulatorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MenuBahanController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\PromoController;
 use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
@@ -68,6 +69,10 @@ Route::middleware(['isLogin'])->group(function () {
     Route::post('/admin/menubahan/bakery/post', [MenuBahanController::class, 'postBahanBakery'])->name('menubahan.post.bakery');
     Route::post('/admin/menubahan/nasi/post', [MenuBahanController::class, 'postBahanNasi'])->name('menubahan.post.nasi');
 
+    // Edit Menu Bahan
+    Route::get('/admin/editmenubahan', [MenuBahanController::class, 'editPage'])->name('editmenubahan.page');
+    Route::get('/admin/editmenubahan/{jenis}', [MenuBahanController::class, 'editJenis'])->name('editmenubahan.jenis');
+
     // Bahan
     Route::get('/admin/bahan/tambah', [BahanController::class, 'createBahan'])->name('create-bahan');
     Route::post('/admin/bahan/store', [BahanController::class, 'storeBahan'])->name('create-bahan.store');
@@ -96,6 +101,11 @@ Route::middleware(['isLogin'])->group(function () {
     Route::get('/admin/add-review-photo', [ReviewController::class, 'showFormImageReview'])->name('imageReview');
     Route::post('/admin/add-review-photo/upload', [ReviewController::class, 'storeImageReview'])->name('imageReview.add');
     Route::delete('admin/add-review-photo/{id}/delete', [ReviewController::class, 'deleteImageReview'])->name('imageReview.delete');
+
+// Promo
+    Route::get('/admin/promo', [PromoController::class, 'index'])->name('promo');
+    Route::post('/admin/promo/store', [PromoController::class, 'store'])->name('promo.store');
+    Route::delete('/admin/promo/{slug}/delete', [PromoController::class, 'destroy'])->name('promo.destroy');
 
 });
 
