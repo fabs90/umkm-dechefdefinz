@@ -32,19 +32,19 @@ class MenuBahanController extends Controller
         $bahanBaku = Bahan_Baku::all();
 
         switch ($jenis) {
-            case 'menu_kue-kering':
+            case 'kue-kering':
                 $kueKering = Menu_Kue_Kering::all();
                 return view('admin.menu_bahan.menuBahanKueKering', compact('kueKering', 'jenisKue', 'bahanBaku', 'jenis'));
-            case 'menu_kue':
+            case 'cake':
                 $cake = Menu_Kue::all();
                 return view('admin.menu_bahan.menuBahanCake', compact('cake', 'jenisKue', 'bahanBaku', 'jenis'));
-            case 'menu_nasi':
+            case 'nasi':
                 $nasi = Menu_Nasi::all();
                 return view('admin.menu_bahan.menuBahanNasi', compact('nasi', 'jenisKue', 'bahanBaku', 'jenis'));
             case 'bakery':
                 $bakery = Bakery::all();
                 return view('admin.menu_bahan.menuBahanBakery', compact('bakery', 'jenisKue', 'bahanBaku', 'jenis'));
-            case 'kue_tradisional':
+            case 'kue-tradisional':
                 $kueTradisional = KueTradisional::all();
                 return view('admin.menu_bahan.menuBahanKueTradisional', compact('kueTradisional', 'jenisKue', 'bahanBaku', 'jenis'));
             default:
@@ -62,6 +62,10 @@ class MenuBahanController extends Controller
 
         if (!$menu) {
             return redirect()->back()->withErrors("Data tidak ditemukan");
+        }
+
+        if (Menu_Kue_Kering::where('id_bahan', $request->bahans)->count() > 0) {
+            return redirect()->back()->withErrors('Data sudah terpakai, silakan lakukan pada menu update');
         }
 
         // Ambil semua bahan dari checkbox
@@ -102,10 +106,9 @@ class MenuBahanController extends Controller
             return redirect()->back()->withErrors("Data tidak ditemukan");
         }
 
-        if (BahanMenuCake::where('id_menu', $menu->id)->count() > 0) {
+        if (BahanMenuCake::where('id_bahan', $request->bahans)->count() > 0) {
             return redirect()->back()->withErrors('Data sudah terpakai, silakan lakukan pada menu update');
         }
-
         // Ambil semua bahan dari checkbox
         $bahans = $request->input('bahans');
 
@@ -133,7 +136,7 @@ class MenuBahanController extends Controller
             return redirect()->back()->withErrors("Data tidak ditemukan");
         }
 
-        if (BahanMenuKueTradisional::where('id_menu', $menu->id)->count() > 0) {
+        if (BahanMenuKueTradisional::where('id_menu', $request->bahans)->count() > 0) {
             return redirect()->back()->withErrors('Data sudah terpakai, silakan lakukan pada menu update');
         }
 
@@ -164,7 +167,7 @@ class MenuBahanController extends Controller
             return redirect()->back()->withErrors("Data tidak ditemukan");
         }
 
-        if (BahanMenuBakery::where('id_menu', $menu->id)->count() > 0) {
+        if (BahanMenuBakery::where('id_menu', $request->bahans)->count() > 0) {
             return redirect()->back()->withErrors('Data sudah terpakai, silakan lakukan pada menu update');
         }
 
@@ -194,7 +197,7 @@ class MenuBahanController extends Controller
             return redirect()->back()->withErrors("Data tidak ditemukan");
         }
 
-        if (BahanMenuNasi::where('id_menu', $menu->id)->count() > 0) {
+        if (BahanMenuNasi::where('id_menu', $request->bahans)->count() > 0) {
             return redirect()->back()->withErrors('Data sudah terpakai, silakan lakukan pada menu update');
         }
 
@@ -227,22 +230,20 @@ class MenuBahanController extends Controller
         $jenisKue = DB::table('jenis_kue')->get();
         $bahanBaku = Bahan_Baku::all();
 
-        switch ($jenis) {
-            case 'menu_kue_kering':
-
+        switch ($jenisKue) {
+            case 'kue-kering':
                 $kueKering = Menu_Kue_Kering::all();
-
                 return view('admin.menu_bahan.update.showMenuBahanKueKering', compact('kueKering', 'jenisKue', 'bahanBaku', 'jenis'));
-            case 'menu_kue':
+            case 'cake':
                 $cake = Menu_Kue::all();
                 return view('admin.menu_bahan.update.showMenuBahanCake', compact('cake', 'jenisKue', 'bahanBaku', 'jenis'));
-            case 'menu_nasi':
+            case 'nasi':
                 $nasi = Menu_Nasi::all();
                 return view('admin.menu_bahan.update.showMenuBahanNasi', compact('nasi', 'jenisKue', 'bahanBaku', 'jenis'));
             case 'bakery':
                 $bakery = Bakery::all();
                 return view('admin.menu_bahan.update.showMenuBahanBakery', compact('bakery', 'jenisKue', 'bahanBaku', 'jenis'));
-            case 'kue_tradisional':
+            case 'kue-tradisional':
                 $kueTradisional = KueTradisional::all();
                 return view('admin.menu_bahan.update.showMenuBahanKueTradisional', compact('kueTradisional', 'jenisKue', 'bahanBaku', 'jenis'));
             default:
@@ -258,7 +259,6 @@ class MenuBahanController extends Controller
             return redirect()->back()->withErrors("Data tidak ditemukan");
         }
 
-        
     }
 
 }
