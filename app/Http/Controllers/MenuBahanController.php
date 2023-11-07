@@ -247,7 +247,7 @@ class MenuBahanController extends Controller
                 $kueTradisional = KueTradisional::all();
                 return view('admin.menu_bahan.update.showMenuBahanKueTradisional', compact('kueTradisional', 'jenisKue', 'bahanBaku', 'jenis'));
             default:
-                return view('admin.menu_bahan.menuBahan', compact('jenisKue', 'bahanBaku', 'jenis'));
+                return view('admin.menu_bahan.update.showMenuBahanEdit', compact('jenisKue', 'bahanBaku', 'jenis'));
         }
     }
 

@@ -52,166 +52,190 @@ class MenuController extends Controller
         $kategori = $request->input('kategori');
         switch ($kategori) {
             case 'kue':
-                // Ambil nama asli file, kl ga pake ini namanya di generate acak sm laravel
-                $validate = $request->validate([
-                    'name' => ['required', 'min:3', 'max:100', 'unique:menu_kue,name'],
-                    'harga_normal' => ['required', 'numeric', 'min:400'],
-                    'deskripsi' => ['required'],
-                    'image' => ['required', 'file', 'mimes:png,jpg,jpeg,svg', 'max:8092'],
-                ], [
-                    'name.required' => 'Username wajib diisi',
-                    'name.min' => 'Minimal 3 huruf',
-                    'name.max' => 'Maksimal 100 huruf',
-                    'name.unique' => 'Nama menu sudah pernah terdaftar!',
-                    'harga_normal.required' => 'Harga wajib diisi',
-                    'harga_normal.min' => 'Angka yang diinput terlalu kecil! (Minimal Rp.400)',
-                    'harga_normal.numeric' => 'Masukan angka saja',
-                    'deskripsi.required' => 'Deskripsi wajib diisi',
-                    'image.required' => "Mohon upload gambar melalui tombol 'choose file'",
-                    'image.mimes' => 'Ekstensi yang diperbolehkan hanya:png,jpg,jpeg,svg',
-                    'image.max' => 'Ukuran maksimum gambar adalah 8mb (8092kb)!',
-                ]);
-                $fileName = time() . '-' . $request->image->getClientOriginalname();
-                $data = new Menu_Kue;
-                $data->name = $request->name;
-                $data->image = $fileName;
-                $data->harga_normal = $request->harga_normal;
-                $data->harga_diskon = 0;
-                $data->deskripsi = $request->deskripsi;
-                $data->slug = Str::slug($request->name);
-                $data->save();
-                // Taro hard copy file ke dalam folder thumbnail yg ada di public
-                $request->image->storeAs('menu_kue_loyang', $fileName);
-                return redirect(route('menu.create'))->withSuccess('Menu berhasil ditambah!');
+                $this->storeKue($request);
             case 'kue_kering':
-                $validate = $request->validate([
-                    'name' => ['required', 'min:3', 'max:100', 'unique:menu_kue_kering,name'],
-                    'harga_normal' => ['required', 'numeric', 'min:400'],
-                    'deskripsi' => ['required'],
-                    'image' => ['required', 'file', 'mimes:png,jpg,jpeg,svg', 'max:8092'],
-                ], [
-                    'name.required' => 'Username wajib diisi',
-                    'name.min' => 'Minimal 3 huruf',
-                    'name.max' => 'Maksimal 100 huruf',
-                    'name.unique' => 'Nama menu sudah pernah terdaftar!',
-                    'harga_normal.required' => 'Harga wajib diisi',
-                    'harga_normal.min' => 'Angka yang diinput terlalu kecil! (Minimal Rp.400)',
-                    'harga_normal.numeric' => 'Masukan angka saja',
-                    'deskripsi.required' => 'Deskripsi wajib diisi',
-                    'image.required' => "Mohon upload gambar melalui tombol 'choose file'",
-                    'image.mimes' => 'Ekstensi yang diperbolehkan hanya:png,jpg,jpeg,svg',
-                    'image.max' => 'Ukuran maksimum gambar adalah 8mb (8092kb)!',
-                ]);
-                $fileName = time() . '-' . $request->image->getClientOriginalname();
-                $data = new Menu_Kue_Kering;
-                $data->name = $request->name;
-                $data->image = $fileName;
-                $data->harga_normal = $request->harga_normal;
-                $data->harga_diskon = 0;
-                $data->deskripsi = $request->deskripsi;
-                $data->slug = Str::slug($request->name);
-                $data->save();
-                // Taro hard copy file ke dalam folder thumbnail yg ada di public
-                $request->image->storeAs('menu_kue_kering', $fileName);
-                return redirect(route('menu.create'))->withSuccess('Menu berhasil ditambah!');
+                $this->storeKueKering($request);
             case 'nasi':
-                $validate = $request->validate([
-                    'name' => ['required', 'min:3', 'max:100', 'unique:menu_nasi,name'],
-                    'harga_normal' => ['required', 'numeric', 'min:400'],
-                    'deskripsi' => ['required'],
-                    'image' => ['required', 'file', 'mimes:png,jpg,jpeg,svg', 'max:8092'],
-                ], [
-                    'name.required' => 'Username wajib diisi',
-                    'name.min' => 'Minimal 3 huruf',
-                    'name.max' => 'Maksimal 100 huruf',
-                    'name.unique' => 'Nama menu sudah pernah terdaftar!',
-                    'harga_normal.required' => 'Harga wajib diisi',
-                    'harga_normal.min' => 'Angka yang diinput terlalu kecil! (Minimal Rp.400)',
-                    'harga_normal.numeric' => 'Masukan angka saja',
-                    'deskripsi.required' => 'Deskripsi wajib diisi',
-                    'image.required' => "Mohon upload gambar melalui tombol 'choose file'",
-                    'image.mimes' => 'Ekstensi yang diperbolehkan hanya:png,jpg,jpeg,svg',
-                    'image.max' => 'Ukuran maksimum gambar adalah 8mb (8092kb)!',
-                ]);
-                $fileName = time() . '-' . $request->image->getClientOriginalname();
-                $data = new Menu_Nasi;
-                $data->name = $request->name;
-                $data->image = $fileName;
-                $data->harga_normal = $request->harga_normal;
-                $data->harga_diskon = 0;
-                $data->deskripsi = $request->deskripsi;
-                $data->slug = Str::slug($request->name);
-                $data->save();
-                // Taro hard copy file ke dalam folder thumbnail yg ada di public
-                $request->image->storeAs('menu_nasi', $fileName);
-                return redirect(route('menu.create'))->withSuccess('Menu berhasil ditambah!');
+                $this->storeNasi($request);
             case "kue_tradisional":
-                $validate = $request->validate([
-                    'name' => ['required', 'min:3', 'max:100', 'unique:kue_tradisional,name'],
-                    'harga_normal' => ['required', 'numeric', 'min:400'],
-                    'deskripsi' => ['required'],
-                    'image' => ['required', 'file', 'mimes:png,jpg,jpeg,svg', 'max:8092'],
-                ], [
-                    'name.required' => 'Username wajib diisi',
-                    'name.min' => 'Minimal 3 huruf',
-                    'name.max' => 'Maksimal 100 huruf',
-                    'name.unique' => 'Nama menu sudah pernah terdaftar!',
-                    'harga_normal.required' => 'Harga wajib diisi',
-                    'harga_normal.min' => 'Angka yang diinput terlalu kecil! (Minimal Rp.400)',
-                    'harga_normal.numeric' => 'Masukan angka saja',
-                    'deskripsi.required' => 'Deskripsi wajib diisi',
-                    'image.required' => "Mohon upload gambar melalui tombol 'choose file'",
-                    'image.mimes' => 'Ekstensi yang diperbolehkan hanya:png,jpg,jpeg,svg',
-                    'image.max' => 'Ukuran maksimum gambar adalah 8mb (8092kb)!',
-                ]);
-                $fileName = time() . '-' . $request->image->getClientOriginalname();
-                $data = new KueTradisional;
-                $data->name = $request->name;
-                $data->image = $fileName;
-                $data->harga_normal = $request->harga_normal;
-                $data->harga_diskon = 0;
-                $data->deskripsi = $request->deskripsi;
-                $data->slug = Str::slug($request->name);
-                $data->save();
-                // Taro hard copy file ke dalam folder thumbnail yg ada di public
-                $request->image->storeAs('kue_tradisional', $fileName);
-                return redirect(route('menu.create'))->withSuccess('Menu berhasil ditambah!');
+                $this->storeKueTradisional($request);
             case 'bakery':
-                $validate = $request->validate([
-                    'name' => ['required', 'min:3', 'max:100', 'unique:bakeries,name'],
-                    'harga_normal' => ['required', 'numeric', 'min:400'],
-                    'deskripsi' => ['required'],
-                    'image' => ['required', 'file', 'mimes:png,jpg,jpeg,svg', 'max:8092'],
-                ], [
-                    'name.required' => 'Username wajib diisi',
-                    'name.min' => 'Minimal 3 huruf',
-                    'name.max' => 'Maksimal 100 huruf',
-                    'name.unique' => 'Nama menu sudah pernah terdaftar!',
-                    'harga_normal.required' => 'Harga wajib diisi',
-                    'harga_normal.min' => 'Angka yang diinput terlalu kecil! (Minimal Rp.400)',
-                    'harga_normal.numeric' => 'Masukan angka saja',
-                    'deskripsi.required' => 'Deskripsi wajib diisi',
-                    'image.required' => "Mohon upload gambar melalui tombol 'choose file'",
-                    'image.mimes' => 'Ekstensi yang diperbolehkan hanya:png,jpg,jpeg,svg',
-                    'image.max' => 'Ukuran maksimum gambar adalah 8mb (8092kb)!',
-                ]);
-                $fileName = time() . '-' . $request->image->getClientOriginalname();
-                $data = new Bakery;
-                $data->name = $request->name;
-                $data->image = $fileName;
-                $data->harga_normal = $request->harga_normal;
-                $data->harga_diskon = 0;
-                $data->deskripsi = $request->deskripsi;
-                $data->slug = Str::slug($request->name);
-                $data->save();
-                // Taro hard copy file ke dalam folder thumbnail yg ada di public
-                $request->image->storeAs('bakery', $fileName);
-                return redirect(route('menu.create'))->withSuccess('Menu berhasil ditambah!');
+                $this->storeBakery($request);
             default:
                 return redirect(route('menu.create'))->withErrors("Menu gagal ditambah :(");
         }
     }
 
+    public function storeKue(Request $request)
+    {
+        // Ambil nama asli file, kl ga pake ini namanya di generate acak sm laravel
+        $validate = $request->validate([
+            'name' => ['required', 'min:3', 'max:100', 'unique:menu_kue,name'],
+            'harga_normal' => ['required', 'numeric', 'min:400'],
+            'deskripsi' => ['required'],
+            'image' => ['required', 'file', 'mimes:png,jpg,jpeg,svg', 'max:8092'],
+        ], [
+            'name.required' => 'Username wajib diisi',
+            'name.min' => 'Minimal 3 huruf',
+            'name.max' => 'Maksimal 100 huruf',
+            'name.unique' => 'Nama menu sudah pernah terdaftar!',
+            'harga_normal.required' => 'Harga wajib diisi',
+            'harga_normal.min' => 'Angka yang diinput terlalu kecil! (Minimal Rp.400)',
+            'harga_normal.numeric' => 'Masukan angka saja',
+            'deskripsi.required' => 'Deskripsi wajib diisi',
+            'image.required' => "Mohon upload gambar melalui tombol 'choose file'",
+            'image.mimes' => 'Ekstensi yang diperbolehkan hanya:png,jpg,jpeg,svg',
+            'image.max' => 'Ukuran maksimum gambar adalah 8mb (8092kb)!',
+        ]);
+        $fileName = time() . '-' . $request->image->getClientOriginalname();
+        $data = new Menu_Kue;
+        $data->name = $request->name;
+        $data->image = $fileName;
+        $data->harga_normal = $request->harga_normal;
+        $data->harga_diskon = 0;
+        $data->deskripsi = $request->deskripsi;
+        $data->slug = Str::slug($request->name);
+        $data->save();
+        // Taro hard copy file ke dalam folder thumbnail yg ada di public
+        $request->image->storeAs('menu_kue_loyang', $fileName);
+        return redirect(route('menu.create'))->withSuccess('Menu berhasil ditambah!');
+    }
+
+    public function storeKueKering(Request $request)
+    {
+        $validate = $request->validate([
+            'name' => ['required', 'min:3', 'max:100', 'unique:menu_kue_kering,name'],
+            'harga_normal' => ['required', 'numeric', 'min:400'],
+            'deskripsi' => ['required'],
+            'image' => ['required', 'file', 'mimes:png,jpg,jpeg,svg', 'max:8092'],
+        ], [
+            'name.required' => 'Username wajib diisi',
+            'name.min' => 'Minimal 3 huruf',
+            'name.max' => 'Maksimal 100 huruf',
+            'name.unique' => 'Nama menu sudah pernah terdaftar!',
+            'harga_normal.required' => 'Harga wajib diisi',
+            'harga_normal.min' => 'Angka yang diinput terlalu kecil! (Minimal Rp.400)',
+            'harga_normal.numeric' => 'Masukan angka saja',
+            'deskripsi.required' => 'Deskripsi wajib diisi',
+            'image.required' => "Mohon upload gambar melalui tombol 'choose file'",
+            'image.mimes' => 'Ekstensi yang diperbolehkan hanya:png,jpg,jpeg,svg',
+            'image.max' => 'Ukuran maksimum gambar adalah 8mb (8092kb)!',
+        ]);
+        $fileName = time() . '-' . $request->image->getClientOriginalname();
+        $data = new Menu_Kue_Kering;
+        $data->name = $request->name;
+        $data->image = $fileName;
+        $data->harga_normal = $request->harga_normal;
+        $data->harga_diskon = 0;
+        $data->deskripsi = $request->deskripsi;
+        $data->slug = Str::slug($request->name);
+        $data->save();
+        // Taro hard copy file ke dalam folder thumbnail yg ada di public
+        $request->image->storeAs('menu_kue_kering', $fileName);
+        return redirect(route('menu.create'))->withSuccess('Menu berhasil ditambah!');
+    }
+
+    public function storeNasi(Request $request)
+    {
+        $validate = $request->validate([
+            'name' => ['required', 'min:3', 'max:100', 'unique:menu_nasi,name'],
+            'harga_normal' => ['required', 'numeric', 'min:400'],
+            'deskripsi' => ['required'],
+            'image' => ['required', 'file', 'mimes:png,jpg,jpeg,svg', 'max:8092'],
+        ], [
+            'name.required' => 'Username wajib diisi',
+            'name.min' => 'Minimal 3 huruf',
+            'name.max' => 'Maksimal 100 huruf',
+            'name.unique' => 'Nama menu sudah pernah terdaftar!',
+            'harga_normal.required' => 'Harga wajib diisi',
+            'harga_normal.min' => 'Angka yang diinput terlalu kecil! (Minimal Rp.400)',
+            'harga_normal.numeric' => 'Masukan angka saja',
+            'deskripsi.required' => 'Deskripsi wajib diisi',
+            'image.required' => "Mohon upload gambar melalui tombol 'choose file'",
+            'image.mimes' => 'Ekstensi yang diperbolehkan hanya:png,jpg,jpeg,svg',
+            'image.max' => 'Ukuran maksimum gambar adalah 8mb (8092kb)!',
+        ]);
+        $fileName = time() . '-' . $request->image->getClientOriginalname();
+        $data = new Menu_Nasi;
+        $data->name = $request->name;
+        $data->image = $fileName;
+        $data->harga_normal = $request->harga_normal;
+        $data->harga_diskon = 0;
+        $data->deskripsi = $request->deskripsi;
+        $data->slug = Str::slug($request->name);
+        $data->save();
+        // Taro hard copy file ke dalam folder thumbnail yg ada di public
+        $request->image->storeAs('menu_nasi', $fileName);
+        return redirect(route('menu.create'))->withSuccess('Menu berhasil ditambah!');
+    }
+
+    public function storeKueTradisional(Request $request)
+    {
+        $validate = $request->validate([
+            'name' => ['required', 'min:3', 'max:100', 'unique:kue_tradisional,name'],
+            'harga_normal' => ['required', 'numeric', 'min:400'],
+            'deskripsi' => ['required'],
+            'image' => ['required', 'file', 'mimes:png,jpg,jpeg,svg', 'max:8092'],
+        ], [
+            'name.required' => 'Username wajib diisi',
+            'name.min' => 'Minimal 3 huruf',
+            'name.max' => 'Maksimal 100 huruf',
+            'name.unique' => 'Nama menu sudah pernah terdaftar!',
+            'harga_normal.required' => 'Harga wajib diisi',
+            'harga_normal.min' => 'Angka yang diinput terlalu kecil! (Minimal Rp.400)',
+            'harga_normal.numeric' => 'Masukan angka saja',
+            'deskripsi.required' => 'Deskripsi wajib diisi',
+            'image.required' => "Mohon upload gambar melalui tombol 'choose file'",
+            'image.mimes' => 'Ekstensi yang diperbolehkan hanya:png,jpg,jpeg,svg',
+            'image.max' => 'Ukuran maksimum gambar adalah 8mb (8092kb)!',
+        ]);
+        $fileName = time() . '-' . $request->image->getClientOriginalname();
+        $data = new KueTradisional;
+        $data->name = $request->name;
+        $data->image = $fileName;
+        $data->harga_normal = $request->harga_normal;
+        $data->harga_diskon = 0;
+        $data->deskripsi = $request->deskripsi;
+        $data->slug = Str::slug($request->name);
+        $data->save();
+        // Taro hard copy file ke dalam folder thumbnail yg ada di public
+        $request->image->storeAs('kue_tradisional', $fileName);
+        return redirect(route('menu.create'))->withSuccess('Menu berhasil ditambah!');
+    }
+
+    public function storeBakery(Request $request)
+    {
+        $validate = $request->validate([
+            'name' => ['required', 'min:3', 'max:100', 'unique:bakeries,name'],
+            'harga_normal' => ['required', 'numeric', 'min:400'],
+            'deskripsi' => ['required'],
+            'image' => ['required', 'file', 'mimes:png,jpg,jpeg,svg', 'max:8092'],
+        ], [
+            'name.required' => 'Username wajib diisi',
+            'name.min' => 'Minimal 3 huruf',
+            'name.max' => 'Maksimal 100 huruf',
+            'name.unique' => 'Nama menu sudah pernah terdaftar!',
+            'harga_normal.required' => 'Harga wajib diisi',
+            'harga_normal.min' => 'Angka yang diinput terlalu kecil! (Minimal Rp.400)',
+            'harga_normal.numeric' => 'Masukan angka saja',
+            'deskripsi.required' => 'Deskripsi wajib diisi',
+            'image.required' => "Mohon upload gambar melalui tombol 'choose file'",
+            'image.mimes' => 'Ekstensi yang diperbolehkan hanya:png,jpg,jpeg,svg',
+            'image.max' => 'Ukuran maksimum gambar adalah 8mb (8092kb)!',
+        ]);
+        $fileName = time() . '-' . $request->image->getClientOriginalname();
+        $data = new Bakery;
+        $data->name = $request->name;
+        $data->image = $fileName;
+        $data->harga_normal = $request->harga_normal;
+        $data->harga_diskon = 0;
+        $data->deskripsi = $request->deskripsi;
+        $data->slug = Str::slug($request->name);
+        $data->save();
+        // Taro hard copy file ke dalam folder thumbnail yg ada di public
+        $request->image->storeAs('bakery', $fileName);
+        return redirect(route('menu.create'))->withSuccess('Menu berhasil ditambah!');
+    }
     /**
      * Update the specified resource in storage.
      */
