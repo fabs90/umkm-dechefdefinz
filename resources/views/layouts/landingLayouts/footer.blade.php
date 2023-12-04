@@ -25,6 +25,7 @@
             <p>Senin - Jumat: 9:00 - 23:00 <br> Sabtu: 8:00 - 24:00 </p>
         </div>
 
+        <!--  Form Review Start   -->
         <div class="box">
             <div class="form-review">
                 <form action="{{ route('review.post') }}" method="post">
@@ -76,6 +77,7 @@
                 </form>
             </div>
         </div>
+           <!--  Form Review End   -->
         <div class="box">
             <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
             <div class="elfsight-app-c535a8d7-e332-4cf9-be5b-9ae469debdc2"></div>
