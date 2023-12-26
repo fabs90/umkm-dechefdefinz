@@ -13,7 +13,6 @@ class users_admin_seeder extends Seeder
      */
     public function run(): void
     {
-        //
         DB::table('users')->insert([
             [
                 'username' => 'admin',

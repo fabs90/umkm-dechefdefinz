@@ -625,6 +625,7 @@ lottie-player {
     font-size: 1.5rem;
     line-height: 1.6;
     color: var(--black);
+    background-color: pink;
 }
 
 .product .product-row .product-content .orderNow {

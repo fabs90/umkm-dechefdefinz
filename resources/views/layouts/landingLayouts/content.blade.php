@@ -143,7 +143,7 @@
      <div class="row">
 
          <div class="image">
-             <img src="{{ asset('umkm-baru') }}/images/Logo Ukm tanpa ig dan wa.jpeg" alt="">
+             <img src="{{ asset('umkm-baru') }}/images/Logo-dechefdefinz-baru-transparent.png" alt="">
          </div>
 
          <div class="content">
@@ -207,7 +207,7 @@
 
 
                  <h4>Jika ingin melihat menu yang lain silahkan klik menu lain yang ada dibawah ini</h4>
-                 <a href="{{ route('landing.bakery') }}" class="acumalaka">Menu Lain</a>
+                 <a href="{{ route('landing.bakery') }}" class="btn">Menu Lain</a>
              </div>
          </div>
 
@@ -248,7 +248,7 @@
 
 
                  <h4>Jika ingin melihat menu yang lain silahkan klik menu lain yang ada dibawah ini</h4>
-                 <a href="{{ route('landing.bakery') }}" class="acumalaka">Menu Lain</a>
+                 <a href="{{ route('landing.bakery') }}" class="btn">Menu Lain</a>
              </div>
          </div>
 
@@ -287,7 +287,7 @@
 
 
                  <h4>Jika ingin melihat menu yang lain silahkan klik menu lain yang ada dibawah ini</h4>
-                 <a href="{{ route('landing.kueTradisional') }}" class="acumalaka">Menu Lain</a>
+                 <a href="{{ route('landing.kueTradisional') }}" class="btn">Menu Lain</a>
              </div>
          </div>
  </section>
@@ -328,7 +328,7 @@
 
 
                  <h4>Jika ingin melihat menu yang lain silahkan klik menu lain yang ada dibawah ini</h4>
-                 <a href="{{ route('landing.menuNasi') }}" class="acumalaka">Menu Lain</a>
+                 <a href="{{ route('landing.menuNasi') }}" class="btn">Menu Lain</a>
              </div>
          </div>
  </section>
@@ -378,7 +378,7 @@
 
 
                  <h4>Jika ingin melihat menu yang lain silahkan klik menu lain yang ada dibawah ini</h4>
-                 <a href="{{ route('landing.menuKueKering') }}" class="acumalaka">Menu Lain</a>
+                 <a href="{{ route('landing.menuKueKering') }}" class="btn">Menu Lain</a>
              </div>
          </div>
 
